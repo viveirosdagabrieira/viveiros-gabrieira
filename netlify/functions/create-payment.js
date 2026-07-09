@@ -32,8 +32,11 @@ exports.handler = async (event) => {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amountInCents,
       currency: 'eur',
-      // Métodos explícitos para Portugal
-      payment_method_types: ['mb_way', 'multibanco', 'card'],
+      // Deixar o Stripe gerir automaticamente os métodos activos na conta
+      automatic_payment_methods: {
+        enabled: true,
+        allow_redirects: 'always',
+      },
       description: `Viveiros da Gabrieira — ${items.length} produto(s)`,
       receipt_email: customer.email,
       metadata: {
