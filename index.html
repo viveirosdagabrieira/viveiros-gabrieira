@@ -23,7 +23,6 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--branco); color: var(--preto); overflow-x: hidden; line-height: 1.6; }
 
-/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
@@ -36,92 +35,33 @@ nav {
 .nav-links { display: flex; gap: 2.5rem; }
 .nav-links a { color: var(--cinza); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.5px; transition: color 0.2s; }
 .nav-links a:hover { color: var(--preto); }
-.nav-cart {
-  background: var(--preto); color: var(--branco); border: none;
-  padding: 0.55rem 1.3rem; border-radius: 6px; font-weight: 600; font-size: 0.82rem;
-  cursor: pointer; font-family: 'DM Sans', sans-serif;
-  display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;
-}
+.nav-cart { background: var(--preto); color: var(--branco); border: none; padding: 0.55rem 1.3rem; border-radius: 6px; font-weight: 600; font-size: 0.82rem; cursor: pointer; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s; }
 .nav-cart:hover { background: var(--verde); }
-.cart-count {
-  background: var(--verde); color: var(--branco); border-radius: 50%;
-  width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700;
-  display: none; align-items: center; justify-content: center;
-}
+.cart-count { background: var(--verde); color: var(--branco); border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; display: none; align-items: center; justify-content: center; }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh; padding-top: 64px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  position: relative;
-}
-.hero-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 4rem 5rem 6rem; background: var(--branco);
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  color: var(--verde); font-size: 0.72rem; letter-spacing: 2.5px;
-  text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem;
-}
+.hero { min-height: 100vh; padding-top: 64px; display: grid; grid-template-columns: 1fr 1fr; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 6rem; background: var(--branco); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--verde); font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
 .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--verde); }
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 5vw, 5rem);
-  color: var(--preto); line-height: 1.05; font-weight: 600; margin-bottom: 1.5rem;
-}
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5vw,5rem); color: var(--preto); line-height: 1.05; font-weight: 600; margin-bottom: 1.5rem; }
 .hero-title em { color: var(--verde); font-style: italic; }
-.hero-desc {
-  color: var(--cinza); font-size: 1rem; line-height: 1.8;
-  max-width: 400px; margin-bottom: 2.5rem; font-weight: 300;
-}
+.hero-desc { color: var(--cinza); font-size: 1rem; line-height: 1.8; max-width: 400px; margin-bottom: 2.5rem; font-weight: 300; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-dark {
-  background: var(--preto); color: var(--branco); border: none;
-  padding: 0.9rem 2rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600;
-  cursor: pointer; text-decoration: none; display: inline-block;
-  transition: background 0.2s; font-family: 'DM Sans', sans-serif;
-}
+.btn-dark { background: var(--preto); color: var(--branco); border: none; padding: 0.9rem 2rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
 .btn-dark:hover { background: var(--verde); }
-.btn-outline-dark {
-  background: transparent; color: var(--preto);
-  border: 1.5px solid var(--border); padding: 0.9rem 2rem;
-  border-radius: 6px; font-size: 0.88rem; cursor: pointer;
-  text-decoration: none; display: inline-block;
-  transition: all 0.2s; font-family: 'DM Sans', sans-serif;
-}
+.btn-outline-dark { background: transparent; color: var(--preto); border: 1.5px solid var(--border); padding: 0.9rem 2rem; border-radius: 6px; font-size: 0.88rem; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
 .btn-outline-dark:hover { border-color: var(--preto); }
-
-.hero-right {
-  position: relative; overflow: hidden;
-  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
-}
-.hero-img {
-  overflow: hidden; position: relative;
-}
-.hero-img img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.6s ease;
-  display: block;
-}
+.hero-right { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; overflow: hidden; }
+.hero-img { overflow: hidden; position: relative; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
 .hero-img:hover img { transform: scale(1.05); }
-.hero-img-label {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.55));
-  color: #fff; font-size: 0.7rem; letter-spacing: 2px;
-  text-transform: uppercase; padding: 1.5rem 1rem 0.8rem;
-}
+.hero-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.55)); color: #fff; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 1.5rem 1rem 0.8rem; }
 
-/* ── STATS ── */
-.stats-bar {
-  background: var(--cinza-claro); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  padding: 1.5rem 4rem; display: flex; justify-content: center; gap: 5rem; flex-wrap: wrap;
-}
+.stats-bar { background: var(--cinza-claro); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 4rem; display: flex; justify-content: center; gap: 5rem; flex-wrap: wrap; }
 .stat-item { text-align: center; }
 .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--preto); line-height: 1; }
 .stat-lbl { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--cinza); margin-top: 0.2rem; }
 
-/* ── CATALOG ── */
 .catalog { padding: 6rem 4rem; background: var(--branco); }
 .section-header { margin-bottom: 3.5rem; }
 .section-header.center { text-align: center; }
@@ -132,40 +72,21 @@ nav {
 .section-title em { color: var(--verde); font-style: italic; }
 
 .cat-pills { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-.cat-pill {
-  padding: 0.45rem 1.1rem; border-radius: 50px; border: 1.5px solid var(--border);
-  font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s;
-  background: var(--branco); color: var(--cinza);
-}
+.cat-pill { padding: 0.45rem 1.1rem; border-radius: 50px; border: 1.5px solid var(--border); font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s; background: var(--branco); color: var(--cinza); }
 .cat-pill:hover { border-color: var(--cinza-escuro); color: var(--preto); }
 .cat-pill.active { background: var(--preto); border-color: var(--preto); color: var(--branco); }
 
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-
-.product-card {
-  background: var(--branco); border: 1.5px solid var(--border); border-radius: 10px;
-  overflow: hidden; transition: all 0.3s; animation: fadeUp 0.5s ease forwards; opacity: 0;
-}
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(270px,1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.product-card { background: var(--branco); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; transition: all 0.3s; animation: fadeUp 0.5s ease forwards; opacity: 0; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 .product-card:hover { border-color: #bbb; box-shadow: var(--sombra); transform: translateY(-3px); }
-
-.product-img {
-  height: 200px; overflow: hidden; position: relative; background: var(--cinza-claro);
-}
-.product-img img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.5s ease; display: block;
-}
+.product-img { height: 200px; overflow: hidden; position: relative; background: var(--cinza-claro); }
+.product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
 .product-card:hover .product-img img { transform: scale(1.06); }
-.product-tag {
-  position: absolute; top: 0.8rem; left: 0.8rem;
-  font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  padding: 0.2rem 0.6rem; border-radius: 4px;
-}
+.product-tag { position: absolute; top: 0.8rem; left: 0.8rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; }
 .tag-bio { background: var(--verde); color: #fff; }
 .tag-novo { background: var(--preto); color: #fff; }
 .tag-popular { background: #fff; color: var(--preto); border: 1px solid var(--border); }
-
 .product-body { padding: 1.2rem; }
 .product-cat { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--verde); margin-bottom: 0.3rem; font-weight: 600; }
 .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--preto); margin-bottom: 0.2rem; line-height: 1.3; }
@@ -174,14 +95,9 @@ nav {
 .chip { background: var(--cinza-claro); color: var(--cinza); font-size: 0.67rem; padding: 0.18rem 0.55rem; border-radius: 4px; border: 1px solid var(--border); }
 .product-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid var(--border); }
 .product-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--preto); }
-.add-to-cart {
-  background: var(--preto); color: #fff; border: none;
-  width: 36px; height: 36px; border-radius: 6px; font-size: 1.2rem;
-  cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
-}
+.add-to-cart { background: var(--preto); color: #fff; border: none; width: 36px; height: 36px; border-radius: 6px; font-size: 1.2rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
 .add-to-cart:hover { background: var(--verde); }
 
-/* ── ABOUT ── */
 .about { background: var(--cinza-claro); padding: 6rem 4rem; border-top: 1px solid var(--border); }
 .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 .about-img { border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; }
@@ -192,7 +108,6 @@ nav {
 .feature-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--preto); margin-bottom: 0.3rem; }
 .feature-text { font-size: 0.8rem; color: var(--cinza); line-height: 1.6; }
 
-/* ── LOCATION ── */
 .location { background: var(--branco); padding: 6rem 4rem; border-top: 1px solid var(--border); }
 .location-inner { max-width: 900px; margin: 0 auto; background: var(--cinza-claro); border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr; border: 1.5px solid var(--border); }
 .location-info { padding: 3rem; }
@@ -208,7 +123,6 @@ nav {
 .map-link { background: var(--preto); color: #fff; text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; transition: background 0.2s; display: inline-block; }
 .map-link:hover { background: var(--verde); }
 
-/* ── FOOTER ── */
 footer { background: var(--preto); padding: 3rem 4rem 2rem; }
 .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 2rem; }
 .footer-logo { font-family: 'Cormorant Garamond', serif; color: #fff; font-size: 1.2rem; font-weight: 600; display: block; margin-bottom: 0.8rem; }
@@ -218,7 +132,6 @@ footer a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; 
 footer a:hover { color: #fff; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.2); font-size: 0.75rem; max-width: 1200px; margin: 0 auto; }
 
-/* ── CART DRAWER ── */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
 .drawer-overlay.open { opacity: 1; pointer-events: all; }
 .cart-drawer { position: fixed; top: 0; right: -500px; width: 460px; max-width: 100vw; height: 100vh; background: var(--branco); z-index: 201; transition: right 0.4s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; box-shadow: -4px 0 30px rgba(0,0,0,0.1); }
@@ -249,7 +162,6 @@ footer a:hover { color: #fff; }
 .checkout-btn-main { width: 100%; background: var(--preto); color: #fff; border: none; padding: 1rem; border-radius: 7px; font-size: 0.92rem; font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
 .checkout-btn-main:hover { background: var(--verde); }
 
-/* ── CHECKOUT MODAL ── */
 .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; display: none; align-items: center; justify-content: center; padding: 1rem; }
 .modal-bg.open { display: flex; }
 .modal { background: var(--branco); border-radius: 12px; width: 100%; max-width: 560px; max-height: 92vh; overflow-y: auto; animation: modalIn 0.25s ease; }
@@ -258,46 +170,38 @@ footer a:hover { color: #fff; }
 .modal-head h2 { font-family: 'Cormorant Garamond', serif; color: var(--preto); font-size: 1.4rem; font-weight: 600; }
 .modal-head button { background: none; border: none; color: var(--cinza); font-size: 1.2rem; cursor: pointer; }
 .modal-body { padding: 2rem; }
-
 .steps { display: flex; margin-bottom: 2rem; border-bottom: 1px solid var(--border); }
 .step-tab { flex: 1; padding: 0.7rem; text-align: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ccc; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; }
 .step-tab.active { color: var(--preto); border-bottom-color: var(--preto); }
 .step-tab.done { color: var(--verde); border-bottom-color: var(--verde); }
-
 .step-pane { display: none; }
 .step-pane.active { display: block; }
-
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { margin-bottom: 1rem; }
 .form-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--cinza-escuro); margin-bottom: 0.4rem; }
 .form-group input, .form-group select { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 7px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; background: var(--branco); color: var(--preto); }
 .form-group input:focus, .form-group select:focus { border-color: var(--preto); }
-
 .order-sum { background: var(--cinza-claro); border-radius: 8px; padding: 1.3rem; margin-bottom: 1.5rem; border: 1px solid var(--border); }
 .order-sum-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--preto); margin-bottom: 1rem; }
 .sum-row { display: flex; justify-content: space-between; font-size: 0.83rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--border); color: var(--cinza); }
 .sum-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1rem; padding-top: 0.8rem; color: var(--preto); }
-
 .stripe-wrap { background: var(--cinza-claro); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid var(--border); }
 .stripe-wrap-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cinza-escuro); margin-bottom: 1rem; }
 #payment-element { min-height: 80px; }
 #payment-message { color: #e53e3e; font-size: 0.83rem; margin-top: 0.8rem; display: none; }
 .stripe-badge { display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.7rem; color: var(--cinza); margin-top: 1rem; }
 .stripe-loading { text-align: center; color: var(--cinza); font-size: 0.83rem; padding: 1.5rem; }
-
 .step-btns { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
 .btn-next { flex: 1; background: var(--preto); color: #fff; border: none; padding: 0.9rem; border-radius: 7px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
 .btn-next:hover:not(:disabled) { background: var(--verde); }
 .btn-next:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-back { background: var(--cinza-claro); color: var(--preto); border: 1.5px solid var(--border); padding: 0.9rem 1.4rem; border-radius: 7px; font-size: 0.9rem; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
 .btn-back:hover { border-color: var(--preto); }
-
 .success-pane { text-align: center; padding: 2.5rem 1rem; }
 .success-pane .s-icon { font-size: 4rem; display: block; margin-bottom: 1.2rem; }
 .success-pane h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--preto); margin-bottom: 0.5rem; }
 .success-pane p { color: var(--cinza); line-height: 1.7; font-size: 0.9rem; margin-bottom: 1.5rem; }
 .order-ref { background: var(--cinza-claro); border-radius: 6px; padding: 0.6rem 1.2rem; font-family: monospace; font-size: 1.1rem; color: var(--verde); font-weight: 700; display: inline-block; border: 1px solid var(--border); }
-
 .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--preto); color: #fff; padding: 0.9rem 1.4rem; border-radius: 7px; font-size: 0.85rem; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transform: translateY(80px); opacity: 0; transition: all 0.35s; z-index: 999; max-width: 300px; }
 .toast.show { transform: translateY(0); opacity: 1; }
 
@@ -321,23 +225,16 @@ footer a:hover { color: #fff; }
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    Viveiros da Gabrieira
-    <small>📍 Ceira · Coimbra · Est. 1983</small>
-  </div>
+  <div class="nav-logo">Viveiros da Gabrieira<small>📍 Ceira · Coimbra · Est. 1983</small></div>
   <div class="nav-links">
     <a href="#catalogo">Catálogo</a>
     <a href="#sobre">Viveiro</a>
     <a href="#localizacao">Localização</a>
   </div>
-  <button class="nav-cart" onclick="toggleCart()">
-    Cesto <span class="cart-count" id="cartCount">0</span>
-  </button>
+  <button class="nav-cart" onclick="toggleCart()">Cesto <span class="cart-count" id="cartCount">0</span></button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Mais de 40 anos de experiência</div>
@@ -349,26 +246,13 @@ footer a:hover { color: #fff; }
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=600&q=80" alt="Mirtilo" loading="lazy">
-      <div class="hero-img-label">Mirtilos</div>
-    </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1534531173927-aeb928d54385?w=600&q=80" alt="Pitaia" loading="lazy">
-      <div class="hero-img-label">Pitaias</div>
-    </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=600&q=80" alt="Limão" loading="lazy">
-      <div class="hero-img-label">Limoeiros</div>
-    </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=600&q=80" alt="Laranja" loading="lazy">
-      <div class="hero-img-label">Laranjeiras</div>
-    </div>
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=600&q=80" alt="Mirtilos" loading="lazy"><div class="hero-img-label">Mirtilos</div></div>
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1534531173927-aeb928d54385?w=600&q=80" alt="Pitaia" loading="lazy"><div class="hero-img-label">Pitaias</div></div>
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=600&q=80" alt="Limão" loading="lazy"><div class="hero-img-label">Limoeiros</div></div>
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=600&q=80" alt="Laranja" loading="lazy"><div class="hero-img-label">Laranjeiras</div></div>
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item"><div class="stat-num">40+</div><div class="stat-lbl">Anos de experiência</div></div>
   <div class="stat-item"><div class="stat-num">Ceira</div><div class="stat-lbl">Coimbra, Portugal</div></div>
@@ -376,7 +260,6 @@ footer a:hover { color: #fff; }
   <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Produção própria</div></div>
 </div>
 
-<!-- CATALOG -->
 <section class="catalog" id="catalogo">
   <div class="section-header center">
     <div class="section-eyebrow">Catálogo</div>
@@ -393,7 +276,6 @@ footer a:hover { color: #fff; }
   <div class="product-grid" id="productGrid"></div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="sobre">
   <div class="about-inner">
     <div>
@@ -418,7 +300,6 @@ footer a:hover { color: #fff; }
   </div>
 </section>
 
-<!-- LOCATION -->
 <section class="location" id="localizacao">
   <div class="section-header center">
     <div class="section-eyebrow">Visite-nos</div>
@@ -442,7 +323,6 @@ footer a:hover { color: #fff; }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -456,7 +336,6 @@ footer a:hover { color: #fff; }
   <div class="footer-bottom">© 2025 Viveiros da Gabrieira — Ceira, Coimbra, Portugal</div>
 </footer>
 
-<!-- CART DRAWER -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="toggleCart()"></div>
 <div class="cart-drawer" id="cartDrawer">
   <div class="drawer-head">
@@ -476,7 +355,6 @@ footer a:hover { color: #fff; }
   </div>
 </div>
 
-<!-- CHECKOUT MODAL -->
 <div class="modal-bg" id="checkoutModal">
   <div class="modal">
     <div class="modal-head">
@@ -555,26 +433,27 @@ footer a:hover { color: #fff; }
 <div class="toast" id="toast"></div>
 
 <script>
-const STRIPE_PUBLIC_KEY = 'pk_test_51TrI5OJxbFw6RmkUxSdLb2G7qNMoYHTKOuKvegm1f88ZoqVmdceZBbxxBnK9kiiP7zVDXVLvc9wFiFFyaaIrwiRQ004oVxt3sk';
+// ── SUBSTITUA PELA SUA CHAVE PÚBLICA DO STRIPE ──
+const STRIPE_PUBLIC_KEY = 'pk_live_SUBSTITUA_PELA_SUA_CHAVE_PUBLICA';
 
 const products = [
-  { id:1,  cat:'mirtilo',    name:'Mirtileiro Bluecrop',   sci:'Vaccinium corymbosum',          price:14.90, tag:'popular', chips:['Vaso','Jardim','Autocompatível'], img:'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&q=75' },
-  { id:2,  cat:'mirtilo',    name:'Mirtileiro Duke',        sci:'Vaccinium corymbosum',          price:13.90, tag:'bio',     chips:['Precoce','Sol pleno'],            img:'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400&q=75' },
-  { id:3,  cat:'mirtilo',    name:'Mirtileiro Draper',      sci:'Vaccinium corymbosum',          price:15.90, tag:'novo',   chips:['Grão grande','Tardio'],           img:'https://images.unsplash.com/photo-1457296898342-cdd24585d095?w=400&q=75' },
-  { id:4,  cat:'mirtilo',    name:'Mirtileiro Spartan',     sci:'Vaccinium corymbosum',          price:14.50, tag:null,     chips:['Sabor intenso','Jardim'],         img:'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&q=75' },
-  { id:5,  cat:'pitaia',     name:'Pitaia Branca',          sci:'Hylocereus undatus',            price:22.90, tag:'popular',chips:['Trepadeira','Sol pleno'],         img:'https://images.unsplash.com/photo-1534531173927-aeb928d54385?w=400&q=75' },
-  { id:6,  cat:'pitaia',     name:'Pitaia Vermelha',        sci:'Hylocereus costaricensis',      price:24.90, tag:'novo',   chips:['Polpa vermelha','Doce'],          img:'https://images.unsplash.com/photo-1527325678964-54921661f888?w=400&q=75' },
-  { id:7,  cat:'pitaia',     name:'Pitaia Amarela',         sci:'Selenicereus megalanthus',      price:27.90, tag:'novo',   chips:['Sem espinhos','Muito doce'],      img:'https://images.unsplash.com/photo-1593565204019-e61cc4fa9c8b?w=400&q=75' },
-  { id:8,  cat:'maracuja',   name:'Maracujá Roxo',          sci:'Passiflora edulis',             price:16.90, tag:'popular',chips:['Trepadeira','Sombra parcial'],    img:'https://images.unsplash.com/photo-1560806175-b8d1c8e4e9e3?w=400&q=75' },
-  { id:9,  cat:'maracuja',   name:'Maracujá Amarelo',       sci:'Passiflora edulis flavicarpa',  price:17.90, tag:'novo',   chips:['Tropical','Muito produtivo'],     img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=75' },
-  { id:10, cat:'limoeiro',   name:'Limoeiro 4 Estações',    sci:'Citrus limon',                  price:18.90, tag:'popular',chips:['Vaso','Jardim','Todo o ano'],     img:'https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?w=400&q=75' },
-  { id:11, cat:'limoeiro',   name:'Limoeiro Eureka',        sci:'Citrus limon Eureka',           price:19.90, tag:null,     chips:['Sem grainha','Produtivo'],        img:'https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=400&q=75' },
-  { id:12, cat:'limoeiro',   name:'Limoeiro Primofiori',    sci:'Citrus limon Primofiori',       price:18.50, tag:null,     chips:['Precoce','Sumo abundante'],       img:'https://images.unsplash.com/photo-1590502160462-58b41354f588?w=400&q=75' },
-  { id:13, cat:'limoeiro',   name:'Lima Tahiti',            sci:'Citrus latifolia',              price:20.90, tag:'novo',   chips:['Sem grainha','Ácida','Vaso'],     img:'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&q=75' },
-  { id:14, cat:'laranjeira', name:'Laranjeira Navelina',    sci:'Citrus sinensis Navelina',      price:21.90, tag:'popular',chips:['Precoce','Outono','Doce'],        img:'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=400&q=75' },
-  { id:15, cat:'laranjeira', name:'Laranjeira New Hall',    sci:'Citrus sinensis New Hall',      price:22.50, tag:null,     chips:['Novembro','Sem grainha'],         img:'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=75' },
-  { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',   sci:'Citrus sinensis Lane Late',     price:23.90, tag:null,     chips:['Tardia','Março-Maio'],            img:'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400&q=75' },
-  { id:17, cat:'laranjeira', name:'Laranjeira Dom João',    sci:'Citrus sinensis Dom João',      price:22.90, tag:'bio',    chips:['Portuguesa','Rústica','Doce'],    img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75' },
+  { id:1,  cat:'mirtilo',    name:'Mirtileiro Bluecrop',   sci:'Vaccinium corymbosum',         price:14.90, tag:'popular', chips:['Vaso','Jardim','Autocompatível'], img:'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&q=75' },
+  { id:2,  cat:'mirtilo',    name:'Mirtileiro Duke',        sci:'Vaccinium corymbosum',         price:13.90, tag:'bio',     chips:['Precoce','Sol pleno'],            img:'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400&q=75' },
+  { id:3,  cat:'mirtilo',    name:'Mirtileiro Draper',      sci:'Vaccinium corymbosum',         price:15.90, tag:'novo',    chips:['Grão grande','Tardio'],           img:'https://images.unsplash.com/photo-1457296898342-cdd24585d095?w=400&q=75' },
+  { id:4,  cat:'mirtilo',    name:'Mirtileiro Spartan',     sci:'Vaccinium corymbosum',         price:14.50, tag:null,      chips:['Sabor intenso','Jardim'],         img:'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&q=75' },
+  { id:5,  cat:'pitaia',     name:'Pitaia Branca',          sci:'Hylocereus undatus',           price:22.90, tag:'popular', chips:['Trepadeira','Sol pleno'],         img:'https://images.unsplash.com/photo-1534531173927-aeb928d54385?w=400&q=75' },
+  { id:6,  cat:'pitaia',     name:'Pitaia Vermelha',        sci:'Hylocereus costaricensis',     price:24.90, tag:'novo',    chips:['Polpa vermelha','Doce'],          img:'https://images.unsplash.com/photo-1527325678964-54921661f888?w=400&q=75' },
+  { id:7,  cat:'pitaia',     name:'Pitaia Amarela',         sci:'Selenicereus megalanthus',     price:27.90, tag:'novo',    chips:['Sem espinhos','Muito doce'],      img:'https://images.unsplash.com/photo-1593565204019-e61cc4fa9c8b?w=400&q=75' },
+  { id:8,  cat:'maracuja',   name:'Maracujá Roxo',          sci:'Passiflora edulis',            price:16.90, tag:'popular', chips:['Trepadeira','Sombra parcial'],    img:'https://images.unsplash.com/photo-1560806175-b8d1c8e4e9e3?w=400&q=75' },
+  { id:9,  cat:'maracuja',   name:'Maracujá Amarelo',       sci:'Passiflora edulis flavicarpa', price:17.90, tag:'novo',    chips:['Tropical','Muito produtivo'],     img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=75' },
+  { id:10, cat:'limoeiro',   name:'Limoeiro 4 Estações',    sci:'Citrus limon',                 price:18.90, tag:'popular', chips:['Vaso','Jardim','Todo o ano'],     img:'https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?w=400&q=75' },
+  { id:11, cat:'limoeiro',   name:'Limoeiro Eureka',        sci:'Citrus limon Eureka',          price:19.90, tag:null,      chips:['Sem grainha','Produtivo'],        img:'https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=400&q=75' },
+  { id:12, cat:'limoeiro',   name:'Limoeiro Primofiori',    sci:'Citrus limon Primofiori',      price:18.50, tag:null,      chips:['Precoce','Sumo abundante'],       img:'https://images.unsplash.com/photo-1590502160462-58b41354f588?w=400&q=75' },
+  { id:13, cat:'limoeiro',   name:'Lima Tahiti',            sci:'Citrus latifolia',             price:20.90, tag:'novo',    chips:['Sem grainha','Ácida','Vaso'],     img:'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&q=75' },
+  { id:14, cat:'laranjeira', name:'Laranjeira Navelina',    sci:'Citrus sinensis Navelina',     price:21.90, tag:'popular', chips:['Precoce','Outono','Doce'],        img:'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=400&q=75' },
+  { id:15, cat:'laranjeira', name:'Laranjeira New Hall',    sci:'Citrus sinensis New Hall',     price:22.50, tag:null,      chips:['Novembro','Sem grainha'],         img:'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=75' },
+  { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',   sci:'Citrus sinensis Lane Late',    price:23.90, tag:null,      chips:['Tardia','Março-Maio'],            img:'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400&q=75' },
+  { id:17, cat:'laranjeira', name:'Laranjeira Dom João',    sci:'Citrus sinensis Dom João',     price:22.90, tag:'bio',     chips:['Portuguesa','Rústica','Doce'],    img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75' },
 ];
 
 const tagLabels = { popular:'Popular', bio:'Bio', novo:'Novo' };
@@ -741,7 +620,7 @@ async function submitPayment() {
   const msg = document.getElementById('payment-message');
   msg.style.display = 'none';
 
-  // Guardar encomenda antes de redirecionar
+  // Guardar encomenda antes de redirecionar (MB Way redireciona para confirmar)
   const orderNum = 'VG-' + String(Math.floor(Math.random()*90000)+10000);
   const orders = JSON.parse(localStorage.getItem('vg_orders') || '[]');
   orders.unshift({
@@ -759,7 +638,7 @@ async function submitPayment() {
   const { error } = await stripeInstance.confirmPayment({
     elements,
     confirmParams: {
-      // Após confirmação na app MB Way, o Stripe redireciona para cá
+      // Após confirmar na app MB Way, o Stripe redireciona para cá
       return_url: window.location.origin + window.location.pathname + '?success=true',
       payment_method_data: {
         billing_details: {
@@ -775,27 +654,13 @@ async function submitPayment() {
         }
       }
     }
-    // Sem redirect:'if_required' — o Stripe aguarda confirmação MB Way
-    // e redireciona para return_url após o cliente confirmar na app
+    // Sem redirect:'if_required' — aguarda confirmação MB Way e redireciona
   });
 
   if (error) {
     msg.textContent = error.message || 'Erro no pagamento';
     msg.style.display = 'block';
-    payBtn.disabled = false;
-    payBtn.textContent = '🔒 Tentar novamente';
-  }
-}
-    else {
-    const orderNum = 'VG-' + String(Math.floor(Math.random()*90000)+10000);
-    document.getElementById('orderRef').textContent = orderNum;
-    const orders = JSON.parse(localStorage.getItem('vg_orders') || '[]');
-    orders.unshift({ id: orderNum, date: new Date().toLocaleDateString('pt-PT'), customer: document.getElementById('f-nome').value, email: document.getElementById('f-email').value, items: cart.map(i=>({name:i.name,qty:i.qty,price:i.price})), total: (cartTotal()+shipping()).toFixed(2), status: 'Pago' });
-    localStorage.setItem('vg_orders', JSON.stringify(orders));
-    for (let i = 1; i <= 3; i++) document.getElementById(`pane-${i}`).classList.remove('active');
-    document.querySelectorAll('.step-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('pane-success').classList.add('active');
-    payBtn.disabled = false; payBtn.textContent = '🔒 Pagar agora';
+    payBtn.disabled = false; payBtn.textContent = '🔒 Tentar novamente';
   }
 }
 
@@ -805,16 +670,18 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
+// Quando o Stripe redireciona de volta após confirmação MB Way
 window.addEventListener('load', () => {
   const params = new URLSearchParams(window.location.search);
   if (params.get('success') === 'true') {
     const orderNum = localStorage.getItem('vg_pending_order') || 'VG-00000';
-    // Actualizar estado da encomenda para Pago
     const orders = JSON.parse(localStorage.getItem('vg_orders') || '[]');
     const order = orders.find(o => o.id === orderNum);
     if (order) { order.status = 'Pago'; localStorage.setItem('vg_orders', JSON.stringify(orders)); }
     localStorage.removeItem('vg_pending_order');
-    showToast('✅ Pagamento confirmado! Obrigado.');
+    document.getElementById('orderRef').textContent = orderNum;
+    document.getElementById('checkoutModal').classList.add('open');
+    document.getElementById('pane-success').classList.add('active');
     window.history.replaceState({}, '', window.location.pathname);
   }
 });
