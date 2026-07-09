@@ -4,10 +4,7 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
+      headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type' },
       body: '',
     };
   }
@@ -27,21 +24,16 @@ exports.handler = async (event) => {
     const { amount, items, customer } = body;
 
     if (!amount || !items || !customer) {
-      return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ error: 'Dados incompletos' }),
-      };
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Dados incompletos' }) };
     }
 
     const amountInCents = Math.round(parseFloat(amount) * 100);
 
-    // Criar PaymentIntent com MB Way e Multibanco
-    // O Stripe Payment Element trata do número de telemóvel do lado do cliente
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amountInCents,
       currency: 'eur',
-      payment_method_types: ['mb_way', 'multibanco'],
+      // Métodos explícitos para Portugal
+      payment_method_types: ['mb_way', 'multibanco', 'card'],
       description: `Viveiros da Gabrieira — ${items.length} produto(s)`,
       receipt_email: customer.email,
       metadata: {
@@ -54,9 +46,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({
-        clientSecret: paymentIntent.client_secret,
-      }),
+      body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
     };
 
   } catch (error) {
