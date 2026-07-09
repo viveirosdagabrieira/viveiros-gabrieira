@@ -1,0 +1,8 @@
+{
+  "name": "viveiros-gabrieira",
+  "version": "1.0.0",
+  "description": "Loja online dos Viveiros da Gabrieira — Ceira, Coimbra",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
