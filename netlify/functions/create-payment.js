@@ -11,6 +11,11 @@ exports.handler = async (event) => {
     'Content-Type': 'application/json',
   };
 
+  // Tratar preflight CORS
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 200, headers, body: '' };
+  }
+
   try {
     const body = JSON.parse(event.body);
     const { method, phone, amount, items, customer } = body;
@@ -26,19 +31,26 @@ exports.handler = async (event) => {
     const amountInCents = Math.round(parseFloat(amount) * 100);
 
     if (method === 'mb_way') {
+      // Formatar número
       let formattedPhone = phone.replace(/\s/g, '');
       if (!formattedPhone.startsWith('+')) {
         formattedPhone = '+351' + formattedPhone;
       }
 
+      // Passo 1: Criar o PaymentMethod MB Way com o número de telemóvel
+      const paymentMethod = await stripe.paymentMethods.create({
+        type: 'mb_way',
+        mb_way: {
+          phone: formattedPhone,
+        },
+      });
+
+      // Passo 2: Criar o PaymentIntent e confirmar com o PaymentMethod
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amountInCents,
         currency: 'eur',
         payment_method_types: ['mb_way'],
-        payment_method_data: {
-          type: 'mb_way',
-          mb_way: { phone: formattedPhone },
-        },
+        payment_method: paymentMethod.id,
         confirm: true,
         description: `Viveiros da Gabrieira — ${items.length} produto(s)`,
         metadata: {
@@ -60,17 +72,22 @@ exports.handler = async (event) => {
       };
 
     } else if (method === 'multibanco') {
+
+      // Passo 1: Criar o PaymentMethod Multibanco
+      const paymentMethod = await stripe.paymentMethods.create({
+        type: 'multibanco',
+        billing_details: {
+          name: customer.name,
+          email: customer.email,
+        },
+      });
+
+      // Passo 2: Criar o PaymentIntent e confirmar
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amountInCents,
         currency: 'eur',
         payment_method_types: ['multibanco'],
-        payment_method_data: {
-          type: 'multibanco',
-          billing_details: {
-            name: customer.name,
-            email: customer.email,
-          },
-        },
+        payment_method: paymentMethod.id,
         confirm: true,
         description: `Viveiros da Gabrieira — ${items.length} produto(s)`,
         metadata: {
