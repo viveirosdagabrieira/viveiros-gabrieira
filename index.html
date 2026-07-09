@@ -808,6 +808,12 @@ function showToast(msg) {
 window.addEventListener('load', () => {
   const params = new URLSearchParams(window.location.search);
   if (params.get('success') === 'true') {
+    const orderNum = localStorage.getItem('vg_pending_order') || 'VG-00000';
+    // Actualizar estado da encomenda para Pago
+    const orders = JSON.parse(localStorage.getItem('vg_orders') || '[]');
+    const order = orders.find(o => o.id === orderNum);
+    if (order) { order.status = 'Pago'; localStorage.setItem('vg_orders', JSON.stringify(orders)); }
+    localStorage.removeItem('vg_pending_order');
     showToast('✅ Pagamento confirmado! Obrigado.');
     window.history.replaceState({}, '', window.location.pathname);
   }
