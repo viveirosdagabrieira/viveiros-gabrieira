@@ -740,26 +740,53 @@ async function submitPayment() {
   payBtn.disabled = true; payBtn.textContent = 'A processar...';
   const msg = document.getElementById('payment-message');
   msg.style.display = 'none';
+
+  // Guardar encomenda antes de redirecionar
+  const orderNum = 'VG-' + String(Math.floor(Math.random()*90000)+10000);
+  const orders = JSON.parse(localStorage.getItem('vg_orders') || '[]');
+  orders.unshift({
+    id: orderNum,
+    date: new Date().toLocaleDateString('pt-PT'),
+    customer: document.getElementById('f-nome').value + ' ' + (document.getElementById('f-apelido').value||''),
+    email: document.getElementById('f-email').value,
+    items: cart.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
+    total: (cartTotal() + shipping()).toFixed(2),
+    status: 'Pendente'
+  });
+  localStorage.setItem('vg_orders', JSON.stringify(orders));
+  localStorage.setItem('vg_pending_order', orderNum);
+
   const { error } = await stripeInstance.confirmPayment({
     elements,
     confirmParams: {
-      return_url: window.location.href + '?success=true',
+      // Após confirmação na app MB Way, o Stripe redireciona para cá
+      return_url: window.location.origin + window.location.pathname + '?success=true',
       payment_method_data: {
         billing_details: {
           name: document.getElementById('f-nome').value + ' ' + (document.getElementById('f-apelido').value||''),
           email: document.getElementById('f-email').value,
           phone: document.getElementById('f-tel').value,
-          address: { line1: document.getElementById('f-morada').value, postal_code: document.getElementById('f-cp').value, city: document.getElementById('f-cidade').value, country: 'PT' }
+          address: {
+            line1: document.getElementById('f-morada').value,
+            postal_code: document.getElementById('f-cp').value,
+            city: document.getElementById('f-cidade').value,
+            country: 'PT'
+          }
         }
       }
-    },
-    redirect: 'if_required'
+    }
+    // Sem redirect:'if_required' — o Stripe aguarda confirmação MB Way
+    // e redireciona para return_url após o cliente confirmar na app
   });
+
   if (error) {
     msg.textContent = error.message || 'Erro no pagamento';
     msg.style.display = 'block';
-    payBtn.disabled = false; payBtn.textContent = '🔒 Tentar novamente';
-  } else {
+    payBtn.disabled = false;
+    payBtn.textContent = '🔒 Tentar novamente';
+  }
+}
+    else {
     const orderNum = 'VG-' + String(Math.floor(Math.random()*90000)+10000);
     document.getElementById('orderRef').textContent = orderNum;
     const orders = JSON.parse(localStorage.getItem('vg_orders') || '[]');
