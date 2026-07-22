@@ -601,15 +601,21 @@ function filterCat(cat, el) {
 function addToCart(id) {
   const p = products.find(x => x.id === id);
   const ex = cart.find(x => x.id === id);
-  if (ex) ex.qty++; else cart.push({ ...p, qty: 1 });
-  updateCart();
-  showToast(`${p.name.split(' ').slice(0,2).join(' ')} adicionada ao cesto`);
+ if (ex) {
+  if (ex.qty >= 10) { showToast('Máximo de 10 unidades por produto'); return; }
+  ex.qty++;
 }
 
 function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCart(); }
 function changeQty(id, d) {
   const item = cart.find(x => x.id === id);
-  if (item) { item.qty += d; if (item.qty <= 0) removeFromCart(id); else updateCart(); }
+  if (item) {
+    const novaQty = item.qty + d;
+    if (novaQty > 10) { showToast('Máximo de 10 unidades por produto'); return; }
+    item.qty += d;
+    if (item.qty <= 0) removeFromCart(id);
+    else updateCart();
+  }
 }
 function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
