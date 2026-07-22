@@ -270,7 +270,7 @@ footer a:hover { color: #fff; }
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" style="text-decoration:none;">Viveiros da Gabrieira<small>📍 Ceira · Coimbra · Est. 1983</small></a>
+  <div class="nav-logo">Viveiros da Gabrieira<small>📍 Ceira · Coimbra · Est. 1983</small></div>
   <div class="nav-links">
     <a href="#catalogo">Catálogo</a>
     <a href="#sobre">Viveiro</a>
@@ -283,7 +283,7 @@ footer a:hover { color: #fff; }
   <div class="hero-left">
     <div class="hero-eyebrow">Mais de 40 anos de experiência</div>
     <h1 class="hero-title">Viveiros da<br><em>Gabrieira</em></h1>
-    <p class="hero-desc">Plantas de fruto de qualidade superior, cultivadas em Ceira, Coimbra. Mirtilos, pitaias, maracujás, citrinos — entregues em todo Portugal em 48 horas. <br> <strong>As encomendas devem ser efectuadas até segunda-feira de cada semana.</strong></p>
+    <p class="hero-desc">Plantas de fruto de qualidade superior, cultivadas em Ceira, Coimbra. Mirtilos, pitaias, maracujás, citrinos — entregues em todo Portugal em 48 horas.</p>
     <div class="hero-ctas">
       <a href="#catalogo" class="btn-dark">Ver catálogo</a>
       <a href="#localizacao" class="btn-outline-dark">Visitar o viveiro</a>
@@ -333,7 +333,7 @@ footer a:hover { color: #fff; }
         <h2 class="section-title">Mais de 40 anos<br>de <em>paixão</em></h2>
       </div>
       <p style="color:var(--cinza);line-height:1.8;font-size:0.95rem;font-weight:300;margin-bottom:0.8rem;">Os Viveiros da Gabrieira situam-se em Ceira, junto ao Rio Ceira, no concelho de Coimbra. Fundados há mais de 40 anos, especializamo-nos na produção e venda de plantas de fruto de qualidade superior.</p>
-      <p style="color:var(--cinza);line-height:1.8;font-size:0.95rem;font-weight:300;">Todas as plantas são cultivadas com acompanhamento técnico desde a propagação até à venda.</p>
+      <p style="color:var(--cinza);line-height:1.8;font-size:0.95rem;font-weight:300;">Todas as plantas são cultivadas no nosso viveiro, com acompanhamento técnico desde a propagação até à venda.</p>
       <div class="about-features">
         <div class="feature"><div class="feature-icon">🏡</div><div class="feature-title">Produção própria</div><div class="feature-text">Cultivado em Ceira, com 40+ anos de experiência.</div></div>
         <div class="feature"><div class="feature-icon">📦</div><div class="feature-title">Entrega 48h</div><div class="feature-text">Embalagem segura para todo Portugal.</div></div>
@@ -357,7 +357,6 @@ footer a:hover { color: #fff; }
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 239 921 339</div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
       <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Envios</div><div class="loc-val">Portes grátis acima de 100€. Entrega em 48h para todo Portugal.</div></div></div>
-       <div class="loc-row"><span class="loc-icon">📋</span><div><div class="loc-label">Envios</div><div class="loc-val">Encomendas superiores a 10 unidades, preço sob consulta.</div></div></div>
     </div>
     <div class="location-map">
       <div class="map-emoji">🗺️</div>
@@ -535,28 +534,28 @@ const products = [
     sci:'Citrus sinensis Navelina',
     price:21.90, tag:'popular',
     chips:['Sem grainha','Muito doce','Colheita: Out–Jan','Algarve ao Centro'],
-    img:'https://i.postimg.cc/sfmvH8jL/Chat-GPT-Image-21-07-2026-19-52-39.png',
+    img:'https://i.postimg.cc/j5dvdKYC/Chat-GPT-Image-21-07-2026-08-11-23.png',
     desc:'A mais precoce das laranjas — fruto sem grainha, muito doce e sumarento, com casca de cor intensa. Colheita a partir de outubro, prolongando-se até janeiro. Das variedades mais apreciadas em Portugal. Adapta-se bem do Algarve ao Centro litoral. Prefere sol pleno e protecção de geadas fortes.' },
 
   { id:15, cat:'laranjeira', name:'Laranjeira New Hall',
     sci:'Citrus sinensis New Hall',
     price:22.50, tag:null,
     chips:['Sem grainha','Meia-estação','Colheita: Nov–Jan','Algarve ao Ribatejo'],
-    img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png',
+    img:'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=75',
     desc:'Variedade de meia-estação, muito semelhante à Navelina mas ligeiramente mais tardia. Fruto de grande calibre, sem grainha e com excelente sabor doce e sumarento. Colheita de novembro a janeiro. Muito cultivada no Algarve e Ribatejo. Boa alternativa para prolongar a época após a Navelina.' },
 
   { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',
     sci:'Citrus sinensis Lane Late',
     price:23.90, tag:null,
     chips:['Sem grainha','Tardia','Colheita: Mar–Mai','Algarve e Alentejo'],
-    img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png',
+    img:'https://images.pexels.com/photos/30210309/pexels-photo-30210309.jpeg?w=400&q=75',
     desc:'A mais tardia das laranjas — permite ter fruta fresca na árvore de março a maio, quando todas as outras variedades já terminaram. Fruto sem grainha, muito doce e sumarento. Muito cultivada no Algarve. Ideal para quem quer prolongar a colheita até à primavera.' },
 
   { id:17, cat:'laranjeira', name:'Laranjeira Dom João',
     sci:'Citrus sinensis Dom João',
     price:22.90, tag:'bio',
     chips:['Casca fina','Alto teor de sumo','Colheita: Abr–Jun','Variedade portuguesa'],
-    img:'https://i.postimg.cc/nLqjy3Vn/e4d3895c-6263-47a3-9bf1-74c2879a1ca3.png',
+    img:'https://images.pexels.com/photos/31246322/pexels-photo-31246322.jpeg?w=400&q=75',
     desc:'Variedade portuguesa tradicional, muito semelhante à Valencia Late mas com fruto mais pequeno e arredondado. Casca fina e fácil de descascar, alto teor de sumo e sabor muito doce. Conserva-se melhor na árvore sem secar. Colheita de abril a junho. Cultivada principalmente no Algarve.' },
 ];
 
@@ -601,21 +600,15 @@ function filterCat(cat, el) {
 function addToCart(id) {
   const p = products.find(x => x.id === id);
   const ex = cart.find(x => x.id === id);
- if (ex) {
-  if (ex.qty >= 10) { showToast('Máximo de 10 unidades por produto'); return; }
-  ex.qty++;
+  if (ex) ex.qty++; else cart.push({ ...p, qty: 1 });
+  updateCart();
+  showToast(`${p.name.split(' ').slice(0,2).join(' ')} adicionada ao cesto`);
 }
 
 function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCart(); }
 function changeQty(id, d) {
   const item = cart.find(x => x.id === id);
-  if (item) {
-    const novaQty = item.qty + d;
-    if (novaQty > 10) { showToast('Máximo de 10 unidades por produto'); return; }
-    item.qty += d;
-    if (item.qty <= 0) removeFromCart(id);
-    else updateCart();
-  }
+  if (item) { item.qty += d; if (item.qty <= 0) removeFromCart(id); else updateCart(); }
 }
 function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
