@@ -406,7 +406,7 @@ footer a:hover { color: #fff; }
       <div class="loc-row"><span class="loc-icon">⏰</span><div><div class="loc-label">Horário</div><div class="loc-val">Segunda a Sábado: 9h–18h<br>Domingo: 10h–13h</div></div></div>
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 239 921 339</div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
-      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Envios</div><div class="loc-val">Entrega em 48h para todo Portugal Continental.</div></div></div>
+      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Envios</div><div class="loc-val">Portes calculados pelo peso: 1 árvore 7€, 2–3 árvores 10€, 4–6 árvores 14€, 7–10 árvores 18€. Entrega em 48h para todo Portugal.</div></div></div>
        <div class="loc-row"><span class="loc-icon">📋</span><div><div class="loc-label">Envios</div><div class="loc-val">Encomendas superiores a 10 unidades, preço sob consulta.</div></div></div>
     </div>
     <div class="location-map">
@@ -676,7 +676,13 @@ function changeQty(id, d) {
 }
 function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
-function shipping() { return cartTotal() >= 50 ? 0 : 6.90; }
+function shipping() {
+  const total = cart.reduce((s,i) => s + i.qty, 0);
+  if (total <= 1) return 7;
+  if (total <= 3) return 10;
+  if (total <= 6) return 14;
+  return 18;
+}
 
 function updateCart() {
   const count = cart.reduce((s,i) => s + i.qty, 0);
@@ -686,8 +692,8 @@ function updateCart() {
   document.getElementById('drawerTotal').textContent = cartTotal().toFixed(2).replace('.', ',') + ' €';
   const sh = shipping();
   document.getElementById('drawerShipping').textContent = sh === 0
-    ? '✓ Portes grátis incluídos'
-    : `Portes: ${sh.toFixed(2)}€ · Grátis acima de 50€`;
+    ? 'Portes: 6.90€'
+    : `Portes: ${sh.toFixed(2)}€`;
   const body = document.getElementById('drawerBody');
   if (!cart.length) {
     body.innerHTML = '<div class="drawer-empty"><span class="drawer-empty-icon">🌱</span>O cesto está vazio</div>';
@@ -731,7 +737,7 @@ function renderOrderSum() {
   document.getElementById('orderSum').innerHTML = `
     <div class="order-sum-title">Resumo da encomenda</div>
     ${cart.map(i=>`<div class="sum-row"><span>${i.name} ×${i.qty}</span><span>${(i.price*i.qty).toFixed(2)}€</span></div>`).join('')}
-    <div class="sum-row"><span>Envio${total>=50?' (grátis)':''}</span><span>${sh===0?'Grátis':sh.toFixed(2)+'€'}</span></div>
+    <div class="sum-row"><span>Envio</span><span>${sh.toFixed(2)+'€'}</span></div>
     <div class="sum-total"><span>Total</span><span>${(total+sh).toFixed(2)}€</span></div>`;
 }
 
@@ -863,3 +869,4 @@ renderProducts(products);
 </script>
 </body>
 </html>
+
