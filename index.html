@@ -650,8 +650,9 @@ function filterCat(cat, el) {
 function addToCart(id) {
   const p = products.find(x => x.id === id);
   const ex = cart.find(x => x.id === id);
+  const totalActual = cart.reduce((s,i) => s + i.qty, 0);
+  if (totalActual >= 10) { showToast('Máximo de 10 árvores por encomenda'); return; }
   if (ex) {
-    if (ex.qty >= 10) { showToast('Máximo de 10 unidades por produto'); return; }
     ex.qty++;
   } else {
     cart.push({ ...p, qty: 1 });
@@ -664,8 +665,10 @@ function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCart()
 function changeQty(id, d) {
   const item = cart.find(x => x.id === id);
   if (item) {
-    const novaQty = item.qty + d;
-    if (novaQty > 10) { showToast('Máximo de 10 unidades por produto'); return; }
+    if (d > 0) {
+      const totalActual = cart.reduce((s,i) => s + i.qty, 0);
+      if (totalActual >= 10) { showToast('Máximo de 10 árvores por encomenda'); return; }
+    }
     item.qty += d;
     if (item.qty <= 0) removeFromCart(id);
     else updateCart();
