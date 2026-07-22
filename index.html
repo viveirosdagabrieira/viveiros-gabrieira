@@ -206,20 +206,70 @@ footer a:hover { color: #fff; }
 .toast.show { transform: translateY(0); opacity: 1; }
 
 @media (max-width: 900px) {
-  nav { padding: 0 1.5rem; }
+  nav { padding: 0 1rem; height: 56px; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 3rem 1.5rem; }
-  .hero-right { height: 280px; }
-  .catalog, .about, .location { padding: 4rem 1.5rem; }
-  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about-features { grid-template-columns: 1fr 1fr; }
+  .nav-logo { font-size: 1rem; }
+  .nav-logo small { font-size: 0.55rem; }
+  .nav-cart { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 56px; }
+  .hero-left { padding: 2.5rem 1.2rem; order: 1; }
+  .hero-title { font-size: clamp(2rem,8vw,3.2rem); margin-bottom: 1rem; }
+  .hero-desc { font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 100%; }
+  .hero-eyebrow { font-size: 0.65rem; margin-bottom: 1rem; }
+  .hero-ctas { gap: 0.6rem; }
+  .btn-dark, .btn-outline-dark { padding: 0.75rem 1.3rem; font-size: 0.83rem; }
+  .hero-right { height: 220px; order: 0; }
+  .stats-bar { gap: 1.2rem; padding: 1rem; }
+  .stat-num { font-size: 1.5rem; }
+  .stat-lbl { font-size: 0.58rem; letter-spacing: 1px; }
+  .catalog { padding: 3rem 1rem; }
+  .cat-pills { gap: 0.35rem; margin-bottom: 1.5rem; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; }
+  .cat-pill { padding: 0.4rem 0.85rem; font-size: 0.72rem; white-space: nowrap; flex-shrink: 0; }
+  .product-grid { grid-template-columns: repeat(2,1fr); gap: 0.8rem; }
+  .product-img { height: 140px; }
+  .product-body { padding: 0.8rem; }
+  .product-cat { font-size: 0.58rem; }
+  .product-name { font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .product-sci { font-size: 0.62rem; margin-bottom: 0.6rem; }
+  .product-price { font-size: 1.2rem; }
+  .add-to-cart { width: 34px; height: 34px; font-size: 1.1rem; }
+  .product-popup { display: none; }
+  .about { padding: 3rem 1.2rem; }
+  .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .about-img { aspect-ratio: 16/9; }
+  .about-features { grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-top: 1.5rem; }
+  .feature { padding: 1rem; }
+  .feature-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .feature-title { font-size: 0.88rem; }
+  .feature-text { font-size: 0.73rem; }
+  .location { padding: 3rem 1.2rem; }
   .location-inner { grid-template-columns: 1fr; }
-  .stats-bar { gap: 2rem; padding: 1.2rem 2rem; }
-  footer { padding: 3rem 1.5rem 2rem; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .location-info { padding: 1.5rem; }
+  .location-map { padding: 2rem 1.5rem; border-left: none; border-top: 1.5px solid var(--border); }
+  footer { padding: 2.5rem 1.2rem 1.5rem; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .cart-drawer { width: 100vw; right: -100vw; }
+  .drawer-head { padding: 1.2rem; }
+  .drawer-body { padding: 1rem 1.2rem; }
+  .drawer-foot { padding: 1.2rem; }
+  .drawer-total-val { font-size: 1.6rem; }
+  .modal-bg { align-items: flex-end; padding: 0; }
+  .modal { border-radius: 16px 16px 0 0; max-height: 95vh; }
+  .modal-body { padding: 1.5rem 1.2rem; }
   .form-row { grid-template-columns: 1fr; }
-  .cart-drawer { width: 100vw; }
+  .modal-head { padding: 1.2rem 1.5rem; }
+}
+@media (max-width: 380px) {
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .product-img { height: 120px; }
+  .product-name { font-size: 0.88rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .about-features { grid-template-columns: 1fr; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .add-to-cart { width: 42px; height: 42px; }
+  .qty-btn { width: 34px; height: 34px; }
+  .cat-pill { min-height: 36px; }
 }
 
 /* ── POPUP HOVER ── */
@@ -270,7 +320,7 @@ footer a:hover { color: #fff; }
 <body>
 
 <nav>
-  <div class="nav-logo">Viveiros da Gabrieira<small>📍 Ceira · Coimbra · Est. 1983</small></div>
+  <a href="#" class="nav-logo" style="text-decoration:none;">Viveiros da Gabrieira<small>📍 Ceira · Coimbra · Est. 1983</small></a>
   <div class="nav-links">
     <a href="#catalogo">Catálogo</a>
     <a href="#sobre">Viveiro</a>
@@ -283,7 +333,7 @@ footer a:hover { color: #fff; }
   <div class="hero-left">
     <div class="hero-eyebrow">Mais de 40 anos de experiência</div>
     <h1 class="hero-title">Viveiros da<br><em>Gabrieira</em></h1>
-    <p class="hero-desc">Plantas de fruto de qualidade superior, cultivadas em Ceira, Coimbra. Mirtilos, pitaias, maracujás, citrinos — entregues em todo Portugal em 48 horas.</p>
+    <p class="hero-desc">Plantas de fruto de qualidade superior, cultivadas em Ceira, Coimbra. Mirtilos, pitaias, maracujás, citrinos — entregues em todo Portugal em 48 horas. <br> <strong>As encomendas devem ser efectuadas até segunda-feira de cada semana.</strong></p>
     <div class="hero-ctas">
       <a href="#catalogo" class="btn-dark">Ver catálogo</a>
       <a href="#localizacao" class="btn-outline-dark">Visitar o viveiro</a>
@@ -333,7 +383,7 @@ footer a:hover { color: #fff; }
         <h2 class="section-title">Mais de 40 anos<br>de <em>paixão</em></h2>
       </div>
       <p style="color:var(--cinza);line-height:1.8;font-size:0.95rem;font-weight:300;margin-bottom:0.8rem;">Os Viveiros da Gabrieira situam-se em Ceira, junto ao Rio Ceira, no concelho de Coimbra. Fundados há mais de 40 anos, especializamo-nos na produção e venda de plantas de fruto de qualidade superior.</p>
-      <p style="color:var(--cinza);line-height:1.8;font-size:0.95rem;font-weight:300;">Todas as plantas são cultivadas no nosso viveiro, com acompanhamento técnico desde a propagação até à venda.</p>
+      <p style="color:var(--cinza);line-height:1.8;font-size:0.95rem;font-weight:300;">Todas as plantas são cultivadas com acompanhamento técnico desde a propagação até à venda.</p>
       <div class="about-features">
         <div class="feature"><div class="feature-icon">🏡</div><div class="feature-title">Produção própria</div><div class="feature-text">Cultivado em Ceira, com 40+ anos de experiência.</div></div>
         <div class="feature"><div class="feature-icon">📦</div><div class="feature-title">Entrega 48h</div><div class="feature-text">Embalagem segura para todo Portugal.</div></div>
@@ -357,6 +407,7 @@ footer a:hover { color: #fff; }
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 239 921 339</div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
       <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Envios</div><div class="loc-val">Portes grátis acima de 100€. Entrega em 48h para todo Portugal.</div></div></div>
+       <div class="loc-row"><span class="loc-icon">📋</span><div><div class="loc-label">Envios</div><div class="loc-val">Encomendas superiores a 10 unidades, preço sob consulta.</div></div></div>
     </div>
     <div class="location-map">
       <div class="map-emoji">🗺️</div>
@@ -534,28 +585,28 @@ const products = [
     sci:'Citrus sinensis Navelina',
     price:21.90, tag:'popular',
     chips:['Sem grainha','Muito doce','Colheita: Out–Jan','Algarve ao Centro'],
-    img:'https://i.postimg.cc/j5dvdKYC/Chat-GPT-Image-21-07-2026-08-11-23.png',
+    img:'https://i.postimg.cc/sfmvH8jL/Chat-GPT-Image-21-07-2026-19-52-39.png',
     desc:'A mais precoce das laranjas — fruto sem grainha, muito doce e sumarento, com casca de cor intensa. Colheita a partir de outubro, prolongando-se até janeiro. Das variedades mais apreciadas em Portugal. Adapta-se bem do Algarve ao Centro litoral. Prefere sol pleno e protecção de geadas fortes.' },
 
   { id:15, cat:'laranjeira', name:'Laranjeira New Hall',
     sci:'Citrus sinensis New Hall',
     price:22.50, tag:null,
     chips:['Sem grainha','Meia-estação','Colheita: Nov–Jan','Algarve ao Ribatejo'],
-    img:'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=75',
+    img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png',
     desc:'Variedade de meia-estação, muito semelhante à Navelina mas ligeiramente mais tardia. Fruto de grande calibre, sem grainha e com excelente sabor doce e sumarento. Colheita de novembro a janeiro. Muito cultivada no Algarve e Ribatejo. Boa alternativa para prolongar a época após a Navelina.' },
 
   { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',
     sci:'Citrus sinensis Lane Late',
     price:23.90, tag:null,
     chips:['Sem grainha','Tardia','Colheita: Mar–Mai','Algarve e Alentejo'],
-    img:'https://images.pexels.com/photos/30210309/pexels-photo-30210309.jpeg?w=400&q=75',
+    img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png',
     desc:'A mais tardia das laranjas — permite ter fruta fresca na árvore de março a maio, quando todas as outras variedades já terminaram. Fruto sem grainha, muito doce e sumarento. Muito cultivada no Algarve. Ideal para quem quer prolongar a colheita até à primavera.' },
 
   { id:17, cat:'laranjeira', name:'Laranjeira Dom João',
     sci:'Citrus sinensis Dom João',
     price:22.90, tag:'bio',
     chips:['Casca fina','Alto teor de sumo','Colheita: Abr–Jun','Variedade portuguesa'],
-    img:'https://images.pexels.com/photos/31246322/pexels-photo-31246322.jpeg?w=400&q=75',
+    img:'https://i.postimg.cc/nLqjy3Vn/e4d3895c-6263-47a3-9bf1-74c2879a1ca3.png',
     desc:'Variedade portuguesa tradicional, muito semelhante à Valencia Late mas com fruto mais pequeno e arredondado. Casca fina e fácil de descascar, alto teor de sumo e sabor muito doce. Conserva-se melhor na árvore sem secar. Colheita de abril a junho. Cultivada principalmente no Algarve.' },
 ];
 
@@ -575,7 +626,6 @@ function renderProducts(list) {
         <div class="product-cat">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
         <div class="product-name">${p.name}</div>
         <div class="product-sci">${p.sci}</div>
-        <div class="product-chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
         <div class="product-footer">
           <span class="product-price">${p.price.toFixed(2)}€</span>
           <button class="add-to-cart" onclick="addToCart(${p.id})">+</button>
@@ -600,7 +650,12 @@ function filterCat(cat, el) {
 function addToCart(id) {
   const p = products.find(x => x.id === id);
   const ex = cart.find(x => x.id === id);
-  if (ex) ex.qty++; else cart.push({ ...p, qty: 1 });
+  if (ex) {
+    if (ex.qty >= 10) { showToast('Máximo de 10 unidades por produto'); return; }
+    ex.qty++;
+  } else {
+    cart.push({ ...p, qty: 1 });
+  }
   updateCart();
   showToast(`${p.name.split(' ').slice(0,2).join(' ')} adicionada ao cesto`);
 }
@@ -608,7 +663,13 @@ function addToCart(id) {
 function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCart(); }
 function changeQty(id, d) {
   const item = cart.find(x => x.id === id);
-  if (item) { item.qty += d; if (item.qty <= 0) removeFromCart(id); else updateCart(); }
+  if (item) {
+    const novaQty = item.qty + d;
+    if (novaQty > 10) { showToast('Máximo de 10 unidades por produto'); return; }
+    item.qty += d;
+    if (item.qty <= 0) removeFromCart(id);
+    else updateCart();
+  }
 }
 function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
