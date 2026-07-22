@@ -221,6 +221,50 @@ footer a:hover { color: #fff; }
   .form-row { grid-template-columns: 1fr; }
   .cart-drawer { width: 100vw; }
 }
+
+/* ── POPUP HOVER ── */
+.product-card { overflow: visible; position: relative; }
+.product-img { border-radius: 10px 10px 0 0; }
+.product-popup {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%; transform: translateX(-50%) translateY(6px);
+  width: 290px;
+  background: var(--branco);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.13);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s, transform 0.22s;
+}
+.product-card:hover .product-popup {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.product-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: var(--border);
+}
+.product-popup::before {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--branco);
+  z-index: 1; margin-top: -1px;
+}
+.popup-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--preto); margin-bottom: 0.15rem; }
+.popup-sci { font-size: 0.7rem; color: var(--cinza); font-style: italic; margin-bottom: 0.7rem; }
+.popup-desc { font-size: 0.8rem; color: var(--cinza); line-height: 1.6; margin-bottom: 0.8rem; }
+.popup-chips { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+.popup-chip { background: var(--verde-claro); color: var(--verde); font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 600; }
+@media (max-width: 900px) { .product-popup { display: none; } }
 </style>
 </head>
 <body>
@@ -437,17 +481,82 @@ footer a:hover { color: #fff; }
 const STRIPE_PUBLIC_KEY = 'pk_live_51TrI5C2ZfnpIU904nWTE2pV3GOpGsX0ocrXfkzyMqyeG5b8NzqNTbWZsybcFM0ZM29NTv7CcSGzfm4pv885qNDIA00BrcpE44P';
 
 const products = [
-  { id:1,  cat:'mirtilo',    name:'Mirtileiro',   sci:'Vaccinium corymbosum',         price:14.90, tag:'popular', chips:['Vaso','Jardim','Autocompatível'], img:'https://i.postimg.cc/NMfbfYv7/Chat-GPT-Image-21-07-2026-08-23-03.png' },
-  { id:6,  cat:'pitaia',     name:'Pitaia Vermelha',        sci:'Hylocereus costaricensis',     price:24.90, tag:'novo',    chips:['Polpa vermelha','Doce'],          img:'https://i.postimg.cc/Hxs3sH19/Chat-GPT-Image-21-07-2026-08-18-08.png' },
-  { id:7,  cat:'pitaia',     name:'Pitaia Amarela',         sci:'Selenicereus megalanthus',     price:27.90, tag:'novo',    chips:['Sem espinhos','Muito doce'],      img:'https://i.postimg.cc/7LNmkhdg/6df62670-fcb2-42aa-a229-308394ebd878.png' },
-  { id:8,  cat:'maracuja',   name:'Maracujá Roxo',          sci:'Passiflora edulis',            price:16.90, tag:'popular', chips:['Trepadeira','Sombra parcial'],    img:'https://i.postimg.cc/NMfbfYvT/Chat-GPT-Image-21-07-2026-08-17-07.png' },
-  { id:9,  cat:'maracuja',   name:'Maracujá Amarelo',       sci:'Passiflora edulis flavicarpa', price:17.90, tag:'novo',    chips:['Tropical','Muito produtivo'],     img:'https://i.postimg.cc/1zKJQX2G/Chat-GPT-Image-21-07-2026-08-13-41.png' },
-  { id:11, cat:'limoeiro',   name:'Limoeiro Eureka',        sci:'Citrus limon Eureka',          price:19.90, tag:null,      chips:['Sem grainha','Produtivo'],        img:'https://i.postimg.cc/gJk4kdb4/Chat-GPT-Image-21-07-2026-08-24-20.png' },
-  { id:13, cat:'limoeiro',   name:'Lima Bears',            sci:'Citrus latifolia',             price:20.90, tag:'novo',    chips:['Sem grainha','Ácida','Vaso'],     img:'https://i.postimg.cc/W3bSbjch/Chat-GPT-Image-21-07-2026-08-07-26.png' },
-  { id:14, cat:'laranjeira', name:'Laranjeira Navelina',    sci:'Citrus sinensis Navelina',     price:21.90, tag:'popular', chips:['Precoce','Outono','Doce'],        img:'https://i.postimg.cc/sfmvH8jL/Chat-GPT-Image-21-07-2026-19-52-39.png' },
-  { id:15, cat:'laranjeira', name:'Laranjeira New Hall',    sci:'Citrus sinensis New Hall',     price:22.50, tag:null,      chips:['Novembro','Sem grainha'],         img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png' },
-  { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',   sci:'Citrus sinensis Lane Late',    price:23.90, tag:null,      chips:['Tardia','Março-Maio'],            img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png' },
-  { id:17, cat:'laranjeira', name:'Laranjeira Dom João',    sci:'Citrus sinensis Dom João',     price:22.90, tag:'bio',     chips:['Portuguesa','Rústica','Doce'],    img:'https://images.pexels.com/photos/31246322/pexels-photo-31246322.jpeg?w=400&q=75' },
+  { id:1,  cat:'mirtilo',    name:'Mirtileiro',
+    sci:'Vaccinium corymbosum',
+    price:14.90, tag:'popular',
+    chips:['Vaso','Jardim','Autocompatível','Colheita: Mai–Ago'],
+    img:'https://i.postimg.cc/NMfbfYv7/Chat-GPT-Image-21-07-2026-08-23-03.png',
+    desc:'Baga azul-escura, doce e sumarenta, rica em antioxidantes. Adapta-se bem a vaso e jardim — precisa de solo ácido (pH 4,5–5,5). Gosta de frio no inverno para frutificar bem no verão. Em Portugal dá-se melhor no Norte e Centro interior, onde os invernos são mais frescos. Colheita de maio a agosto.' },
+
+  { id:6,  cat:'pitaia',     name:'Pitaia Vermelha',
+    sci:'Hylocereus costaricensis',
+    price:24.90, tag:'novo',
+    chips:['Polpa vermelha','Doce','Trepadeira','Colheita: Jun–Dez'],
+    img:'https://i.postimg.cc/Hxs3sH19/Chat-GPT-Image-21-07-2026-08-18-08.png',
+    desc:'Fruto exótico de polpa vermelha intensa, sabor suave e doce. Trepadeira de crescimento rápido — precisa de suporte (pérgola ou muro). Adora calor e não tolera geadas. Em Portugal adapta-se melhor ao Algarve e litoral alentejano. Colheita de junho a dezembro.' },
+
+  { id:7,  cat:'pitaia',     name:'Pitaia Amarela',
+    sci:'Selenicereus megalanthus',
+    price:27.90, tag:'novo',
+    chips:['Sem espinhos','Muito doce','Mais resistente ao frio','Colheita: Jul–Nov'],
+    img:'https://i.postimg.cc/7LNmkhdg/6df62670-fcb2-42aa-a229-308394ebd878.png',
+    desc:'Considerada a mais doce de todas as pitaias — casca amarela sem espinhos, polpa branca açucarada e muito sumarenta. Mais resistente ao frio que as variedades vermelhas, podendo ser cultivada até ao Centro litoral. Colheita de julho a novembro.' },
+
+  { id:8,  cat:'maracuja',   name:'Maracujá Roxo',
+    sci:'Passiflora edulis',
+    price:16.90, tag:'popular',
+    chips:['Autofértil','Polpa aromática','Tolerante ao frio','Colheita: Ago–Nov'],
+    img:'https://i.postimg.cc/NMfbfYvT/Chat-GPT-Image-21-07-2026-08-17-07.png',
+    desc:'Variedade mais cultivada em Portugal — polpa amarela muito aromática e ácida, excelente para sumos. Trepadeira vigorosa, autofértil. Tolera frio até -4°C, podendo ser cultivada do Algarve ao Minho. Prefere verões não muito quentes e alguma humidade. Colheita de agosto a novembro.' },
+
+  { id:9,  cat:'maracuja',   name:'Maracujá Amarelo',
+    sci:'Passiflora edulis flavicarpa',
+    price:17.90, tag:'novo',
+    chips:['Muito produtivo','Polpa abundante','Precisa de calor','Colheita: Jul–Out'],
+    img:'https://i.postimg.cc/1zKJQX2G/Chat-GPT-Image-21-07-2026-08-13-41.png',
+    desc:'Variedade tropical de grande produtividade — fruto maior que o roxo, com polpa muito abundante e sabor intenso. Precisa de calor e não tolera geadas — ideal para o Sul de Portugal e litoral Centro/Alentejo. Requer polinização cruzada (plantar duas plantas). Colheita de julho a outubro.' },
+
+  { id:11, cat:'limoeiro',   name:'Limoeiro Eureka',
+    sci:'Citrus limon Eureka',
+    price:19.90, tag:null,
+    chips:['Sem grainha','Casca fina','Produção todo o ano','Colheita: Dez–Set'],
+    img:'https://i.postimg.cc/gJk4kdb4/Chat-GPT-Image-21-07-2026-08-24-20.png',
+    desc:'Um dos limoeiros mais produtivos — fruto médio, casca fina, muito sumo ácido e praticamente sem grainha. Produção quase contínua ao longo do ano, com pico no inverno e primavera. Adapta-se bem a vaso e jardim. Prefere sol pleno e clima temperado ou mediterrânico — Algarve, Alentejo, Ribatejo e Oeste.' },
+
+  { id:13, cat:'limoeiro',   name:'Lima Bears',
+    sci:'Citrus latifolia',
+    price:20.90, tag:'novo',
+    chips:['Sem grainha','Muito sumarenta','Colheita: Out–Mar','Zona litoral'],
+    img:'https://i.postimg.cc/W3bSbjch/Chat-GPT-Image-21-07-2026-08-07-26.png',
+    desc:'A lima mais cultivada no mundo — fruto verde, sem grainha, muito sumarento e aromático. Indispensável em cocktails, culinária e bebidas. Sensível a geadas — ideal para zonas litorais mais quentes e protegidas. Colheita principal de outubro a março. Excelente para vaso em terraços protegidos.' },
+
+  { id:14, cat:'laranjeira', name:'Laranjeira Navelina',
+    sci:'Citrus sinensis Navelina',
+    price:21.90, tag:'popular',
+    chips:['Sem grainha','Muito doce','Colheita: Out–Jan','Algarve ao Centro'],
+    img:'https://i.postimg.cc/j5dvdKYC/Chat-GPT-Image-21-07-2026-08-11-23.png',
+    desc:'A mais precoce das laranjas — fruto sem grainha, muito doce e sumarento, com casca de cor intensa. Colheita a partir de outubro, prolongando-se até janeiro. Das variedades mais apreciadas em Portugal. Adapta-se bem do Algarve ao Centro litoral. Prefere sol pleno e protecção de geadas fortes.' },
+
+  { id:15, cat:'laranjeira', name:'Laranjeira New Hall',
+    sci:'Citrus sinensis New Hall',
+    price:22.50, tag:null,
+    chips:['Sem grainha','Meia-estação','Colheita: Nov–Jan','Algarve ao Ribatejo'],
+    img:'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=75',
+    desc:'Variedade de meia-estação, muito semelhante à Navelina mas ligeiramente mais tardia. Fruto de grande calibre, sem grainha e com excelente sabor doce e sumarento. Colheita de novembro a janeiro. Muito cultivada no Algarve e Ribatejo. Boa alternativa para prolongar a época após a Navelina.' },
+
+  { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',
+    sci:'Citrus sinensis Lane Late',
+    price:23.90, tag:null,
+    chips:['Sem grainha','Tardia','Colheita: Mar–Mai','Algarve e Alentejo'],
+    img:'https://images.pexels.com/photos/30210309/pexels-photo-30210309.jpeg?w=400&q=75',
+    desc:'A mais tardia das laranjas — permite ter fruta fresca na árvore de março a maio, quando todas as outras variedades já terminaram. Fruto sem grainha, muito doce e sumarento. Muito cultivada no Algarve. Ideal para quem quer prolongar a colheita até à primavera.' },
+
+  { id:17, cat:'laranjeira', name:'Laranjeira Dom João',
+    sci:'Citrus sinensis Dom João',
+    price:22.90, tag:'bio',
+    chips:['Casca fina','Alto teor de sumo','Colheita: Abr–Jun','Variedade portuguesa'],
+    img:'https://images.pexels.com/photos/31246322/pexels-photo-31246322.jpeg?w=400&q=75',
+    desc:'Variedade portuguesa tradicional, muito semelhante à Valencia Late mas com fruto mais pequeno e arredondado. Casca fina e fácil de descascar, alto teor de sumo e sabor muito doce. Conserva-se melhor na árvore sem secar. Colheita de abril a junho. Cultivada principalmente no Algarve.' },
 ];
 
 const tagLabels = { popular:'Popular', bio:'Bio', novo:'Novo' };
@@ -472,6 +581,12 @@ function renderProducts(list) {
           <button class="add-to-cart" onclick="addToCart(${p.id})">+</button>
         </div>
       </div>
+      ${p.desc ? `<div class="product-popup">
+        <div class="popup-name">${p.name}</div>
+        <div class="popup-sci">${p.sci}</div>
+        <div class="popup-desc">${p.desc}</div>
+        <div class="popup-chips">${p.chips.map(c=>`<span class="popup-chip">${c}</span>`).join('')}</div>
+      </div>` : ''}
     </div>`).join('');
 }
 
