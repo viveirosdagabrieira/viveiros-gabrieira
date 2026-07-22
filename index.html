@@ -575,7 +575,7 @@ function renderProducts(list) {
         <div class="product-cat">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
         <div class="product-name">${p.name}</div>
         <div class="product-sci">${p.sci}</div>
-        <div class="product-chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+        <div class="product-chips">${p.chips.map(c=><span class="chip">${c}</span>).join('')}</div>
         <div class="product-footer">
           <span class="product-price">${p.price.toFixed(2)}€</span>
           <button class="add-to-cart" onclick="addToCart(${p.id})">+</button>
