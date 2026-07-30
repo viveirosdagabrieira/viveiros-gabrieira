@@ -403,7 +403,7 @@ footer a:hover { color: #fff; }
     <div class="location-info">
       <h3>Viveiros da Gabrieira</h3>
       <div class="loc-row"><span class="loc-icon">📍</span><div><div class="loc-label">Morada</div><div class="loc-val">Ceira, Coimbra, Portugal</div></div></div>
-      <div class="loc-row"><span class="loc-icon">⏰</span><div><div class="loc-label">Horário</div><div class="loc-val">Segunda a Sexta: 9h–18h</div></div></div>
+      <div class="loc-row"><span class="loc-icon">⏰</span><div><div class="loc-label">Horário</div><div class="loc-val">Segunda a Sábado: 9h–18h<br>Domingo: 10h–13h</div></div></div>
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 239 921 339</div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
       <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Envios</div><div class="loc-val">Portes calculados pelo peso: 1 árvore 7€, 2–3 árvores 10€, 4–6 árvores 14€, 7–10 árvores 18€. Entrega em 48h para todo Portugal.</div></div></div>
@@ -425,7 +425,7 @@ footer a:hover { color: #fff; }
       <p>Mais de 40 anos a cultivar plantas de fruto de qualidade em Ceira, Coimbra.</p>
     </div>
     <div><h5>Produtos</h5><a href="#">Mirtilos</a><a href="#">Pitaias</a><a href="#">Maracujás</a><a href="#">Limoeiros</a><a href="#">Laranjeiras</a></div>
-    <div><h5>Empresa</h5><a href="#">Sobre nós</a><a href="#">O viveiro</a><a href="#">Blog</a></div>
+    <div><h5>Empresa</h5><a href="#">Sobre nós</a><a href="#">O viveiro</a><a href="privacidade.html">Política de Privacidade</a></div>
     <div><h5>Contacto</h5><a href="#">📞 +351 239 921 339</a><a href="#">✉️ viveirosdagabrieira@gmail.com</a><a href="#">📍 Ceira, Coimbra</a></div>
   </div>
   <div class="footer-bottom">© 2025 Viveiros da Gabrieira — Ceira, Coimbra, Portugal</div>
@@ -470,7 +470,11 @@ footer a:hover { color: #fff; }
         </div>
         <div class="form-group"><label>Email</label><input type="email" id="f-email" placeholder="maria@email.pt"></div>
         <div class="form-group"><label>Telemóvel</label><input type="tel" id="f-tel" placeholder="+351 912 345 678"></div>
-        <div class="step-btns"><button class="btn-next" onclick="goStep(2)">Continuar →</button></div>
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:0.6rem;">
+          <input type="checkbox" id="f-consent" style="margin-top:0.25rem;width:16px;height:16px;flex-shrink:0;">
+          <label for="f-consent" style="font-size:0.8rem;font-weight:400;text-transform:none;letter-spacing:0;line-height:1.5;color:var(--cinza-escuro);">Li e aceito a <a href="privacidade.html" target="_blank" style="color:var(--verde);">Política de Privacidade</a> e autorizo o tratamento dos meus dados pessoais para processar esta encomenda.</label>
+        </div>
+        <div class="step-btns"><button class="btn-next" onclick="checkConsentAndGoStep(2)">Continuar →</button></div>
       </div>
 
       <div class="step-pane" id="pane-2">
@@ -741,6 +745,14 @@ function renderOrderSum() {
     <div class="sum-total"><span>Total</span><span>${(total+sh).toFixed(2)}€</span></div>`;
 }
 
+function checkConsentAndGoStep(n) {
+  if (!document.getElementById('f-consent').checked) {
+    showToast('Tens de aceitar a Política de Privacidade para continuar');
+    return;
+  }
+  goStep(n);
+}
+
 async function goStep(n) {
   for (let i = 1; i <= 3; i++) {
     document.getElementById(`pane-${i}`).classList.remove('active');
@@ -809,7 +821,8 @@ async function submitPayment() {
     email: document.getElementById('f-email').value,
     items: cart.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
     total: (cartTotal() + shipping()).toFixed(2),
-    status: 'Pendente'
+    status: 'Pendente',
+    consentAt: new Date().toISOString()
   });
   localStorage.setItem('vg_orders', JSON.stringify(orders));
   localStorage.setItem('vg_pending_order', orderNum);
@@ -869,4 +882,3 @@ renderProducts(products);
 </script>
 </body>
 </html>
-
