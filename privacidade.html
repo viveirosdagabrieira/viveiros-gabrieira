@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Viveiros da Gabrieira</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #2e5c2a;
+  --preto: #111110;
+  --cinza-escuro: #333331;
+  --cinza: #6b6b65;
+  --cinza-claro: #f5f4f1;
+  --border: #e5e3de;
+  --branco: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--branco); color: var(--preto); line-height: 1.7; }
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 4rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; color: var(--preto); font-size: 1.25rem; font-weight: 600; text-decoration: none; }
+.nav-back { color: var(--cinza); text-decoration: none; font-size: 0.85rem; }
+.nav-back:hover { color: var(--preto); }
+main { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3rem); font-weight: 600; margin-bottom: 0.5rem; }
+.updated { color: var(--cinza); font-size: 0.85rem; margin-bottom: 3rem; }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 0.8rem; color: var(--verde); }
+p, li { color: var(--cinza-escuro); font-size: 0.95rem; margin-bottom: 0.9rem; }
+ul { padding-left: 1.3rem; margin-bottom: 0.9rem; }
+strong { color: var(--preto); }
+a { color: var(--verde); }
+.placeholder { background: #fff8e6; border: 1px dashed #e0c060; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85em; }
+footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--cinza); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Viveiros da Gabrieira</a>
+  <a href="index.html" class="nav-back">← Voltar ao site</a>
+</nav>
+
+<main>
+  <h1>Política de Privacidade</h1>
+  <p class="updated">Última atualização: 28 de julho de 2026</p>
+
+  <p>Esta Política de Privacidade explica como os <strong>Viveiros da Gabrieira</strong> recolhem, usam e protegem os teus dados pessoais quando visitas este site ou fazes uma encomenda, em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD).</p>
+
+  <h2>1. Quem é o responsável pelo tratamento</h2>
+  <p><strong>Viveiros da Gabrieira</strong><br>
+  Ceira, Coimbra, Portugal<br>
+  NIF: 271654023<br>
+  Email: <a href="mailto:viveirosdagabrieira@gmail.com">viveirosdagabrieira@gmail.com</a><br>
+  Telefone: +351 239 921 339</p>
+
+  <h2>2. Que dados recolhemos</h2>
+  <p>Quando fazes uma encomenda, recolhemos:</p>
+  <ul>
+    <li>Nome e apelido</li>
+    <li>Email</li>
+    <li>Número de telemóvel</li>
+    <li>Morada de entrega (rua, código postal, localidade, distrito)</li>
+    <li>Detalhes da encomenda (plantas escolhidas, quantidades, valores)</li>
+    <li>Dados de pagamento — processados diretamente pela <strong>Stripe</strong>, nunca guardados por nós (ver secção 5)</li>
+  </ul>
+
+  <h2>3. Para que finalidade usamos os teus dados</h2>
+  <ul>
+    <li>Processar e confirmar a tua encomenda</li>
+    <li>Preparar e enviar as plantas para a morada indicada</li>
+    <li>Comunicar contigo sobre o estado da encomenda</li>
+    <li>Cumprir obrigações legais e fiscais</li>
+  </ul>
+
+  <h2>4. Base legal</h2>
+  <p>Tratamos os teus dados com base na <strong>execução do contrato</strong> de compra e venda que estabeleces connosco ao fazer uma encomenda, e no cumprimento de obrigações legais (ex: faturação).</p>
+
+  <h2>5. Partilha com terceiros</h2>
+  <p>Não vendemos nem partilhamos os teus dados com terceiros para fins de marketing. Partilhamos apenas o estritamente necessário com:</p>
+  <ul>
+    <li><strong>Stripe</strong> — processamento seguro de pagamentos (cartão, MB Way, Multibanco). A Stripe é responsável pelos dados de pagamento em conformidade com o standard PCI-DSS. Consulta a <a href="https://stripe.com/pt/privacy" target="_blank">política de privacidade da Stripe</a>.</li>
+    <li><strong>Netlify</strong> — alojamento técnico do site.</li>
+    <li>Serviços de transporte/estafeta, apenas com os dados de entrega necessários para te fazer chegar a encomenda.</li>
+  </ul>
+
+  <h2>6. Prazo de conservação</h2>
+  <p>Guardamos os dados da tua encomenda durante o tempo necessário para a processar e cumprir obrigações fiscais/contabilísticas aplicáveis em Portugal (geralmente 10 anos para documentos fiscais).</p>
+
+  <h2>7. Os teus direitos</h2>
+  <p>Nos termos do RGPD, tens direito a:</p>
+  <ul>
+    <li>Aceder aos dados que temos sobre ti</li>
+    <li>Corrigir dados incorretos ou incompletos</li>
+    <li>Pedir o apagamento dos teus dados, quando aplicável</li>
+    <li>Opor-te ou limitar o tratamento dos teus dados</li>
+    <li>Pedir a portabilidade dos teus dados</li>
+    <li>Apresentar reclamação junto da <a href="https://www.cnpd.pt" target="_blank">Comissão Nacional de Proteção de Dados (CNPD)</a></li>
+  </ul>
+  <p>Para exercer qualquer um destes direitos, contacta-nos através de <a href="mailto:viveirosdagabrieira@gmail.com">viveirosdagabrieira@gmail.com</a>.</p>
+
+  <h2>8. Cookies e tecnologias semelhantes</h2>
+  <p>Este site utiliza recursos externos (tipos de letra da Google Fonts e o script de pagamento da Stripe) que podem envolver a transferência técnica do teu endereço IP para esses serviços, necessária ao seu funcionamento.</p>
+
+  <h2>9. Alterações a esta política</h2>
+  <p>Podemos atualizar esta política ocasionalmente. A data da última atualização está indicada no topo desta página.</p>
+</main>
+
+<footer>© 2026 Viveiros da Gabrieira — Ceira, Coimbra, Portugal</footer>
+
+</body>
+</html>
