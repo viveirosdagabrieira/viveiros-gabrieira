@@ -579,7 +579,7 @@ const STRIPE_PUBLIC_KEY = 'pk_live_51TrI5C2ZfnpIU904nWTE2pV3GOpGsX0ocrXfkzyMqyeG
 const products = [
   { id:1,  cat:'mirtilo',    name:'Mirtileiro',
     sci:'Vaccinium corymbosum',
-    price:12.00, tag:'popular',
+    price:12.00, tag:null,
     chips:['Vaso','Jardim','Autocompatível','Colheita: Mai–Ago'],
     img:'https://i.postimg.cc/NMfbfYv7/Chat-GPT-Image-21-07-2026-08-23-03.png',
     desc:'Baga azul-escura, doce e sumarenta, rica em antioxidantes. Adapta-se bem a vaso e jardim — precisa de solo ácido (pH 4,5–5,5). Gosta de frio no inverno para frutificar bem no verão. Em Portugal dá-se melhor no Norte e Centro interior, onde os invernos são mais frescos. Colheita de maio a agosto.' },
@@ -600,7 +600,7 @@ const products = [
 
   { id:8,  cat:'maracuja',   name:'Maracujá Roxo',
     sci:'Passiflora edulis',
-    price:12.00, tag:'popular',
+    price:12.00, tag:null,
     chips:['Autofértil','Polpa aromática','Tolerante ao frio','Colheita: Ago–Nov'],
     img:'https://i.postimg.cc/NMfbfYvT/Chat-GPT-Image-21-07-2026-08-17-07.png',
     desc:'Variedade mais cultivada em Portugal — polpa amarela muito aromática e ácida, excelente para sumos. Trepadeira vigorosa, autofértil. Tolera frio até -4°C, podendo ser cultivada do Algarve ao Minho. Prefere verões não muito quentes e alguma humidade. Colheita de agosto a novembro.' },
@@ -628,7 +628,7 @@ const products = [
 
   { id:14, cat:'laranjeira', name:'Laranjeira Navelina',
     sci:'Citrus sinensis Navelina',
-    price:15.00, tag:'popular',
+    price:15.00, tag:null,
     chips:['Sem grainha','Muito doce','Colheita: Out–Jan','Algarve ao Centro'],
     img:'https://i.postimg.cc/sfmvH8jL/Chat-GPT-Image-21-07-2026-19-52-39.png',
     desc:'A mais precoce das laranjas — fruto sem grainha, muito doce e sumarento, com casca de cor intensa. Colheita a partir de outubro, prolongando-se até janeiro. Das variedades mais apreciadas em Portugal. Adapta-se bem do Algarve ao Centro litoral. Prefere sol pleno e protecção de geadas fortes.' },
@@ -682,7 +682,7 @@ const futureProducts = [
 
   { id:20, cat:'laranjeira', name:'Laranjeira Sanguínea',
     sci:'Citrus sinensis (sanguínea)',
-    price:15.00, tag:'popular',
+    price:15.00, tag:null,
     chips:['Polpa vermelha','Sabor a frutos vermelhos','Rica em antocianinas','Colheita: Jan–Mar'],
     img:'https://www.atocentro.pt/wp-content/uploads/2025/03/14.png',
     desc:'Laranja-sanguínea de polpa vermelho-escura, com um sabor intenso que lembra frutos vermelhos. A cor desenvolve-se melhor com noites frias de inverno. Muito apreciada para sumo e sobremesas. Colheita de janeiro a março.' },
@@ -745,7 +745,7 @@ const futureProducts = [
 
   { id:30, cat:'clementina', name:'Clementina Fina',
     sci:'Citrus clementina',
-    price:15.00, tag:'popular',
+    price:15.00, tag:null,
     chips:['Sem grainha','Fácil de descascar','Muito doce','Colheita: Nov–Dez'],
     img:'https://www.atocentro.pt/wp-content/uploads/2026/04/Clementina-382.png',
     desc:'A clementina clássica — pequena, sem grainha, doce e muito fácil de descascar. Variedade precoce, uma das primeiras a estar pronta na época dos citrinos de inverno. Colheita de novembro a dezembro.' },
@@ -787,7 +787,7 @@ const futureProducts = [
 
   { id:36, cat:'toranja', name:'Toranja Star Ruby',
     sci:'Citrus paradisi Star Ruby',
-    price:15.00, tag:'popular',
+    price:15.00, tag:null,
     chips:['Polpa vermelha intensa','Sem grainha','Menos amarga','Colheita: Dez–Fev'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Uma das toranjas mais populares do mundo — polpa vermelho-intensa, sem grainha, e menos amarga do que outras variedades. Muito rica em antioxidantes. Colheita de dezembro a fevereiro.' },
@@ -815,7 +815,7 @@ const futureProducts = [
 
   { id:40, cat:'pessegueiro', name:'Pessegueiro Maracotão Rosa',
     sci:'Prunus persica (maracotão)',
-    price:20.90, tag:'popular',
+    price:20.90, tag:null,
     chips:['Polpa firme e rosada','Muito sumarento','Casca aveludada','Colheita: Jul–Ago'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'O clássico maracotão português — fruto grande, de polpa firme e rosada, muito sumarento e aromático. Muito apreciado para consumo fresco em pleno verão. Colheita de julho a agosto.' },
@@ -836,7 +836,7 @@ const futureProducts = [
 
   { id:43, cat:'pessegueiro', name:'Pêssego Paraguay',
     sci:'Prunus persica var. platycarpa',
-    price:21.90, tag:'popular',
+    price:21.90, tag:null,
     chips:['Forma achatada (donut)','Muito doce','Baixa acidez','Colheita: Jul–Ago'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'O conhecido "pêssego donut" — fruto achatado e muito característico, de polpa branca, doce e com baixa acidez. Muito popular pela forma invulgar e sabor suave. Colheita de julho a agosto.' },
@@ -899,14 +899,14 @@ const futureProducts = [
 
   { id:52, cat:'ameixeira', name:'Ameixeira Rainha Cláudia',
     sci:'Prunus domestica Rainha Cláudia',
-    price:20.90, tag:'popular',
+    price:20.90, tag:null,
     chips:['Fruto pequeno e redondo','Casca verde-amarelada','Sabor muito doce','Colheita: Jul–Ago'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Uma das ameixas mais apreciadas — pequena, redonda, de casca verde-amarelada e um sabor intensamente doce e aromático. Variedade clássica europeia, muito valorizada. Colheita de julho a agosto.' },
 
   { id:53, cat:'ameixeira', name:'Ameixeira Santa Rosa',
     sci:'Prunus salicina Santa Rosa',
-    price:19.90, tag:'popular',
+    price:19.90, tag:null,
     chips:['Casca vermelho-arroxeada','Polpa avermelhada sumarenta','Muito cultivada','Colheita: Jun–Jul'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Uma das ameixas japonesas mais cultivadas e populares — casca vermelho-arroxeada, polpa avermelhada muito sumarenta, com bom equilíbrio entre doce e ácido. Colheita de junho a julho.' },
@@ -927,7 +927,7 @@ const futureProducts = [
 
   { id:56, cat:'ameixeira', name:'Ameixeira Stanley',
     sci:'Prunus domestica Stanley',
-    price:19.90, tag:'popular',
+    price:19.90, tag:null,
     chips:['Ideal para secar (ameixa seca)','Autofértil','Casca azul-violeta','Colheita: Ago–Set'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Ameixa europeia clássica, de casca azul-violeta e polpa firme e doce — ideal tanto para consumo fresco como para secar (ameixa seca) ou fazer doce. Autofértil e muito produtiva. Colheita de agosto a setembro.' },
@@ -967,7 +967,7 @@ function renderProducts(list) {
     <div class="product-card" style="animation-delay:${(i%8)*0.06}s">
       <div class="product-img" style="cursor:pointer;" onclick="showProductModal(${p.id})">
         <img src="${p.img}" alt="${p.name}" loading="lazy">
-        ${p.tag ? `<div class="product-tag ${tagClasses[p.tag]}">${tagLabels[p.tag]}</div>` : ''}
+        ${p.tag === 'popular' ? `<div class="product-tag ${tagClasses[p.tag]}">${tagLabels[p.tag]}</div>` : ''}
       </div>
       <div class="product-body">
         <div class="product-cat">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
