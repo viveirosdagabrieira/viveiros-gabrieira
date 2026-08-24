@@ -71,6 +71,10 @@ nav {
 .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 600; color: var(--preto); line-height: 1.2; }
 .section-title em { color: var(--verde); font-style: italic; }
 
+.search-wrap { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+.search-input { width: 100%; max-width: 420px; padding: 0.8rem 1.2rem; border: 1.5px solid var(--border); border-radius: 50px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; background: var(--cinza-claro); color: var(--preto); }
+.search-input:focus { border-color: var(--preto); background: var(--branco); }
+.search-input::placeholder { color: var(--cinza); }
 .cat-pills { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
 .cat-pill { padding: 0.45rem 1.1rem; border-radius: 50px; border: 1.5px solid var(--border); font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s; background: var(--branco); color: var(--cinza); }
 .cat-pill:hover { border-color: var(--cinza-escuro); color: var(--preto); }
@@ -367,6 +371,9 @@ footer a:hover { color: #fff; }
     <div class="section-eyebrow">Catálogo</div>
     <h2 class="section-title">As nossas <em>plantas</em></h2>
   </div>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar planta pelo nome..." oninput="applyFilters()">
+  </div>
   <div class="cat-pills">
     <div class="cat-pill active" onclick="filterCat('todos',this)">Todos</div>
     <div class="cat-pill" onclick="filterCat('mirtilo',this)">Mirtilos</div>
@@ -535,6 +542,20 @@ footer a:hover { color: #fff; }
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="productModal" onclick="if(event.target===this) closeProductModal()">
+  <div class="modal" style="max-width:420px;">
+    <div class="modal-head">
+      <h2 id="pmName"></h2>
+      <button onclick="closeProductModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="popup-sci" style="margin-bottom:1rem;" id="pmSci"></div>
+      <div class="popup-desc" style="margin-bottom:1rem;" id="pmDesc"></div>
+      <div class="popup-chips" id="pmChips"></div>
     </div>
   </div>
 </div>
@@ -911,16 +932,33 @@ const tagClasses = { popular:'tag-popular', bio:'tag-bio', novo:'tag-novo' };
 
 let cart = [], stripeInstance = null, elements = null, paymentElement = null;
 
+function showProductModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p || !p.desc) return;
+  document.getElementById('pmName').textContent = p.name;
+  document.getElementById('pmSci').textContent = p.sci;
+  document.getElementById('pmDesc').textContent = p.desc;
+  document.getElementById('pmChips').innerHTML = p.chips.map(c => `<span class="popup-chip">${c}</span>`).join('');
+  document.getElementById('productModal').classList.add('open');
+}
+function closeProductModal() {
+  document.getElementById('productModal').classList.remove('open');
+}
+
 function renderProducts(list) {
+  if (!list.length) {
+    document.getElementById('productGrid').innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--cinza);padding:3rem 1rem;">Não encontrámos nenhuma planta com esse nome.</div>`;
+    return;
+  }
   document.getElementById('productGrid').innerHTML = list.map((p,i) => `
     <div class="product-card" style="animation-delay:${(i%8)*0.06}s">
-      <div class="product-img">
+      <div class="product-img" style="cursor:pointer;" onclick="showProductModal(${p.id})">
         <img src="${p.img}" alt="${p.name}" loading="lazy">
         ${p.tag ? `<div class="product-tag ${tagClasses[p.tag]}">${tagLabels[p.tag]}</div>` : ''}
       </div>
       <div class="product-body">
         <div class="product-cat">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
-        <div class="product-name">${p.name}</div>
+        <div class="product-name" style="cursor:pointer;" onclick="showProductModal(${p.id})">${p.name}</div>
         <div class="product-sci">${p.sci}</div>
         <div class="product-footer">
           <span class="product-price">${p.price.toFixed(2)}€</span>
@@ -936,11 +974,23 @@ function renderProducts(list) {
     </div>`).join('');
 }
 
+let currentCat = 'todos';
+
 function filterCat(cat, el) {
+  currentCat = cat;
   document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
-  renderProducts(cat === 'todos' ? products : products.filter(p => p.cat === cat));
+  applyFilters();
   document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+}
+
+function applyFilters() {
+  const term = document.getElementById('searchInput').value.trim().toLowerCase();
+  let list = currentCat === 'todos' ? products : products.filter(p => p.cat === currentCat);
+  if (term) {
+    list = list.filter(p => p.name.toLowerCase().includes(term) || p.sci.toLowerCase().includes(term));
+  }
+  renderProducts(list);
 }
 
 function addToCart(id) {
