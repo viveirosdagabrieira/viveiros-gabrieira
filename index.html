@@ -40,13 +40,17 @@ nav {
 .cart-count { background: var(--verde); color: var(--branco); border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; display: none; align-items: center; justify-content: center; }
 
 .hero { min-height: 100vh; padding-top: 64px; display: grid; grid-template-columns: 1fr 1fr; }
-.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 6rem; background: var(--branco); }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-start; padding: 8rem 4rem 5rem 6rem; background: var(--branco); }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--verde); font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
 .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--verde); }
 .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5vw,5rem); color: var(--preto); line-height: 1.05; font-weight: 600; margin-bottom: 1.5rem; }
 .hero-title em { color: var(--verde); font-style: italic; }
 .hero-desc { color: var(--cinza); font-size: 1rem; line-height: 1.8; max-width: 400px; margin-bottom: 2.5rem; font-weight: 300; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.season-advice { margin-top: 2rem; background: var(--verde-claro); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; max-width: 400px; }
+.season-advice-label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--verde); font-weight: 700; margin-bottom: 0.4rem; }
+.season-advice-text { font-size: 0.85rem; color: var(--cinza-escuro); line-height: 1.6; }
+.season-advice-text a { color: var(--verde); font-weight: 600; cursor: pointer; }
 .btn-dark { background: var(--preto); color: var(--branco); border: none; padding: 0.9rem 2rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
 .btn-dark:hover { background: var(--verde); }
 .btn-outline-dark { background: transparent; color: var(--preto); border: 1.5px solid var(--border); padding: 0.9rem 2rem; border-radius: 6px; font-size: 0.88rem; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
@@ -350,6 +354,7 @@ footer a:hover { color: #fff; }
       <a href="#catalogo" class="btn-dark">Ver catálogo</a>
       <a href="#localizacao" class="btn-outline-dark">Visitar o viveiro</a>
     </div>
+    <div class="season-advice" id="seasonAdvice"></div>
   </div>
   <div class="hero-right">
     <div class="hero-img"><img src="https://i.postimg.cc/NMfbfYv7/Chat-GPT-Image-21-07-2026-08-23-03.png" alt="Mirtilos" loading="lazy"><div class="hero-img-label">Mirtilos</div></div>
@@ -375,12 +380,13 @@ footer a:hover { color: #fff; }
     <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar planta pelo nome..." oninput="applyFilters()">
   </div>
   <div class="cat-pills">
-    <div class="cat-pill active" onclick="filterCat('todos',this)">Todos</div>
-    <div class="cat-pill" onclick="filterCat('mirtilo',this)">Mirtilos</div>
-    <div class="cat-pill" onclick="filterCat('pitaia',this)">Pitaias</div>
-    <div class="cat-pill" onclick="filterCat('maracuja',this)">Maracujás</div>
-    <div class="cat-pill" onclick="filterCat('limoeiro',this)">Limoeiros</div>
-    <div class="cat-pill" onclick="filterCat('laranjeira',this)">Laranjeiras</div>
+    <div class="cat-pill active" data-cat="todos" onclick="filterCat('todos',this)">Todos</div>
+    <div class="cat-pill" data-cat="mirtilo" onclick="filterCat('mirtilo',this)">Mirtilos</div>
+    <div class="cat-pill" data-cat="pitaia" onclick="filterCat('pitaia',this)">Pitaias</div>
+    <div class="cat-pill" data-cat="maracuja" onclick="filterCat('maracuja',this)">Maracujás</div>
+    <div class="cat-pill" data-cat="limoeiro" onclick="filterCat('limoeiro',this)">Limoeiros</div>
+    <div class="cat-pill" data-cat="laranjeira" onclick="filterCat('laranjeira',this)">Laranjeiras</div>
+    <div class="cat-pill" data-cat="medronheiro" onclick="filterCat('medronheiro',this)">Medronheiros</div>
     <!-- Categorias novas (Clementinas, Tangerinas, Toranjas, Pessegueiros, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
@@ -647,6 +653,13 @@ const products = [
     chips:['Casca fina','Alto teor de sumo','Colheita: Abr–Jun','Variedade portuguesa'],
     img:'https://i.postimg.cc/nLqjy3Vn/e4d3895c-6263-47a3-9bf1-74c2879a1ca3.png',
     desc:'Variedade portuguesa tradicional, muito semelhante à Valencia Late mas com fruto mais pequeno e arredondado. Casca fina e fácil de descascar, alto teor de sumo e sabor muito doce. Conserva-se melhor na árvore sem secar. Colheita de abril a junho. Cultivada principalmente no Algarve.' },
+
+  { id:58, cat:'medronheiro', name:'Medronheiro',
+    sci:'Arbutus unedo',
+    price:12.00, tag:'novo',
+    chips:['Planta nativa portuguesa','Base do licor de medronho','Muito rústico','Colheita: Set–Nov'],
+    img:'https://i.postimg.cc/sx4Y75pj/Chat-GPT-Image-24-08-2026-19-41-17.png',
+    desc:'Arbusto ou pequena árvore nativa de Portugal, conhecida pelos frutos vermelhos e ásperos usados tradicionalmente na produção do licor de medronho. Planta muito resistente, adapta-se bem a solos pobres e zonas de sol pleno, e atrai pássaros e polinizadores. Colheita de setembro a novembro.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
@@ -1219,6 +1232,31 @@ window.addEventListener('load', () => {
     window.history.replaceState({}, '', window.location.pathname);
   }
 });
+
+const seasonAdvice = [
+  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'É a altura ideal para plantar citrinos — o tempo mais fresco ajuda a planta a enraizar antes do calor do verão.' },
+  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'Continua a ser boa época para plantar citrinos, aproveitando o frio ameno do inverno.' },
+  { cat:'mirtilo', label:'Mirtileiros', text:'Boa altura para plantar mirtileiros — a primavera a chegar ajuda a planta a instalar-se com força.' },
+  { cat:'mirtilo', label:'Mirtileiros', text:'Excelente altura para plantar mirtileiros, aproveitando o solo ainda húmido da primavera.' },
+  { cat:'maracuja', label:'Maracujazeiros', text:'Com o calor a aumentar, é uma boa altura para plantar maracujazeiros, que adoram sol e temperaturas mais altas.' },
+  { cat:'pitaia', label:'Pitaias', text:'É a época ideal para plantar pitaias — trepadeiras tropicais que se instalam melhor com o calor do verão.' },
+  { cat:'pitaia', label:'Pitaias', text:'Continua a ser altura perfeita para plantar pitaias, a aproveitar o pico do calor de verão.' },
+  { cat:'pitaia', label:'Pitaias', text:'Em pleno verão, é uma excelente altura para plantar pitaias — adoram o calor desta época.' },
+  { cat:'maracuja', label:'Maracujazeiros', text:'Ainda vais a tempo de plantar maracujazeiros, aproveitando os últimos dias quentes do verão.' },
+  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'Com a chegada do outono, é uma ótima altura para plantar citrinos, antes do frio mais intenso.' },
+  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'Boa altura para plantar citrinos, aproveitando o tempo ainda ameno do outono.' },
+  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'No inverno, os citrinos plantam-se bem — a planta fica em repouso e enraíza sem esforço.' },
+];
+
+function renderSeasonAdvice() {
+  const month = new Date().getMonth();
+  const advice = seasonAdvice[month];
+  const monthNames = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  document.getElementById('seasonAdvice').innerHTML = `
+    <div class="season-advice-label">🌱 O que plantar em ${monthNames[month]}</div>
+    <div class="season-advice-text">${advice.text} <a onclick="filterCat('${advice.cat}', document.querySelector('.cat-pill[data-cat=&quot;${advice.cat}&quot;]'))">Ver ${advice.label} →</a></div>`;
+}
+renderSeasonAdvice();
 
 renderProducts(products);
 </script>
