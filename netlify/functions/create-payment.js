@@ -42,7 +42,13 @@ exports.handler = async (event) => {
       metadata: {
         customer_name: customer.name,
         customer_email: customer.email,
+        customer_phone: customer.phone || '',
+        customer_address: customer.address || '',
+        customer_postal_code: customer.postalCode || '',
+        customer_city: customer.city || '',
+        customer_district: customer.district || '',
         items: JSON.stringify(items.map(i => `${i.name} x${i.qty}`)),
+        total_amount: amount,
       },
     });
 
