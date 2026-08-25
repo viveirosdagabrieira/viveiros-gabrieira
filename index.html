@@ -1136,7 +1136,15 @@ async function initStripeElement() {
       body: JSON.stringify({
         amount: total,
         items: cart.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
-        customer: { name: nome + ' ' + (document.getElementById('f-apelido').value||''), email }
+        customer: {
+          name: nome + ' ' + (document.getElementById('f-apelido').value||''),
+          email,
+          phone: document.getElementById('f-tel').value||'',
+          address: document.getElementById('f-morada').value||'',
+          postalCode: document.getElementById('f-cp').value||'',
+          city: document.getElementById('f-cidade').value||'',
+          district: document.getElementById('f-distrito').value||''
+        }
       })
     });
     const data = await res.json();
