@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entregas e Portes — Viveiros da Gabrieira</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #2e5c2a;
+  --preto: #111110;
+  --cinza-escuro: #333331;
+  --cinza: #6b6b65;
+  --cinza-claro: #f5f4f1;
+  --border: #e5e3de;
+  --branco: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--branco); color: var(--preto); line-height: 1.7; }
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 4rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; color: var(--preto); font-size: 1.25rem; font-weight: 600; text-decoration: none; }
+.nav-back { color: var(--cinza); text-decoration: none; font-size: 0.85rem; }
+.nav-back:hover { color: var(--preto); }
+main { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3rem); font-weight: 600; margin-bottom: 0.5rem; }
+.updated { color: var(--cinza); font-size: 0.85rem; margin-bottom: 3rem; }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 0.8rem; color: var(--verde); }
+p, li { color: var(--cinza-escuro); font-size: 0.95rem; margin-bottom: 0.9rem; }
+ul { padding-left: 1.3rem; margin-bottom: 0.9rem; }
+strong { color: var(--preto); }
+a { color: var(--verde); }
+.hero-callout { background: var(--verde); color: #fff; border-radius: 12px; padding: 1.8rem 2rem; margin: 1.5rem 0 2.5rem; }
+.hero-callout h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.hero-callout p { color: rgba(255,255,255,0.9); margin-bottom: 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--border); }
+th { color: var(--preto); font-size: 0.75rem; letter-spacing: 0.5px; text-transform: uppercase; }
+td { color: var(--cinza-escuro); }
+footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--cinza); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Viveiros da Gabrieira</a>
+  <a href="index.html" class="nav-back">← Voltar ao site</a>
+</nav>
+
+<main>
+  <h1>Entregas e Portes</h1>
+  <p class="updated">Última atualização: 26 de agosto de 2026</p>
+
+  <div class="hero-callout">
+    <h3>📦 Despachamos todas as terças-feiras</h3>
+    <p>Encomendas feitas até <strong>segunda-feira às 14h</strong> entram no envio dessa mesma semana. Encomendas feitas depois desse horário entram no envio da semana seguinte. Depois do despacho, a entrega demora aproximadamente <strong>48 horas</strong>.</p>
+  </div>
+
+  <h2>Área de entrega</h2>
+  <p>As entregas são realizadas apenas para <strong>Portugal Continental</strong>. Não realizamos entregas para a Madeira ou os Açores neste momento.</p>
+
+  <h2>Prazo</h2>
+  <p>O prazo de entrega conta-se a partir do <strong>despacho</strong> (terça-feira), e não a partir da data da encomenda. Ou seja: se fizeres a tua encomenda numa quarta-feira, ela só sai no despacho da terça-feira seguinte, chegando cerca de 48h depois.</p>
+
+  <h2>Portes de envio</h2>
+  <table>
+    <tr><th>Quantidade</th><th>Custo (IVA incluído)</th></tr>
+    <tr><td>1 árvore</td><td>7€</td></tr>
+    <tr><td>2–3 árvores</td><td>10€</td></tr>
+    <tr><td>4–6 árvores</td><td>14€</td></tr>
+    <tr><td>7–10 árvores</td><td>18€</td></tr>
+    <tr><td>Mais de 10 árvores</td><td>Preço sob consulta — comunicado antes da conclusão da compra</td></tr>
+  </table>
+
+  <h2>Morada de entrega</h2>
+  <p>És responsável por indicares uma morada correta e apta para a entrega. Se não for possível entregar por morada incorreta ou ausência do destinatário, entraremos em contacto contigo — eventuais custos adicionais de reenvio serão sempre comunicados antes de te serem cobrados.</p>
+
+  <h2>Danos no transporte</h2>
+  <p>Se a tua encomenda chegar danificada, contacta-nos assim que possível, descrevendo o que aconteceu — fotografias ajudam bastante. Isto não te retira nenhum direito legalmente previsto.</p>
+
+  <h2>Atrasos</h2>
+  <p>Se sentires que a tua encomenda está a demorar mais do que o esperado, contacta-nos em <a href="mailto:viveirosdagabrieira@gmail.com">viveirosdagabrieira@gmail.com</a> ou pelo botão de WhatsApp no site.</p>
+</main>
+
+<footer>© 2026 Viveiros da Gabrieira — Ceira, Coimbra, Portugal</footer>
+
+</body>
+</html>
