@@ -596,7 +596,7 @@ const products = [
 
   { id:7,  cat:'pitaia',     name:'Pitaia Amarela',
     sci:'Selenicereus megalanthus',
-    price:15.00, tag:'novo',
+    price:15.00, tag:'novo', esgotado:true,
     chips:['Sem espinhos','Muito doce','Mais resistente ao frio','Colheita: Jul–Nov'],
     img:'https://i.postimg.cc/7LNmkhdg/6df62670-fcb2-42aa-a229-308394ebd878.png',
     desc:'Considerada a mais doce de todas as pitaias — casca amarela sem espinhos, polpa branca açucarada e muito sumarenta. Mais resistente ao frio que as variedades vermelhas, podendo ser cultivada até ao Centro litoral. Colheita de julho a novembro.' },
@@ -967,10 +967,10 @@ function renderProducts(list) {
     return;
   }
   document.getElementById('productGrid').innerHTML = list.map((p,i) => `
-    <div class="product-card" style="animation-delay:${(i%8)*0.06}s">
+    <div class="product-card" style="animation-delay:${(i%8)*0.06}s${p.esgotado ? ';opacity:0.65;' : ''}">
       <div class="product-img" style="cursor:pointer;" onclick="showProductModal(${p.id})">
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
-        ${p.tag === 'popular' ? `<div class="product-tag ${tagClasses[p.tag]}">${tagLabels[p.tag]}</div>` : ''}
+        <img src="${p.img}" alt="${p.name}" loading="lazy" style="${p.esgotado ? 'filter:grayscale(60%);' : ''}">
+        ${p.esgotado ? `<div class="product-tag" style="background:#6b6b65;color:#fff;">Esgotado</div>` : (p.tag === 'popular' ? `<div class="product-tag ${tagClasses[p.tag]}">${tagLabels[p.tag]}</div>` : '')}
       </div>
       <div class="product-body">
         <div class="product-cat">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
@@ -978,7 +978,9 @@ function renderProducts(list) {
         <div class="product-sci">${p.sci}</div>
         <div class="product-footer">
           <span class="product-price">${p.price.toFixed(2)}€</span>
-          <button class="add-to-cart" onclick="addToCart(${p.id})">+</button>
+          ${p.esgotado
+            ? `<button class="add-to-cart" disabled style="background:#ccc;cursor:not-allowed;" title="Esgotado">✕</button>`
+            : `<button class="add-to-cart" onclick="addToCart(${p.id})">+</button>`}
         </div>
       </div>
       ${p.desc ? `<div class="product-popup">
@@ -1011,6 +1013,7 @@ function applyFilters() {
 
 function addToCart(id) {
   const p = products.find(x => x.id === id);
+  if (p && p.esgotado) { showToast(`${p.name} está esgotado`); return; }
   const ex = cart.find(x => x.id === id);
   const totalActual = cart.reduce((s,i) => s + i.qty, 0);
   if (totalActual >= 10) { showToast('Máximo de 10 árvores por encomenda'); return; }
