@@ -431,7 +431,7 @@ footer a:hover { color: #fff; }
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 916 031 385<br><span style="font-size:0.72rem;color:var(--cinza);">Chamada para rede móvel nacional</span></div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
       <div class="loc-row"><span class="loc-icon">📦</span><div><div class="loc-label">Envios</div><div class="loc-val"><strong>Despachamos todas as terças-feiras.</strong> Encomendas feitas até segunda-feira às 14h entram no envio dessa semana; encomendas feitas depois entram na semana seguinte. Entrega em cerca de 48h após o despacho, apenas para Portugal Continental.</div></div></div>
-      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Portes</div><div class="loc-val">Calculados pelo peso: 1 árvore 7€, 2–3 árvores 10€, 4–6 árvores 14€, 7–10 árvores 18€ (IVA incluído).</div></div></div>
+      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Portes</div><div class="loc-val">Calculados pelo peso: 1 árvore 9€, 2–3 árvores 12€, 4–6 árvores 19€, 7–10 árvores 24€ (IVA incluído).</div></div></div>
        <div class="loc-row"><span class="loc-icon">📋</span><div><div class="loc-label">Envios</div><div class="loc-val">Encomendas superiores a 10 unidades, preço sob consulta.</div></div></div>
     </div>
     <div class="location-map">
@@ -663,6 +663,27 @@ const products = [
     chips:['Planta nativa portuguesa','Base do licor de medronho','Muito rústico','Colheita: Set–Nov'],
     img:'https://i.postimg.cc/sx4Y75pj/Chat-GPT-Image-24-08-2026-19-41-17.png',
     desc:'Arbusto ou pequena árvore nativa de Portugal, conhecida pelos frutos vermelhos e ásperos usados tradicionalmente na produção do licor de medronho. Planta muito resistente, adapta-se bem a solos pobres e zonas de sol pleno, e atrai pássaros e polinizadores. Colheita de setembro a novembro.' },
+
+  { id:59, cat:'laranjeira', name:'Kumquat',
+    sci:'Fortunella (Citrus japonica)',
+    price:25.00, tag:'novo',
+    chips:['Come-se com casca','Casca doce, polpa ácida','Muito resistente ao frio','Colheita: Nov–Fev'],
+    img:'https://i.postimg.cc/bYn2G31T/3797d6c3-e6f8-4f0f-a837-89434dcda948.png',
+    desc:'O mais pequeno dos citrinos — come-se inteiro, casca incluída, com um contraste curioso entre a casca doce e a polpa mais ácida. Planta muito compacta e decorativa, ótima para vaso, e mais resistente ao frio do que a maioria dos citrinos. Colheita de novembro a fevereiro.' },
+
+  { id:60, cat:'limoeiro', name:'Limão Caviar Amarelo',
+    sci:'Citrus australasica (var. amarela)',
+    price:23.00, tag:'novo',
+    chips:['Vesículas tipo caviar','Casca amarela','Ingrediente gourmet','Colheita: Out–Dez'],
+    img:'https://i.postimg.cc/65jwBNT4/Whats-App-Image-2026-09-01-at-20-16-44.jpg',
+    desc:'Variedade de limão caviar com casca amarela, escondendo pequenas vesículas que se soltam como pérolas de sumo cítrico ao abrir o fruto. Muito usada na alta gastronomia como ingrediente decorativo e aromático. Planta arbustiva, originária da Austrália. Colheita de outubro a dezembro.' },
+
+  { id:61, cat:'limoeiro', name:'Limão Caviar Rosa',
+    sci:'Citrus australasica (var. rosa)',
+    price:23.00, tag:'novo',
+    chips:['Vesículas cor-de-rosa','Casca corada','Ingrediente gourmet','Colheita: Out–Dez'],
+    img:'https://i.postimg.cc/VNMc9rg2/Whats-App-Image-2026-09-01-at-20-16-19.jpg',
+    desc:'Variedade de limão caviar com polpa em vesículas cor-de-rosa, um efeito visual muito procurado na alta gastronomia. Fruto alongado, casca com tons corados. Planta arbustiva, originária da Austrália, adapta-se bem a vaso em zonas protegidas. Colheita de outubro a dezembro.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
@@ -1043,10 +1064,10 @@ function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
 function shipping() {
   const total = cart.reduce((s,i) => s + i.qty, 0);
-  if (total <= 1) return 7;
-  if (total <= 3) return 10;
-  if (total <= 6) return 14;
-  return 18;
+  if (total <= 1) return 9;
+  if (total <= 3) return 12;
+  if (total <= 6) return 19;
+  return 24;
 }
 
 function updateCart() {
