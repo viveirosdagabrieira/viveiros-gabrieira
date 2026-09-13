@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viveiros da Gabrieira — Ceira, Coimbra</title>
+<title>Viveiros da Gabrieira | Plantas de Fruto, Citrinos e Limão Caviar — Ceira, Coimbra</title>
+<meta name="description" content="Viveiros da Gabrieira, em Ceira (Coimbra): plantas de fruto de qualidade — mirtilos, pitaias, maracujás, citrinos, limão caviar, kumquat e medronheiro. Compra online com envio para Portugal Continental.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://viveirosgabrieira.pt/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Viveiros da Gabrieira | Plantas de Fruto e Citrinos — Ceira, Coimbra">
+<meta property="og:description" content="Plantas de fruto de qualidade cultivadas em Ceira, Coimbra: mirtilos, pitaias, maracujás, citrinos, limão caviar, kumquat e medronheiro. Envio para Portugal Continental.">
+<meta property="og:url" content="https://viveirosgabrieira.pt/">
+<meta property="og:image" content="https://i.postimg.cc/NMfbfYv7/Chat-GPT-Image-21-07-2026-08-23-03.png">
+<meta property="og:locale" content="pt_PT">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://js.stripe.com/v3/"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f7456c3b0d77440d99937fe79820bf9e"}'></script><!-- End Cloudflare Web Analytics -->
@@ -333,6 +342,28 @@ footer a:hover { color: #fff; }
 .popup-chip { background: var(--verde-claro); color: var(--verde); font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 600; }
 @media (max-width: 900px) { .product-popup { display: none; } }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GardenStore",
+  "name": "Viveiros da Gabrieira",
+  "description": "Viveiro de plantas de fruto em Ceira, Coimbra. Produção própria há mais de 40 anos: mirtilos, pitaias, maracujás, citrinos, limão caviar, kumquat e medronheiro.",
+  "url": "https://viveirosgabrieira.pt/",
+  "telephone": "+351916031385",
+  "email": "viveirosdagabrieira@gmail.com",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua da Tapada, n.º 87",
+    "postalCode": "3030-901",
+    "addressLocality": "Ceira",
+    "addressRegion": "Coimbra",
+    "addressCountry": "PT"
+  },
+  "areaServed": "Portugal Continental",
+  "founder": "Mauro Pereira"
+}
+</script>
 </head>
 <body>
 
@@ -377,6 +408,9 @@ footer a:hover { color: #fff; }
     <div class="section-eyebrow">Catálogo</div>
     <h2 class="section-title">As nossas <em>plantas</em></h2>
   </div>
+  <p style="max-width:640px;margin:0 auto 2.5rem;text-align:center;color:var(--cinza);font-size:0.95rem;line-height:1.8;">
+    Nos Viveiros da Gabrieira encontras plantas de fruto cultivadas com acompanhamento técnico em Ceira, Coimbra — desde <strong>mirtilos</strong>, <strong>pitaias</strong> e <strong>maracujás</strong> a uma seleção de <strong>citrinos</strong>: laranjeiras, limoeiros, limas, <strong>limão caviar</strong> (amarelo e rosa), <strong>kumquat</strong> e ainda <strong>medronheiro</strong>. Todas as plantas são de produção própria e enviadas em vaso para Portugal Continental.
+  </p>
   <div class="search-wrap">
     <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar planta pelo nome..." oninput="applyFilters()">
   </div>
@@ -388,6 +422,7 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="limoeiro" onclick="filterCat('limoeiro',this)">Limoeiros</div>
     <div class="cat-pill" data-cat="laranjeira" onclick="filterCat('laranjeira',this)">Laranjeiras</div>
     <div class="cat-pill" data-cat="medronheiro" onclick="filterCat('medronheiro',this)">Medronheiros</div>
+    <div class="cat-pill" data-cat="macieira" onclick="filterCat('macieira',this)">Macieiras</div>
     <!-- Categorias novas (Clementinas, Tangerinas, Toranjas, Pessegueiros, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
@@ -684,6 +719,13 @@ const products = [
     chips:['Vesículas cor-de-rosa','Casca corada','Ingrediente gourmet','Colheita: Out–Dez'],
     img:'https://i.postimg.cc/VNMc9rg2/Whats-App-Image-2026-09-01-at-20-16-19.jpg',
     desc:'Variedade de limão caviar com polpa em vesículas cor-de-rosa, um efeito visual muito procurado na alta gastronomia. Fruto alongado, casca com tons corados. Planta arbustiva, originária da Austrália, adapta-se bem a vaso em zonas protegidas. Colheita de outubro a dezembro.' },
+
+  { id:62, cat:'macieira', name:'Macieira Red Love',
+    sci:'Malus domestica Red Love',
+    price:18.00, tag:'novo',
+    chips:['Polpa vermelha por dentro','Casca vermelha','Flor rosa decorativa','Colheita: Ago–Set'],
+    img:'https://i.postimg.cc/Z0tj8Rv1/Chat-GPT-Image-13-09-2026-12-50-50.png',
+    desc:'Variedade de maçã muito invulgar — a polpa é vermelha por dentro, não só a casca, mantendo a cor mesmo depois de cortada. Sabor equilibrado entre doce e ácido. Além do fruto, é uma árvore muito decorativa, com flor rosa intensa na primavera. Colheita de agosto a setembro.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
@@ -1294,6 +1336,37 @@ function renderSeasonAdvice() {
 renderSeasonAdvice();
 
 renderProducts(products);
+
+// Dados estruturados de produtos (Schema.org) para os motores de busca
+(function injectProductSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": products.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Product",
+        "name": p.name,
+        "description": p.desc || `${p.name} (${p.sci})`,
+        "image": p.img,
+        "category": p.cat,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": p.price.toFixed(2),
+          "availability": p.esgotado ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+          "url": "https://viveirosgabrieira.pt/#catalogo",
+          "seller": { "@type": "Organization", "name": "Viveiros da Gabrieira" }
+        }
+      }
+    }))
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(schema);
+  document.head.appendChild(s);
+})();
 </script>
 </body>
 </html>
