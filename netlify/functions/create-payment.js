@@ -48,6 +48,7 @@ exports.handler = async (event) => {
         customer_city: customer.city || '',
         customer_district: customer.district || '',
         items: JSON.stringify(items.map(i => `${i.name} x${i.qty}`)),
+        items_ids: JSON.stringify(items.map(i => ({ IdProduct: `VG${i.id}`, Qty: i.qty, Price: i.price }))),
         total_amount: amount,
       },
     });
