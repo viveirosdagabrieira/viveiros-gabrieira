@@ -423,7 +423,8 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="laranjeira" onclick="filterCat('laranjeira',this)">Laranjeiras</div>
     <div class="cat-pill" data-cat="medronheiro" onclick="filterCat('medronheiro',this)">Medronheiros</div>
     <div class="cat-pill" data-cat="macieira" onclick="filterCat('macieira',this)">Macieiras</div>
-    <!-- Categorias novas (Clementinas, Tangerinas, Toranjas, Pessegueiros, Ameixeiras)
+    <div class="cat-pill" data-cat="pessegueiro" onclick="filterCat('pessegueiro',this)">Pessegueiros</div>
+    <!-- Categorias novas (Clementinas, Tangerinas, Toranjas, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
   <div class="product-grid" id="productGrid"></div>
@@ -466,7 +467,7 @@ footer a:hover { color: #fff; }
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 916 031 385<br><span style="font-size:0.72rem;color:var(--cinza);">Chamada para rede móvel nacional</span></div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
       <div class="loc-row"><span class="loc-icon">📦</span><div><div class="loc-label">Envios</div><div class="loc-val"><strong>Despachamos todas as terças-feiras.</strong> Encomendas feitas até segunda-feira às 14h entram no envio dessa semana; encomendas feitas depois entram na semana seguinte. Entrega em cerca de 48h após o despacho, apenas para Portugal Continental.</div></div></div>
-      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Portes</div><div class="loc-val">Calculados pelo peso: 1 árvore 9€, 2–3 árvores 12€, 4–6 árvores 19€, 7–10 árvores 24€ (IVA incluído).</div></div></div>
+      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Portes</div><div class="loc-val">Até 5 plantas: 7€. De 6 a 10 plantas: 12€ (IVA incluído).</div></div></div>
        <div class="loc-row"><span class="loc-icon">📋</span><div><div class="loc-label">Envios</div><div class="loc-val">Encomendas superiores a 10 unidades, preço sob consulta.</div></div></div>
     </div>
     <div class="location-map">
@@ -740,6 +741,69 @@ const products = [
     chips:['Muito doce e crocante','Boa conservação','Casca corada','Colheita: Out–Nov'],
     img:'https://i.postimg.cc/k5snLRnt/8d102e3a-6413-4af1-a396-0aaf54946713.png',
     desc:'Uma das maçãs mais populares do mundo — polpa firme e muito crocante, extremamente doce e sumarenta. Conserva-se muito bem depois de colhida. Casca corada entre o amarelo e o vermelho. Colheita de outubro a novembro.' },
+
+  { id:38, cat:'pessegueiro', name:'Pessegueiro Catarino',
+    sci:'Prunus persica Catarino',
+    price:11.00, tag:null,
+    chips:['Variedade tradicional portuguesa','Polpa branca','Muito doce','Colheita: Mai–Jun'],
+    img:'https://i.postimg.cc/8Ph8pCr4/0330dd2c-c212-49a8-b4eb-a69864619e57.png',
+    desc:'Pêssego tradicional português, de polpa branca doce e aromática. Colheita precoce, entre os primeiros pêssegos da época. Variedade rústica, bem adaptada ao clima nacional. Colheita de maio a junho.' },
+
+  { id:42, cat:'pessegueiro', name:'Pessegueiro May Crest',
+    sci:'Prunus persica May Crest',
+    price:11.00, tag:'novo',
+    chips:['Uma das mais precoces','Casca corada','Polpa amarela firme','Colheita: Maio'],
+    img:'https://i.postimg.cc/65VSs1Dg/2df4f1c3-19a1-4b33-a59d-3ebe683aab86.png',
+    desc:'Uma das variedades mais precoces do pessegueiro, com fruto de casca corada e polpa amarela firme, pronta logo no início da época. Colheita em maio.' },
+
+  { id:43, cat:'pessegueiro', name:'Pêssego Paraguay',
+    sci:'Prunus persica var. platycarpa',
+    price:11.00, tag:null,
+    chips:['Forma achatada (donut)','Muito doce','Baixa acidez','Colheita: Jul–Ago'],
+    img:'https://i.postimg.cc/ZqHD9BTv/Pessegos-Saturno-sobre-madeira-rustica.png',
+    desc:'O conhecido "pêssego donut" — fruto achatado e muito característico, de polpa branca, doce e com baixa acidez. Muito popular pela forma invulgar e sabor suave. Colheita de julho a agosto.' },
+
+  { id:37, cat:'pessegueiro', name:'Pessegueiro Baby Gold 9',
+    sci:'Prunus persica Baby Gold 9',
+    price:11.00, tag:null,
+    chips:['Polpa amarela','Ótimo para compota','Muito produtivo','Colheita: Ago–Set'],
+    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    desc:'Variedade tardia de polpa amarela firme, muito usada para compota e conserva, mas também saborosa em fresco. Árvore vigorosa e muito produtiva. Colheita de agosto a setembro.' },
+
+  { id:39, cat:'pessegueiro', name:'Pessegueiro Florida',
+    sci:'Prunus persica Florida',
+    price:11.00, tag:'novo',
+    chips:['Baixa necessidade de frio','Muito precoce','Polpa amarela','Colheita: Abr–Mai'],
+    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    desc:'Variedade de baixa necessidade de frio invernal, ideal para zonas de inverno mais ameno. Fruto de polpa amarela, colhido muito cedo na época. Colheita de abril a maio.' },
+
+  { id:40, cat:'pessegueiro', name:'Pessegueiro Maracotão Rosa',
+    sci:'Prunus persica (maracotão)',
+    price:11.00, tag:null,
+    chips:['Polpa firme e rosada','Muito sumarento','Casca aveludada','Colheita: Jul–Ago'],
+    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    desc:'O clássico maracotão português — fruto grande, de polpa firme e rosada, muito sumarento e aromático. Muito apreciado para consumo fresco em pleno verão. Colheita de julho a agosto.' },
+
+  { id:41, cat:'pessegueiro', name:'Pessegueiro Merril Carnival',
+    sci:'Prunus persica Merril Carnival',
+    price:11.00, tag:null,
+    chips:['Casca listada','Polpa amarela','Sabor equilibrado','Colheita: Jun–Jul'],
+    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    desc:'Fruto de casca vermelha listada e polpa amarela, com um bom equilíbrio entre doçura e acidez. Variedade de meia-estação, muito cultivada em climas mediterrânicos. Colheita de junho a julho.' },
+
+  { id:44, cat:'pessegueiro', name:'Pessegueiro Preto Carnudo',
+    sci:'Prunus persica (preto carnudo)',
+    price:11.00, tag:null,
+    chips:['Casca vermelho-escura','Polpa firme e carnuda','Muito aromático','Colheita: Ago–Set'],
+    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    desc:'Variedade tardia de casca vermelho-escura e polpa firme e carnuda, muito aromática. Boa conservação após a colheita. Colheita de agosto a setembro.' },
+
+  { id:45, cat:'pessegueiro', name:'Pessegueiro Spring Crest',
+    sci:'Prunus persica Spring Crest',
+    price:11.00, tag:null,
+    chips:['Variedade precoce','Casca vermelha','Boa firmeza','Colheita: Mai–Jun'],
+    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    desc:'Variedade precoce de casca vermelha intensa e polpa amarela firme, uma das primeiras a estar pronta na época dos pêssegos. Colheita de maio a junho.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
@@ -871,69 +935,6 @@ const futureProducts = [
     chips:['Polpa vermelha intensa','Sem grainha','Menos amarga','Colheita: Dez–Fev'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Uma das toranjas mais populares do mundo — polpa vermelho-intensa, sem grainha, e menos amarga do que outras variedades. Muito rica em antioxidantes. Colheita de dezembro a fevereiro.' },
-
-  { id:37, cat:'pessegueiro', name:'Pessegueiro Baby Gold 9',
-    sci:'Prunus persica Baby Gold 9',
-    price:19.90, tag:null,
-    chips:['Polpa amarela','Ótimo para compota','Muito produtivo','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade tardia de polpa amarela firme, muito usada para compota e conserva, mas também saborosa em fresco. Árvore vigorosa e muito produtiva. Colheita de agosto a setembro.' },
-
-  { id:38, cat:'pessegueiro', name:'Pessegueiro Catarino',
-    sci:'Prunus persica Catarino',
-    price:18.90, tag:null,
-    chips:['Variedade tradicional portuguesa','Polpa branca','Muito doce','Colheita: Mai–Jun'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Pêssego tradicional português, de polpa branca doce e aromática. Colheita precoce, entre os primeiros pêssegos da época. Variedade rústica, bem adaptada ao clima nacional. Colheita de maio a junho.' },
-
-  { id:39, cat:'pessegueiro', name:'Pessegueiro Florida',
-    sci:'Prunus persica Florida',
-    price:18.90, tag:'novo',
-    chips:['Baixa necessidade de frio','Muito precoce','Polpa amarela','Colheita: Abr–Mai'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade de baixa necessidade de frio invernal, ideal para zonas de inverno mais ameno. Fruto de polpa amarela, colhido muito cedo na época. Colheita de abril a maio.' },
-
-  { id:40, cat:'pessegueiro', name:'Pessegueiro Maracotão Rosa',
-    sci:'Prunus persica (maracotão)',
-    price:20.90, tag:null,
-    chips:['Polpa firme e rosada','Muito sumarento','Casca aveludada','Colheita: Jul–Ago'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'O clássico maracotão português — fruto grande, de polpa firme e rosada, muito sumarento e aromático. Muito apreciado para consumo fresco em pleno verão. Colheita de julho a agosto.' },
-
-  { id:41, cat:'pessegueiro', name:'Pessegueiro Merril Carnival',
-    sci:'Prunus persica Merril Carnival',
-    price:19.90, tag:null,
-    chips:['Casca listada','Polpa amarela','Sabor equilibrado','Colheita: Jun–Jul'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Fruto de casca vermelha listada e polpa amarela, com um bom equilíbrio entre doçura e acidez. Variedade de meia-estação, muito cultivada em climas mediterrânicos. Colheita de junho a julho.' },
-
-  { id:42, cat:'pessegueiro', name:'Pessegueiro May Crest',
-    sci:'Prunus persica May Crest',
-    price:19.90, tag:'novo',
-    chips:['Uma das mais precoces','Casca corada','Polpa amarela firme','Colheita: Maio'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Uma das variedades mais precoces do pessegueiro, com fruto de casca corada e polpa amarela firme, pronta logo no início da época. Colheita em maio.' },
-
-  { id:43, cat:'pessegueiro', name:'Pêssego Paraguay',
-    sci:'Prunus persica var. platycarpa',
-    price:21.90, tag:null,
-    chips:['Forma achatada (donut)','Muito doce','Baixa acidez','Colheita: Jul–Ago'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'O conhecido "pêssego donut" — fruto achatado e muito característico, de polpa branca, doce e com baixa acidez. Muito popular pela forma invulgar e sabor suave. Colheita de julho a agosto.' },
-
-  { id:44, cat:'pessegueiro', name:'Pessegueiro Preto Carnudo',
-    sci:'Prunus persica (preto carnudo)',
-    price:20.90, tag:null,
-    chips:['Casca vermelho-escura','Polpa firme e carnuda','Muito aromático','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade tardia de casca vermelho-escura e polpa firme e carnuda, muito aromática. Boa conservação após a colheita. Colheita de agosto a setembro.' },
-
-  { id:45, cat:'pessegueiro', name:'Pessegueiro Spring Crest',
-    sci:'Prunus persica Spring Crest',
-    price:19.90, tag:null,
-    chips:['Variedade precoce','Casca vermelha','Boa firmeza','Colheita: Mai–Jun'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade precoce de casca vermelha intensa e polpa amarela firme, uma das primeiras a estar pronta na época dos pêssegos. Colheita de maio a junho.' },
 
   { id:46, cat:'ameixeira', name:'Ameixeira Black Diamond',
     sci:'Prunus salicina Black Diamond',
@@ -1120,10 +1121,8 @@ function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
 function shipping() {
   const total = cart.reduce((s,i) => s + i.qty, 0);
-  if (total <= 1) return 9;
-  if (total <= 3) return 12;
-  if (total <= 6) return 19;
-  return 24;
+  if (total <= 5) return 7;
+  return 12;
 }
 
 function updateCart() {
