@@ -424,6 +424,7 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="medronheiro" onclick="filterCat('medronheiro',this)">Medronheiros</div>
     <div class="cat-pill" data-cat="macieira" onclick="filterCat('macieira',this)">Macieiras</div>
     <div class="cat-pill" data-cat="pessegueiro" onclick="filterCat('pessegueiro',this)">Pessegueiros</div>
+    <div class="cat-pill" data-cat="tropical" onclick="filterCat('tropical',this)">Tropicais</div>
     <!-- Categorias novas (Clementinas, Tangerinas, Toranjas, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
@@ -665,6 +666,13 @@ const products = [
     img:'https://i.postimg.cc/W3bSbjch/Chat-GPT-Image-21-07-2026-08-07-26.png',
     desc:'A lima mais cultivada no mundo — fruto verde, sem grainha, muito sumarento e aromático. Indispensável em cocktails, culinária e bebidas. Sensível a geadas — ideal para zonas litorais mais quentes e protegidas. Colheita principal de outubro a março. Excelente para vaso em terraços protegidos.' },
 
+  { id:23, cat:'limoeiro',   name:'Lima Kaffir',
+    sci:'Citrus hystrix',
+    price:19.00, tag:'novo',
+    chips:['Folhas muito aromáticas','Casca rugosa','Usada na cozinha asiática','Colheita: Set–Dez'],
+    img:'https://i.postimg.cc/25TSq7RD/996d4944-5ad2-441a-b90b-534c4673d742.png',
+    desc:'Conhecida principalmente pelas folhas muito aromáticas, essenciais na cozinha tailandesa e asiática. O fruto tem casca rugosa e verde-escura, usado mais pelo aroma da casca do que pelo sumo. Planta compacta, adapta-se bem a vaso. Colheita de setembro a dezembro.' },
+
   { id:14, cat:'laranjeira', name:'Laranjeira Navelina',
     sci:'Citrus sinensis Navelina',
     price:15.00, tag:null,
@@ -692,6 +700,13 @@ const products = [
     chips:['Casca fina','Alto teor de sumo','Colheita: Abr–Jun','Variedade portuguesa'],
     img:'https://i.postimg.cc/nLqjy3Vn/e4d3895c-6263-47a3-9bf1-74c2879a1ca3.png',
     desc:'Variedade portuguesa tradicional, muito semelhante à Valencia Late mas com fruto mais pequeno e arredondado. Casca fina e fácil de descascar, alto teor de sumo e sabor muito doce. Conserva-se melhor na árvore sem secar. Colheita de abril a junho. Cultivada principalmente no Algarve.' },
+
+  { id:20, cat:'laranjeira', name:'Laranjeira Sanguínea',
+    sci:'Citrus sinensis (sanguínea)',
+    price:19.00, tag:null,
+    chips:['Polpa vermelha','Sabor a frutos vermelhos','Rica em antocianinas','Colheita: Jan–Mar'],
+    img:'https://i.postimg.cc/xTKJfHdp/cc33e9d0-ba5d-4a37-b8e1-4d88c132e00f.png',
+    desc:'Laranja-sanguínea de polpa vermelho-escura, com um sabor intenso que lembra frutos vermelhos. A cor desenvolve-se melhor com noites frias de inverno. Muito apreciada para sumo e sobremesas. Colheita de janeiro a março.' },
 
   { id:58, cat:'medronheiro', name:'Medronheiro',
     sci:'Arbutus unedo',
@@ -804,6 +819,13 @@ const products = [
     chips:['Variedade precoce','Casca vermelha','Boa firmeza','Colheita: Mai–Jun'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Variedade precoce de casca vermelha intensa e polpa amarela firme, uma das primeiras a estar pronta na época dos pêssegos. Colheita de maio a junho.' },
+
+  { id:65, cat:'tropical', name:'Goiabeira',
+    sci:'Psidium guajava',
+    price:18.50, tag:'novo',
+    chips:['Fruto muito aromático','Rico em vitamina C','Produtiva','Colheita: Set–Dez'],
+    img:'https://i.postimg.cc/TYCxJYNp/e141e169-3d1a-4409-8acb-770e0fc780a0.png',
+    desc:'Árvore tropical de fruto muito aromático e doce, rico em vitamina C. Planta vigorosa e produtiva, adapta-se bem a vaso e jardim em zonas de inverno ameno. Prefere locais ensolarados e protegidos de geadas. Colheita de setembro a dezembro.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
@@ -824,26 +846,12 @@ const futureProducts = [
     img:'https://www.atocentro.pt/wp-content/uploads/2025/11/Laranja-Morango-367.png',
     desc:'Variedade curiosa de polpa e sumo com tons avermelhados, e um aroma frutado que lembra morango. Casca fina, muito sumarenta. Prefere zonas de inverno ameno, como o Algarve e o litoral Centro. Colheita de dezembro a março.' },
 
-  { id:20, cat:'laranjeira', name:'Laranjeira Sanguínea',
-    sci:'Citrus sinensis (sanguínea)',
-    price:15.00, tag:null,
-    chips:['Polpa vermelha','Sabor a frutos vermelhos','Rica em antocianinas','Colheita: Jan–Mar'],
-    img:'https://www.atocentro.pt/wp-content/uploads/2025/03/14.png',
-    desc:'Laranja-sanguínea de polpa vermelho-escura, com um sabor intenso que lembra frutos vermelhos. A cor desenvolve-se melhor com noites frias de inverno. Muito apreciada para sumo e sobremesas. Colheita de janeiro a março.' },
-
   { id:21, cat:'laranjeira', name:'Laranjeira Valência Late',
     sci:'Citrus sinensis Valencia Late',
     price:15.00, tag:null,
     chips:['Sem grainha','Muito sumarenta','A mais tardia para sumo','Colheita: Abr–Jul'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'A laranja de sumo mais cultivada no mundo — casca fina, praticamente sem grainha, e um equilíbrio perfeito entre doçura e acidez. Colheita muito tardia, prolongando a época de laranjas frescas até ao verão. Adapta-se bem a todo o território de clima mediterrânico. Colheita de abril a julho.' },
-
-  { id:23, cat:'limoeiro', name:'Lima Kaffir',
-    sci:'Citrus hystrix',
-    price:15.00, tag:'novo',
-    chips:['Folhas muito aromáticas','Casca rugosa','Usada na cozinha asiática','Colheita: Set–Dez'],
-    img:'https://www.atocentro.pt/wp-content/uploads/2023/06/77777777777.png',
-    desc:'Conhecida principalmente pelas folhas muito aromáticas, essenciais na cozinha tailandesa e asiática. O fruto tem casca rugosa e verde-escura, usado mais pelo aroma da casca do que pelo sumo. Planta compacta, adapta-se bem a vaso. Colheita de setembro a dezembro.' },
 
   { id:24, cat:'limoeiro', name:'Limão Caviar',
     sci:'Citrus australasica',
@@ -1216,6 +1224,7 @@ async function initStripeElement() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         amount: total,
+        shipping: shipping().toFixed(2),
         items: cart.map(i => ({ id: i.id, name: i.name, qty: i.qty, price: i.price })),
         customer: {
           name: nome + ' ' + (document.getElementById('f-apelido').value||''),
