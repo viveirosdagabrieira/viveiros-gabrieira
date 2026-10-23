@@ -419,13 +419,16 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="mirtilo" onclick="filterCat('mirtilo',this)">Mirtilos</div>
     <div class="cat-pill" data-cat="pitaia" onclick="filterCat('pitaia',this)">Pitaias</div>
     <div class="cat-pill" data-cat="maracuja" onclick="filterCat('maracuja',this)">Maracujás</div>
-    <div class="cat-pill" data-cat="limoeiro" onclick="filterCat('limoeiro',this)">Limoeiros</div>
-    <div class="cat-pill" data-cat="laranjeira" onclick="filterCat('laranjeira',this)">Laranjeiras</div>
+    <div class="cat-pill" data-cat="citrino" onclick="filterCat('citrino',this)">Citrinos</div>
     <div class="cat-pill" data-cat="medronheiro" onclick="filterCat('medronheiro',this)">Medronheiros</div>
     <div class="cat-pill" data-cat="macieira" onclick="filterCat('macieira',this)">Macieiras</div>
     <div class="cat-pill" data-cat="pessegueiro" onclick="filterCat('pessegueiro',this)">Pessegueiros</div>
     <div class="cat-pill" data-cat="tropical" onclick="filterCat('tropical',this)">Tropicais</div>
-    <!-- Categorias novas (Clementinas, Tangerinas, Toranjas, Ameixeiras)
+    <div class="cat-pill" data-cat="diospireiro" onclick="filterCat('diospireiro',this)">Diospireiros</div>
+    <div class="cat-pill" data-cat="damasqueiro" onclick="filterCat('damasqueiro',this)">Damasqueiros</div>
+    <div class="cat-pill" data-cat="romazeira" onclick="filterCat('romazeira',this)">Romãzeiras</div>
+    <div class="cat-pill" data-cat="nespereira" onclick="filterCat('nespereira',this)">Nespereiras</div>
+    <!-- Categorias novas (Tangerinas, Toranjas, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
   <div class="product-grid" id="productGrid"></div>
@@ -652,61 +655,103 @@ const products = [
     img:'https://i.postimg.cc/1zKJQX2G/Chat-GPT-Image-21-07-2026-08-13-41.png',
     desc:'Variedade tropical de grande produtividade — fruto maior que o roxo, com polpa muito abundante e sabor intenso. Precisa de calor e não tolera geadas — ideal para o Sul de Portugal e litoral Centro/Alentejo. Requer polinização cruzada (plantar duas plantas). Colheita de julho a outubro.' },
 
-  { id:11, cat:'limoeiro',   name:'Limoeiro Eureka',
+  { id:11, cat:'citrino',   name:'Limoeiro Eureka',
     sci:'Citrus limon Eureka',
     price:15.00, tag:null,
     chips:['Sem grainha','Casca fina','Produção todo o ano','Colheita: Dez–Set'],
     img:'https://i.postimg.cc/gJk4kdb4/Chat-GPT-Image-21-07-2026-08-24-20.png',
     desc:'Um dos limoeiros mais produtivos — fruto médio, casca fina, muito sumo ácido e praticamente sem grainha. Produção quase contínua ao longo do ano, com pico no inverno e primavera. Adapta-se bem a vaso e jardim. Prefere sol pleno e clima temperado ou mediterrânico — Algarve, Alentejo, Ribatejo e Oeste.' },
 
-  { id:13, cat:'limoeiro',   name:'Lima Bears',
+  { id:13, cat:'citrino',   name:'Lima Bears',
     sci:'Citrus latifolia',
     price:15.00, tag:'novo',
     chips:['Sem grainha','Muito sumarenta','Colheita: Out–Mar','Zona litoral'],
     img:'https://i.postimg.cc/W3bSbjch/Chat-GPT-Image-21-07-2026-08-07-26.png',
     desc:'A lima mais cultivada no mundo — fruto verde, sem grainha, muito sumarento e aromático. Indispensável em cocktails, culinária e bebidas. Sensível a geadas — ideal para zonas litorais mais quentes e protegidas. Colheita principal de outubro a março. Excelente para vaso em terraços protegidos.' },
 
-  { id:23, cat:'limoeiro',   name:'Lima Kaffir',
+  { id:23, cat:'citrino',   name:'Lima Kaffir',
     sci:'Citrus hystrix',
     price:19.00, tag:'novo',
     chips:['Folhas muito aromáticas','Casca rugosa','Usada na cozinha asiática','Colheita: Set–Dez'],
     img:'https://i.postimg.cc/25TSq7RD/996d4944-5ad2-441a-b90b-534c4673d742.png',
     desc:'Conhecida principalmente pelas folhas muito aromáticas, essenciais na cozinha tailandesa e asiática. O fruto tem casca rugosa e verde-escura, usado mais pelo aroma da casca do que pelo sumo. Planta compacta, adapta-se bem a vaso. Colheita de setembro a dezembro.' },
 
-  { id:14, cat:'laranjeira', name:'Laranjeira Navelina',
+  { id:14, cat:'citrino', name:'Laranjeira Navelina',
     sci:'Citrus sinensis Navelina',
     price:15.00, tag:null,
     chips:['Sem grainha','Muito doce','Colheita: Out–Jan','Algarve ao Centro'],
     img:'https://i.postimg.cc/sfmvH8jL/Chat-GPT-Image-21-07-2026-19-52-39.png',
     desc:'A mais precoce das laranjas — fruto sem grainha, muito doce e sumarento, com casca de cor intensa. Colheita a partir de outubro, prolongando-se até janeiro. Das variedades mais apreciadas em Portugal. Adapta-se bem do Algarve ao Centro litoral. Prefere sol pleno e protecção de geadas fortes.' },
 
-  { id:15, cat:'laranjeira', name:'Laranjeira New Hall',
+  { id:15, cat:'citrino', name:'Laranjeira New Hall',
     sci:'Citrus sinensis New Hall',
     price:15.00, tag:null,
     chips:['Sem grainha','Meia-estação','Colheita: Nov–Jan','Algarve ao Ribatejo'],
     img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png',
     desc:'Variedade de meia-estação, muito semelhante à Navelina mas ligeiramente mais tardia. Fruto de grande calibre, sem grainha e com excelente sabor doce e sumarento. Colheita de novembro a janeiro. Muito cultivada no Algarve e Ribatejo. Boa alternativa para prolongar a época após a Navelina.' },
 
-  { id:16, cat:'laranjeira', name:'Laranjeira Lane Late',
+  { id:16, cat:'citrino', name:'Laranjeira Lane Late',
     sci:'Citrus sinensis Lane Late',
     price:15.00, tag:null,
     chips:['Sem grainha','Tardia','Colheita: Mar–Mai','Algarve e Alentejo'],
     img:'https://i.postimg.cc/2SmLG5yy/6df62670-fcb2-42aa-a229-308394ebd877.png',
     desc:'A mais tardia das laranjas — permite ter fruta fresca na árvore de março a maio, quando todas as outras variedades já terminaram. Fruto sem grainha, muito doce e sumarento. Muito cultivada no Algarve. Ideal para quem quer prolongar a colheita até à primavera.' },
 
-  { id:17, cat:'laranjeira', name:'Laranjeira Dom João',
+  { id:17, cat:'citrino', name:'Laranjeira Dom João',
     sci:'Citrus sinensis Dom João',
     price:15.00, tag:'bio',
     chips:['Casca fina','Alto teor de sumo','Colheita: Abr–Jun','Variedade portuguesa'],
     img:'https://i.postimg.cc/nLqjy3Vn/e4d3895c-6263-47a3-9bf1-74c2879a1ca3.png',
     desc:'Variedade portuguesa tradicional, muito semelhante à Valencia Late mas com fruto mais pequeno e arredondado. Casca fina e fácil de descascar, alto teor de sumo e sabor muito doce. Conserva-se melhor na árvore sem secar. Colheita de abril a junho. Cultivada principalmente no Algarve.' },
 
-  { id:20, cat:'laranjeira', name:'Laranjeira Sanguínea',
+  { id:20, cat:'citrino', name:'Laranjeira Sanguínea',
     sci:'Citrus sinensis (sanguínea)',
     price:19.00, tag:null,
     chips:['Polpa vermelha','Sabor a frutos vermelhos','Rica em antocianinas','Colheita: Jan–Mar'],
     img:'https://i.postimg.cc/xTKJfHdp/cc33e9d0-ba5d-4a37-b8e1-4d88c132e00f.png',
     desc:'Laranja-sanguínea de polpa vermelho-escura, com um sabor intenso que lembra frutos vermelhos. A cor desenvolve-se melhor com noites frias de inverno. Muito apreciada para sumo e sobremesas. Colheita de janeiro a março.' },
+
+  { id:30, cat:'citrino', name:'Clementina Fina',
+    sci:'Citrus clementina',
+    price:15.00, tag:null,
+    chips:['Sem grainha','Fácil de descascar','Muito doce','Colheita: Nov–Dez'],
+    img:'https://i.postimg.cc/gJgHFZvz/225f0c77-aaac-4d92-9ebb-e0fea862d218.jpg',
+    desc:'A clementina clássica — pequena, sem grainha, doce e muito fácil de descascar. Variedade precoce, uma das primeiras a estar pronta na época dos citrinos de inverno. Colheita de novembro a dezembro.' },
+
+  { id:31, cat:'citrino', name:'Clementina Nova',
+    sci:'Citrus clementina Nova',
+    price:15.00, tag:null,
+    chips:['Sem grainha','Colheita mais tardia','Muito sumarenta','Colheita: Dez–Fev'],
+    img:'https://i.postimg.cc/PfFQS1fT/Clementina-382.png',
+    desc:'Semelhante à Clementina Fina, mas de colheita mais tardia, prolongando a época das clementinas até ao final do inverno. Fruto sem grainha, muito sumarento e doce. Colheita de dezembro a fevereiro.' },
+
+  { id:66, cat:'citrino', name:'Tangerineira Encore',
+    sci:'Citrus reticulata Encore',
+    price:15.00, tag:'novo',
+    chips:['Colheita muito tardia','Sem grainha','Muito sumarenta','Colheita: Mar–Mai'],
+    img:'https://i.postimg.cc/90tRH53P/f026b174-bdcc-4467-97ec-68a2c6230ee9.jpg',
+    desc:'Variedade de tangerina de colheita excecionalmente tardia, prolongando a época dos citrinos até à primavera, quando já não há praticamente mais nenhuma a colher. Fruto sem grainha, de casca fácil de descascar e sabor doce e sumarento. Colheita de março a maio.' },
+
+  { id:78, cat:'citrino', name:'Tangerineira Tangera',
+    sci:'Citrus reticulata Tangera',
+    price:15.00, tag:'novo',
+    chips:['Sem grainha','Casca fácil de descascar','Muito sumarenta','Colheita: Nov–Jan'],
+    img:'https://i.postimg.cc/k5vpGwrX/54fabd81-e9ab-4396-9d9d-6d5fbbabeab7.jpg',
+    desc:'Tangerina de casca fácil de descascar, sem grainha, com polpa doce e muito sumarenta. Árvore produtiva e bem adaptada ao clima português. Colheita de novembro a janeiro.' },
+
+  { id:34, cat:'citrino', name:'Tangerina Setubalense',
+    sci:'Citrus reticulata Setubalense',
+    price:15.00, tag:null,
+    chips:['Origem na região de Setúbal','Sabor tradicional','Boa produtividade','Colheita: Nov–Jan'],
+    img:'https://i.postimg.cc/gc1FfSGG/25834ae0-4fc0-4491-b73c-5ff80d20e5ab.jpg',
+    desc:'Variedade antiga, originária da região de Setúbal, uma das zonas historicamente mais associadas à produção de tangerinas em Portugal. Sabor tradicional e boa produtividade. Colheita de novembro a janeiro.' },
+
+  { id:36, cat:'citrino', name:'Toranja Star Ruby',
+    sci:'Citrus paradisi Star Ruby',
+    price:15.00, tag:null,
+    chips:['Polpa vermelha intensa','Sem grainha','Menos amarga','Colheita: Dez–Fev'],
+    img:'https://i.postimg.cc/SxTGv5pX/9235bb3f-8e17-423b-ba3f-9c01cdf84eb1.jpg',
+    desc:'Uma das toranjas mais populares do mundo — polpa vermelho-intensa, sem grainha, e menos amarga do que outras variedades. Muito rica em antioxidantes. Colheita de dezembro a fevereiro.' },
 
   { id:58, cat:'medronheiro', name:'Medronheiro',
     sci:'Arbutus unedo',
@@ -715,21 +760,21 @@ const products = [
     img:'https://i.postimg.cc/sx4Y75pj/Chat-GPT-Image-24-08-2026-19-41-17.png',
     desc:'Arbusto ou pequena árvore nativa de Portugal, conhecida pelos frutos vermelhos e ásperos usados tradicionalmente na produção do licor de medronho. Planta muito resistente, adapta-se bem a solos pobres e zonas de sol pleno, e atrai pássaros e polinizadores. Colheita de setembro a novembro.' },
 
-  { id:59, cat:'laranjeira', name:'Kumquat',
+  { id:59, cat:'citrino', name:'Kumquat',
     sci:'Fortunella (Citrus japonica)',
     price:25.00, tag:'novo',
     chips:['Come-se com casca','Casca doce, polpa ácida','Muito resistente ao frio','Colheita: Nov–Fev'],
     img:'https://i.postimg.cc/bYn2G31T/3797d6c3-e6f8-4f0f-a837-89434dcda948.png',
     desc:'O mais pequeno dos citrinos — come-se inteiro, casca incluída, com um contraste curioso entre a casca doce e a polpa mais ácida. Planta muito compacta e decorativa, ótima para vaso, e mais resistente ao frio do que a maioria dos citrinos. Colheita de novembro a fevereiro.' },
 
-  { id:60, cat:'limoeiro', name:'Limão Caviar Amarelo',
+  { id:60, cat:'citrino', name:'Limão Caviar Amarelo',
     sci:'Citrus australasica (var. amarela)',
     price:23.00, tag:'novo',
     chips:['Vesículas tipo caviar','Casca amarela','Ingrediente gourmet','Colheita: Out–Dez'],
     img:'https://i.postimg.cc/65jwBNT4/Whats-App-Image-2026-09-01-at-20-16-44.jpg',
     desc:'Variedade de limão caviar com casca amarela, escondendo pequenas vesículas que se soltam como pérolas de sumo cítrico ao abrir o fruto. Muito usada na alta gastronomia como ingrediente decorativo e aromático. Planta arbustiva, originária da Austrália. Colheita de outubro a dezembro.' },
 
-  { id:61, cat:'limoeiro', name:'Limão Caviar Rosa',
+  { id:61, cat:'citrino', name:'Limão Caviar Rosa',
     sci:'Citrus australasica (var. rosa)',
     price:23.00, tag:'novo',
     chips:['Vesículas cor-de-rosa','Casca corada','Ingrediente gourmet','Colheita: Out–Dez'],
@@ -778,13 +823,6 @@ const products = [
     img:'https://i.postimg.cc/ZqHD9BTv/Pessegos-Saturno-sobre-madeira-rustica.png',
     desc:'O conhecido "pêssego donut" — fruto achatado e muito característico, de polpa branca, doce e com baixa acidez. Muito popular pela forma invulgar e sabor suave. Colheita de julho a agosto.' },
 
-  { id:37, cat:'pessegueiro', name:'Pessegueiro Baby Gold 9',
-    sci:'Prunus persica Baby Gold 9',
-    price:11.00, tag:null,
-    chips:['Polpa amarela','Ótimo para compota','Muito produtivo','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade tardia de polpa amarela firme, muito usada para compota e conserva, mas também saborosa em fresco. Árvore vigorosa e muito produtiva. Colheita de agosto a setembro.' },
-
   { id:39, cat:'pessegueiro', name:'Pessegueiro Florida',
     sci:'Prunus persica Florida',
     price:11.00, tag:'novo',
@@ -810,7 +848,7 @@ const products = [
     sci:'Prunus persica (preto carnudo)',
     price:11.00, tag:null,
     chips:['Casca vermelho-escura','Polpa firme e carnuda','Muito aromático','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/VktrBCvB/731b89a4-e492-4da0-93f9-294eb03db8ad.jpg',
     desc:'Variedade tardia de casca vermelho-escura e polpa firme e carnuda, muito aromática. Boa conservação após a colheita. Colheita de agosto a setembro.' },
 
   { id:45, cat:'pessegueiro', name:'Pessegueiro Spring Crest',
@@ -826,90 +864,161 @@ const products = [
     chips:['Fruto muito aromático','Rico em vitamina C','Produtiva','Colheita: Set–Dez'],
     img:'https://i.postimg.cc/TYCxJYNp/e141e169-3d1a-4409-8acb-770e0fc780a0.png',
     desc:'Árvore tropical de fruto muito aromático e doce, rico em vitamina C. Planta vigorosa e produtiva, adapta-se bem a vaso e jardim em zonas de inverno ameno. Prefere locais ensolarados e protegidos de geadas. Colheita de setembro a dezembro.' },
+
+  { id:67, cat:'diospireiro', name:'Dióspiro Coroa de Rei',
+    sci:'Diospyros kaki',
+    price:15.00, tag:'novo',
+    chips:['Polpa crocante','Pode comer-se duro','Muito produtivo','Colheita: Out–Dez'],
+    img:'https://i.postimg.cc/26CN9Pw6/7a1072e6-fdf8-49e0-8427-d0914940d15a.jpg',
+    desc:'Variedade de dióspiro de polpa firme e crocante, que se come ainda duro, sem a adstringência das variedades tradicionais. Fruto grande, doce e muito decorativo na árvore. Planta rústica e produtiva, adapta-se bem ao clima português. Colheita de outubro a dezembro.' },
+
+  { id:68, cat:'diospireiro', name:'Dióspiro Fau Fau',
+    sci:'Diospyros kaki',
+    price:15.00, tag:'novo',
+    chips:['Polpa crocante','Pode comer-se duro','Muito produtivo','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/yNBG70SM/e200ea17-bcd9-4118-a6bd-72d9ce4b7d8a.jpg',
+    desc:'Variedade de dióspiro de polpa firme e crocante, que se come ainda duro, sem a adstringência das variedades tradicionais. Sabor doce e suave. Planta produtiva e bem adaptada ao clima português. Colheita de outubro a novembro.' },
+
+  { id:69, cat:'damasqueiro', name:'Damasqueiro Bulida',
+    sci:'Prunus armeniaca Bulida',
+    price:11.00, tag:'novo',
+    chips:['Variedade tradicional espanhola','Polpa alaranjada','Muito aromático','Colheita: Jun–Jul'],
+    img:'https://i.postimg.cc/8cr4RC6t/53438522-42e7-449f-9f01-1ac33c2b2ea9.jpg',
+    desc:'Damasco de variedade tradicional, muito cultivada na Península Ibérica — polpa alaranjada, firme e muito aromática, com um bom equilíbrio entre doçura e acidez. Árvore vigorosa e produtiva. Colheita de junho a julho.' },
+
+  { id:70, cat:'damasqueiro', name:'Damasqueiro Beliana',
+    sci:'Prunus armeniaca Beliana',
+    price:11.00, tag:'novo',
+    chips:['Fruto grande','Polpa doce e sumarenta','Boa produtividade','Colheita: Jun–Jul'],
+    img:'https://i.postimg.cc/28RMHpSV/737513e2-2ee0-4dda-b476-e3896e372683.jpg',
+    desc:'Variedade de damasco de fruto grande, polpa doce, sumarenta e muito aromática. Árvore de boa produtividade, bem adaptada ao clima mediterrânico português. Colheita de junho a julho.' },
+
+  { id:71, cat:'macieira', name:'Macieira Bravo de Esmolfe',
+    sci:'Malus domestica Bravo de Esmolfe',
+    price:11.00, tag:'novo',
+    chips:['Variedade portuguesa tradicional','Aroma intenso','Polpa branca e firme','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/4NxVRydn/05cd8cfc-ffe4-4738-bde4-b9735f0f4a3a.jpg',
+    desc:'A maçã portuguesa por excelência, com Denominação de Origem Protegida na região da Beira — aroma intenso e inconfundível, polpa branca, firme e muito aromática. Colheita de outubro a novembro.' },
+
+  { id:72, cat:'macieira', name:'Macieira Pink Lady',
+    sci:'Malus domestica Pink Lady',
+    price:11.00, tag:'novo',
+    chips:['Casca rosada','Muito crocante','Doce com ponta ácida','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/cH5ZKFR0/293d84af-3d80-4432-a4e0-c1125cc0641a.jpg',
+    desc:'Uma das maçãs mais populares do mundo — casca rosada muito atrativa, polpa crocante e sumarenta, com um equilíbrio perfeito entre doçura e acidez. Boa conservação. Colheita de outubro a novembro.' },
+
+  { id:73, cat:'macieira', name:'Macieira Golden',
+    sci:'Malus domestica Golden Delicious',
+    price:11.00, tag:null,
+    chips:['Casca amarelo-dourada','Polpa doce e suave','Muito versátil','Colheita: Set–Out'],
+    img:'https://i.postimg.cc/sXnfYjRt/463bca47-e72e-4ee5-b6f4-a83595f3cbac.jpg',
+    desc:'Variedade clássica de casca amarelo-dourada, polpa doce, suave e muito sumarenta. Versátil, tanto para consumo fresco como para cozinhar. Colheita de setembro a outubro.' },
+
+  { id:74, cat:'macieira', name:'Macieira Granny Smith',
+    sci:'Malus domestica Granny Smith',
+    price:11.00, tag:null,
+    chips:['Casca verde brilhante','Muito ácida','Excelente para cozinhar','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/mZzhY9tn/86612eb8-9e41-4555-9a2f-c9001791f69f.jpg',
+    desc:'Maçã de casca verde brilhante e sabor bem ácido, muito refrescante. Polpa firme e crocante, ideal tanto para comer fresca como para tartes e compotas. Colheita de outubro a novembro.' },
+
+  { id:75, cat:'macieira', name:'Macieira Royal Gala',
+    sci:'Malus domestica Royal Gala',
+    price:11.00, tag:'popular',
+    chips:['Casca corada','Muito doce','Produção precoce','Colheita: Ago–Set'],
+    img:'https://i.postimg.cc/nz6FRdX8/d50ef48b-c3af-48cd-b0af-4e29f3d47175.jpg',
+    desc:'Variedade precoce de casca corada entre o amarelo e o vermelho, polpa doce e crocante. Uma das primeiras maçãs da época a estar pronta. Muito apreciada para consumo fresco. Colheita de agosto a setembro.' },
+
+  { id:76, cat:'romazeira', name:'Romãzeira Açaria',
+    sci:'Punica granatum Açaria',
+    price:11.00, tag:'novo',
+    chips:['Variedade tradicional','Bagas sumarentas','Sabor doce-ácido','Colheita: Set–Out'],
+    img:'https://i.postimg.cc/jqQmkgw5/c1c546c0-6c36-497e-9e16-69399b30f7bd.jpg',
+    desc:'Variedade tradicional de romã, com bagas vermelhas, sumarentas e um equilíbrio agradável entre doçura e acidez. Árvore rústica e bem adaptada ao clima português. Colheita de setembro a outubro.' },
+
+  { id:77, cat:'romazeira', name:'Romãzeira Wonderful',
+    sci:'Punica granatum Wonderful',
+    price:11.00, tag:'novo',
+    chips:['Variedade mais cultivada no mundo','Bagas vermelho-escuras','Muito sumarenta','Colheita: Set–Out'],
+    img:'https://i.postimg.cc/brzChPDg/7c70abc3-4f91-4f3b-bf53-90f755fe1a90.jpg',
+    desc:'A variedade de romã mais cultivada no mundo — fruto grande, bagas vermelho-escuras, muito sumarentas e doces. Árvore vigorosa e produtiva. Colheita de setembro a outubro.' },
+
+  { id:79, cat:'nespereira', name:'Nespereira',
+    sci:'Eriobotrya japonica',
+    price:15.00, tag:'novo',
+    chips:['Fruta muito precoce','Polpa doce e sumarenta','Produtiva','Colheita: Abr–Mai'],
+    img:'https://i.postimg.cc/wBRDbj2Y/45756b89-6dd1-4a00-9500-fb71e9293e58.jpg',
+    desc:'Uma das primeiras frutas da época a amadurecer — fruto pequeno, de casca aveludada e polpa doce e sumarenta. Árvore perenifólia, ornamental e muito produtiva. Colheita de abril a maio.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
 // até termos fotos/preços confirmados. Para reativar: juntar a este array ao "products"
 // (ex: const products = [...productsBase, ...futureProducts];) e repor os cat-pills.
 const futureProducts = [
-  { id:18, cat:'laranjeira', name:'Laranjeira Baunilha',
+  { id:18, cat:'citrino', name:'Laranjeira Baunilha',
     sci:'Citrus sinensis Vaniglia',
     price:15.00, tag:'novo',
     chips:['Baixa acidez','Muito suave','Poucas grainhas','Colheita: Dez–Fev'],
     img:'https://www.atocentro.pt/wp-content/uploads/2025/03/4.png',
     desc:'Laranja doce de baixa acidez, com um sabor suave e quase adocicado que lembra baunilha — ideal para quem prefere sabores mais delicados. Fruto de polpa macia e poucas grainhas. Adapta-se bem ao clima ameno do litoral português. Colheita de dezembro a fevereiro.' },
 
-  { id:19, cat:'laranjeira', name:'Laranjeira Morango',
+  { id:19, cat:'citrino', name:'Laranjeira Morango',
     sci:'Citrus sinensis',
     price:15.00, tag:'novo',
     chips:['Polpa avermelhada','Aroma frutado','Casca fina','Colheita: Dez–Mar'],
     img:'https://www.atocentro.pt/wp-content/uploads/2025/11/Laranja-Morango-367.png',
     desc:'Variedade curiosa de polpa e sumo com tons avermelhados, e um aroma frutado que lembra morango. Casca fina, muito sumarenta. Prefere zonas de inverno ameno, como o Algarve e o litoral Centro. Colheita de dezembro a março.' },
 
-  { id:21, cat:'laranjeira', name:'Laranjeira Valência Late',
+  { id:21, cat:'citrino', name:'Laranjeira Valência Late',
     sci:'Citrus sinensis Valencia Late',
     price:15.00, tag:null,
     chips:['Sem grainha','Muito sumarenta','A mais tardia para sumo','Colheita: Abr–Jul'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'A laranja de sumo mais cultivada no mundo — casca fina, praticamente sem grainha, e um equilíbrio perfeito entre doçura e acidez. Colheita muito tardia, prolongando a época de laranjas frescas até ao verão. Adapta-se bem a todo o território de clima mediterrânico. Colheita de abril a julho.' },
 
-  { id:24, cat:'limoeiro', name:'Limão Caviar',
+  { id:24, cat:'citrino', name:'Limão Caviar',
     sci:'Citrus australasica',
     price:15.00, tag:'novo',
     chips:['Vesículas tipo caviar','Ingrediente gourmet','Fruto alongado','Colheita: Out–Dez'],
     img:'https://www.atocentro.pt/wp-content/uploads/2024/01/2222222222222.png',
     desc:'Também chamado "caviar de limão" — o fruto alongado esconde pequenas vesículas que se soltam como pérolas de sumo cítrico, muito usadas na alta gastronomia. Planta originária da Austrália, de crescimento arbustivo. Prefere zonas protegidas e bem drenadas. Colheita de outubro a dezembro.' },
 
-  { id:25, cat:'limoeiro', name:'Limão Doce',
+  { id:25, cat:'citrino', name:'Limão Doce',
     sci:'Citrus limetta',
     price:15.00, tag:null,
     chips:['Baixa acidez','Sabor suave','Consumo em fresco','Colheita: Nov–Jan'],
     img:'https://www.atocentro.pt/wp-content/uploads/2023/06/10.png',
     desc:'Variedade de limão muito pouco ácida, quase doce, que se pode comer diretamente como fruta fresca. Sabor suave e refrescante. Planta vigorosa e produtiva. Colheita de novembro a janeiro.' },
 
-  { id:26, cat:'limoeiro', name:'Limão Vermelho',
+  { id:26, cat:'citrino', name:'Limão Vermelho',
     sci:'Citrus limon (var. vermelha)',
     price:15.00, tag:'novo',
     chips:['Casca às pintas','Polpa rosada','Muito decorativo','Colheita: Nov–Fev'],
     img:'https://www.atocentro.pt/wp-content/uploads/2024/12/12.png',
     desc:'Limoeiro de casca às pintas verdes e amarelas, com polpa rosada muito característica. Além de saboroso, é uma planta muito decorativa. Sumo com a acidez típica do limão. Colheita de novembro a fevereiro.' },
 
-  { id:27, cat:'limoeiro', name:'Limão Yuzu',
+  { id:27, cat:'citrino', name:'Limão Yuzu',
     sci:'Citrus junos',
     price:15.00, tag:'novo',
     chips:['Muito aromático','Resistente ao frio','Usado em culinária asiática','Colheita: Out–Dez'],
     img:'https://www.atocentro.pt/wp-content/uploads/2024/01/111111111111.png',
     desc:'Citrino japonês muito aromático, usado principalmente pela casca em molhos, doces e pratos da cozinha asiática. Mais resistente ao frio do que a maioria dos citrinos, adapta-se bem a zonas de inverno mais rigoroso. Colheita de outubro a dezembro.' },
 
-  { id:28, cat:'limoeiro', name:'Limoeiro Mão de Buda',
+  { id:28, cat:'citrino', name:'Limoeiro Mão de Buda',
     sci:'Citrus medica var. sarcodactylis',
     price:15.00, tag:'novo',
     chips:['Forma de dedos','Sem polpa nem sumo','Casca muito aromática','Colheita: Out–Dez'],
     img:'https://www.atocentro.pt/wp-content/uploads/2024/02/Mao-de-Buda-129.png',
     desc:'Fruto invulgar, dividido em segmentos parecidos com dedos, sem polpa nem sumo — usa-se pela casca, extremamente aromática, em doces e infusões. Excelente planta decorativa, ótima para vaso. Colheita de outubro a dezembro.' },
 
-  { id:29, cat:'limoeiro', name:'Limoeiro Lunario',
+  { id:29, cat:'citrino', name:'Limoeiro Lunario',
     sci:'Citrus limon Lunario',
     price:15.00, tag:null,
     chips:['Floresce quase todo o ano','Muito produtivo','Variedade tradicional italiana','Colheita contínua'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Também conhecido como "quatro estações", esta variedade floresce e frutifica quase ininterruptamente ao longo do ano. Muito produtivo, com limões de tamanho médio e sumo abundante. Ótima escolha para quem quer limões frescos praticamente o ano todo.' },
 
-  { id:30, cat:'clementina', name:'Clementina Fina',
-    sci:'Citrus clementina',
-    price:15.00, tag:null,
-    chips:['Sem grainha','Fácil de descascar','Muito doce','Colheita: Nov–Dez'],
-    img:'https://www.atocentro.pt/wp-content/uploads/2026/04/Clementina-382.png',
-    desc:'A clementina clássica — pequena, sem grainha, doce e muito fácil de descascar. Variedade precoce, uma das primeiras a estar pronta na época dos citrinos de inverno. Colheita de novembro a dezembro.' },
 
-  { id:31, cat:'clementina', name:'Clementina Nova',
-    sci:'Citrus clementina Nova',
-    price:15.00, tag:null,
-    chips:['Sem grainha','Colheita mais tardia','Muito sumarenta','Colheita: Dez–Fev'],
-    img:'https://www.atocentro.pt/wp-content/uploads/2024/06/111111111111111111111111111.png',
-    desc:'Semelhante à Clementina Fina, mas de colheita mais tardia, prolongando a época das clementinas até ao final do inverno. Fruto sem grainha, muito sumarento e doce. Colheita de dezembro a fevereiro.' },
-
-  { id:32, cat:'clementina', name:'Clementina Fremont',
+  { id:32, cat:'citrino', name:'Clementina Fremont',
     sci:'Citrus clementina x reticulata',
     price:15.00, tag:'novo',
     chips:['Cor alaranjada intensa','Sabor rico','Algumas grainhas','Colheita: Dez–Jan'],
@@ -923,12 +1032,6 @@ const futureProducts = [
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Variedade tradicional portuguesa de tangerina, apreciada pelo sabor doce e casca fácil de descascar. Planta rústica e adaptada ao nosso clima. Colheita de novembro a janeiro.' },
 
-  { id:34, cat:'tangerina', name:'Tangerina Setubalense',
-    sci:'Citrus reticulata Setubalense',
-    price:15.00, tag:null,
-    chips:['Origem na região de Setúbal','Sabor tradicional','Boa produtividade','Colheita: Nov–Jan'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade antiga, originária da região de Setúbal, uma das zonas historicamente mais associadas à produção de tangerinas em Portugal. Sabor tradicional e boa produtividade. Colheita de novembro a janeiro.' },
 
   { id:35, cat:'toranja', name:'Toranja Carvalhal',
     sci:'Citrus paradisi Carvalhal',
@@ -937,12 +1040,6 @@ const futureProducts = [
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Toranja de polpa rosada, com o equilíbrio característico entre amargo e doce típico das toranjas. Fruto grande e muito sumarento. Colheita de dezembro a fevereiro.' },
 
-  { id:36, cat:'toranja', name:'Toranja Star Ruby',
-    sci:'Citrus paradisi Star Ruby',
-    price:15.00, tag:null,
-    chips:['Polpa vermelha intensa','Sem grainha','Menos amarga','Colheita: Dez–Fev'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Uma das toranjas mais populares do mundo — polpa vermelho-intensa, sem grainha, e menos amarga do que outras variedades. Muito rica em antioxidantes. Colheita de dezembro a fevereiro.' },
 
   { id:46, cat:'ameixeira', name:'Ameixeira Black Diamond',
     sci:'Prunus salicina Black Diamond',
@@ -1333,8 +1430,8 @@ window.addEventListener('load', () => {
 });
 
 const seasonAdvice = [
-  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'É a altura ideal para plantar citrinos — o tempo mais fresco ajuda a planta a enraizar antes do calor do verão.' },
-  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'Continua a ser boa época para plantar citrinos, aproveitando o frio ameno do inverno.' },
+  { cat:'citrino', label:'Citrinos', text:'É a altura ideal para plantar citrinos — o tempo mais fresco ajuda a planta a enraizar antes do calor do verão.' },
+  { cat:'citrino', label:'Citrinos', text:'Continua a ser boa época para plantar citrinos, aproveitando o frio ameno do inverno.' },
   { cat:'mirtilo', label:'Mirtileiros', text:'Boa altura para plantar mirtileiros — a primavera a chegar ajuda a planta a instalar-se com força.' },
   { cat:'mirtilo', label:'Mirtileiros', text:'Excelente altura para plantar mirtileiros, aproveitando o solo ainda húmido da primavera.' },
   { cat:'maracuja', label:'Maracujazeiros', text:'Com o calor a aumentar, é uma boa altura para plantar maracujazeiros, que adoram sol e temperaturas mais altas.' },
@@ -1342,9 +1439,9 @@ const seasonAdvice = [
   { cat:'pitaia', label:'Pitaias', text:'Continua a ser altura perfeita para plantar pitaias, a aproveitar o pico do calor de verão.' },
   { cat:'pitaia', label:'Pitaias', text:'Em pleno verão, é uma excelente altura para plantar pitaias — adoram o calor desta época.' },
   { cat:'maracuja', label:'Maracujazeiros', text:'Ainda vais a tempo de plantar maracujazeiros, aproveitando os últimos dias quentes do verão.' },
-  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'Com a chegada do outono, é uma ótima altura para plantar citrinos, antes do frio mais intenso.' },
-  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'Boa altura para plantar citrinos, aproveitando o tempo ainda ameno do outono.' },
-  { cat:'laranjeira', label:'Laranjeiras e Limoeiros', text:'No inverno, os citrinos plantam-se bem — a planta fica em repouso e enraíza sem esforço.' },
+  { cat:'citrino', label:'Citrinos', text:'Com a chegada do outono, é uma ótima altura para plantar citrinos, antes do frio mais intenso.' },
+  { cat:'citrino', label:'Citrinos', text:'Boa altura para plantar citrinos, aproveitando o tempo ainda ameno do outono.' },
+  { cat:'citrino', label:'Citrinos', text:'No inverno, os citrinos plantam-se bem — a planta fica em repouso e enraíza sem esforço.' },
 ];
 
 function renderSeasonAdvice() {
