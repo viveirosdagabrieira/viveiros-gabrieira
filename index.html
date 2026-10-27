@@ -428,6 +428,7 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="damasqueiro" onclick="filterCat('damasqueiro',this)">Damasqueiros</div>
     <div class="cat-pill" data-cat="romazeira" onclick="filterCat('romazeira',this)">Romãzeiras</div>
     <div class="cat-pill" data-cat="nespereira" onclick="filterCat('nespereira',this)">Nespereiras</div>
+    <div class="cat-pill" data-cat="fruto-seco" onclick="filterCat('fruto-seco',this)">Frutos Secos</div>
     <!-- Categorias novas (Tangerinas, Toranjas, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
@@ -868,9 +869,9 @@ const products = [
   { id:67, cat:'diospireiro', name:'Dióspiro Coroa de Rei',
     sci:'Diospyros kaki',
     price:15.00, tag:'novo',
-    chips:['Polpa crocante','Pode comer-se duro','Muito produtivo','Colheita: Out–Dez'],
+    chips:['Polpa mole e gelatinosa','Come-se à colher','Muito doce','Colheita: Out–Dez'],
     img:'https://i.postimg.cc/26CN9Pw6/7a1072e6-fdf8-49e0-8427-d0914940d15a.jpg',
-    desc:'Variedade de dióspiro de polpa firme e crocante, que se come ainda duro, sem a adstringência das variedades tradicionais. Fruto grande, doce e muito decorativo na árvore. Planta rústica e produtiva, adapta-se bem ao clima português. Colheita de outubro a dezembro.' },
+    desc:'Dióspiro de polpa mole e gelatinosa, conhecido como fruto de "comer à colher" — só se come quando bem maduro e macio, momento em que fica extremamente doce e aromático. Fruto grande e muito decorativo na árvore enquanto amadurece. Planta rústica e produtiva, adapta-se bem ao clima português. Colheita de outubro a dezembro.' },
 
   { id:68, cat:'diospireiro', name:'Dióspiro Fau Fau',
     sci:'Diospyros kaki',
@@ -878,6 +879,27 @@ const products = [
     chips:['Polpa crocante','Pode comer-se duro','Muito produtivo','Colheita: Out–Nov'],
     img:'https://i.postimg.cc/yNBG70SM/e200ea17-bcd9-4118-a6bd-72d9ce4b7d8a.jpg',
     desc:'Variedade de dióspiro de polpa firme e crocante, que se come ainda duro, sem a adstringência das variedades tradicionais. Sabor doce e suave. Planta produtiva e bem adaptada ao clima português. Colheita de outubro a novembro.' },
+
+  { id:80, cat:'diospireiro', name:'Dióspiro Rojo Brillante',
+    sci:'Diospyros kaki Rojo Brillante',
+    price:15.00, tag:'novo',
+    chips:['Polpa crocante','Pode comer-se duro','Sem adstringência','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/L51JddRw/54b785d5-5eef-4dac-af70-870d2f31743b.png',
+    desc:'A variedade de dióspiro mais cultivada e exportada de Espanha — fruto de casca alaranjada brilhante, polpa firme e crocante, que se come ainda duro, sem qualquer adstringência. Sabor doce e muito agradável. Colheita de outubro a novembro.' },
+
+  { id:81, cat:'fruto-seco', name:'Castanheiro',
+    sci:'Castanea sativa',
+    price:15.00, tag:'novo',
+    chips:['Árvore rústica e resistente','Produção de castanhas','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/YCnmTBWq/d2c052d3-4fb6-4c31-af45-03862aa29c81.png',
+    desc:'Árvore tradicional portuguesa, rústica e resistente, produtora de castanhas. Adapta-se bem a climas de inverno mais frio. Colheita de outubro a novembro. Se tiveres preferência por alguma variedade em especial, indica na encomenda ou envia-nos uma mensagem a perguntar antes de comprares.' },
+
+  { id:82, cat:'fruto-seco', name:'Nogueira',
+    sci:'Juglans regia',
+    price:25.00, tag:'novo',
+    chips:['Árvore de grande porte','Produção de nozes','Colheita: Set–Out'],
+    img:'https://i.postimg.cc/NjHcv1y8/0731908d-adc8-4c1a-bb59-ba53b5ca512d.png',
+    desc:'Árvore de grande porte, produtora de nozes, bem adaptada ao clima português. Colheita de setembro a outubro. Se tiveres preferência por alguma variedade em especial, indica na encomenda ou envia-nos uma mensagem a perguntar antes de comprares.' },
 
   { id:69, cat:'damasqueiro', name:'Damasqueiro Bulida',
     sci:'Prunus armeniaca Bulida',
