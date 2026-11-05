@@ -429,6 +429,7 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="romazeira" onclick="filterCat('romazeira',this)">Romãzeiras</div>
     <div class="cat-pill" data-cat="nespereira" onclick="filterCat('nespereira',this)">Nespereiras</div>
     <div class="cat-pill" data-cat="fruto-seco" onclick="filterCat('fruto-seco',this)">Frutos Secos</div>
+    <div class="cat-pill" data-cat="ameixeira" onclick="filterCat('ameixeira',this)">Ameixeiras</div>
     <!-- Categorias novas (Tangerinas, Toranjas, Ameixeiras)
          prontas em "futureProducts" — repor aqui quando reativares esse catálogo. -->
   </div>
@@ -901,6 +902,27 @@ const products = [
     img:'https://i.postimg.cc/NjHcv1y8/0731908d-adc8-4c1a-bb59-ba53b5ca512d.png',
     desc:'Árvore de grande porte, produtora de nozes, bem adaptada ao clima português. Colheita de setembro a outubro. Se tiveres preferência por alguma variedade em especial, indica na encomenda ou envia-nos uma mensagem a perguntar antes de comprares.' },
 
+  { id:46, cat:'ameixeira', name:'Ameixeira Black Diamond',
+    sci:'Prunus salicina Black Diamond',
+    price:11.00, tag:'novo',
+    chips:['Casca roxo-escura quase preta','Polpa âmbar','Sabor doce-ácido','Colheita: Ago–Set'],
+    img:'https://i.postimg.cc/dtpDmk97/96c92849-4d07-418c-ae9b-8d38a1c1846d.png',
+    desc:'Ameixa japonesa de casca roxo-escura, quase preta, com polpa âmbar sumarenta e um equilíbrio agradável entre doce e ácido. Colheita de agosto a setembro.' },
+
+  { id:49, cat:'ameixeira', name:'Ameixeira Golden Japan',
+    sci:'Prunus salicina Golden Japan',
+    price:11.00, tag:null,
+    chips:['Casca dourada','Polpa sumarenta','Precoce a meia-estação','Colheita: Jun–Jul'],
+    img:'https://i.postimg.cc/7Y2q4BgH/81d09271-5f3a-46dc-aa8e-4cc297ed5d31.png',
+    desc:'Ameixa japonesa de casca dourada e polpa muito sumarenta e doce. Colheita entre o início e a meia-estação. Colheita de junho a julho.' },
+
+  { id:50, cat:'ameixeira', name:'Ameixeira Presidente / Abrunho',
+    sci:'Prunus domestica Presidente (roxa)',
+    price:11.00, tag:null,
+    chips:['Variedade tradicional portuguesa','Casca roxa','Polpa doce','Colheita: Jul–Ago'],
+    img:'https://i.postimg.cc/SNFxnFQ4/eb837d0f-b9ca-48f4-888d-ee2fafdebc9f.jpg',
+    desc:'Variedade tradicional portuguesa, conhecida também como abrunho — casca roxa e polpa doce e aromática. Muito cultivada em pomares familiares. Colheita de julho a agosto.' },
+
   { id:69, cat:'damasqueiro', name:'Damasqueiro Bulida',
     sci:'Prunus armeniaca Bulida',
     price:11.00, tag:'novo',
@@ -1063,13 +1085,6 @@ const futureProducts = [
     desc:'Toranja de polpa rosada, com o equilíbrio característico entre amargo e doce típico das toranjas. Fruto grande e muito sumarento. Colheita de dezembro a fevereiro.' },
 
 
-  { id:46, cat:'ameixeira', name:'Ameixeira Black Diamond',
-    sci:'Prunus salicina Black Diamond',
-    price:19.90, tag:'novo',
-    chips:['Casca roxo-escura quase preta','Polpa âmbar','Sabor doce-ácido','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Ameixa japonesa de casca roxo-escura, quase preta, com polpa âmbar sumarenta e um equilíbrio agradável entre doce e ácido. Colheita de agosto a setembro.' },
-
   { id:47, cat:'ameixeira', name:'Ameixeira Friar',
     sci:'Prunus salicina Friar',
     price:19.90, tag:null,
@@ -1083,20 +1098,6 @@ const futureProducts = [
     chips:['Casca amarela','Fruto redondo','Muito doce','Colheita: Julho'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Ameixa de casca amarela e forma bem redonda, com polpa doce e sumarenta. Variedade de meia-estação. Colheita em julho.' },
-
-  { id:49, cat:'ameixeira', name:'Ameixeira Golden Japan',
-    sci:'Prunus salicina Golden Japan',
-    price:18.90, tag:null,
-    chips:['Casca dourada','Polpa sumarenta','Precoce a meia-estação','Colheita: Jun–Jul'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Ameixa japonesa de casca dourada e polpa muito sumarenta e doce. Colheita entre o início e a meia-estação. Colheita de junho a julho.' },
-
-  { id:50, cat:'ameixeira', name:'Ameixeira Presidente Roxa',
-    sci:'Prunus domestica Presidente (roxa)',
-    price:18.90, tag:null,
-    chips:['Variedade tradicional portuguesa','Casca roxa','Polpa doce','Colheita: Jul–Ago'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
-    desc:'Variedade tradicional portuguesa, de casca roxa e polpa doce e aromática. Muito cultivada em pomares familiares. Colheita de julho a agosto.' },
 
   { id:51, cat:'ameixeira', name:'Ameixeira Presidente Verde',
     sci:'Prunus domestica Presidente (verde)',
