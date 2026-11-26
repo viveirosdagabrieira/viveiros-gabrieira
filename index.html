@@ -347,7 +347,7 @@ footer a:hover { color: #fff; }
   "@context": "https://schema.org",
   "@type": "GardenStore",
   "name": "Viveiros da Gabrieira",
-  "description": "Viveiro de plantas de fruto em Ceira, Coimbra, com mais de 40 anos de experiência: mirtilos, pitaias, maracujás, citrinos, limão caviar, kumquat e medronheiro.",
+  "description": "Viveiro de plantas de fruto em Ceira, Coimbra, com mais de 40 anos de experiência: mirtilos, pitaias, maracujás, citrinos, pessegueiros, ameixeiras, macieiras, videiras, amendoeiras, kiwis, oliveiras e muitas outras variedades, com envio para Portugal Continental.",
   "url": "https://viveirosgabrieira.pt/",
   "telephone": "+351916031385",
   "email": "viveirosdagabrieira@gmail.com",
@@ -361,7 +361,20 @@ footer a:hover { color: #fff; }
     "addressCountry": "PT"
   },
   "areaServed": "Portugal Continental",
-  "founder": "Mauro Pereira"
+  "founder": {
+    "@type": "Person",
+    "name": "Mauro Pereira",
+    "sameAs": [
+      "https://www.instagram.com/_mauritooo/",
+      "https://www.facebook.com/eureca.pereira",
+      "https://www.tiktok.com/@mauriter"
+    ]
+  },
+  "sameAs": [
+    "https://www.instagram.com/_mauritooo/",
+    "https://www.facebook.com/eureca.pereira",
+    "https://www.tiktok.com/@mauriter"
+  ]
 }
 </script>
 </head>
@@ -421,15 +434,20 @@ footer a:hover { color: #fff; }
     <div class="cat-pill" data-cat="damasqueiro" onclick="filterCat('damasqueiro',this)">Damasqueiros</div>
     <div class="cat-pill" data-cat="diospireiro" onclick="filterCat('diospireiro',this)">Diospireiros</div>
     <div class="cat-pill" data-cat="fruto-seco" onclick="filterCat('fruto-seco',this)">Frutos Secos</div>
+    <div class="cat-pill" data-cat="kiwi" onclick="filterCat('kiwi',this)">Kiwis</div>
     <div class="cat-pill" data-cat="macieira" onclick="filterCat('macieira',this)">Macieiras</div>
     <div class="cat-pill" data-cat="maracuja" onclick="filterCat('maracuja',this)">Maracujás</div>
     <div class="cat-pill" data-cat="medronheiro" onclick="filterCat('medronheiro',this)">Medronheiros</div>
     <div class="cat-pill" data-cat="mirtilo" onclick="filterCat('mirtilo',this)">Mirtilos</div>
     <div class="cat-pill" data-cat="nespereira" onclick="filterCat('nespereira',this)">Nespereiras</div>
+    <div class="cat-pill" data-cat="oliveira" onclick="filterCat('oliveira',this)">Oliveiras</div>
+    <div class="cat-pill" data-cat="ornamental" onclick="filterCat('ornamental',this)">Ornamentais</div>
     <div class="cat-pill" data-cat="pessegueiro" onclick="filterCat('pessegueiro',this)">Pessegueiros</div>
     <div class="cat-pill" data-cat="pitaia" onclick="filterCat('pitaia',this)">Pitaias</div>
     <div class="cat-pill" data-cat="romazeira" onclick="filterCat('romazeira',this)">Romãzeiras</div>
     <div class="cat-pill" data-cat="tropical" onclick="filterCat('tropical',this)">Tropicais</div>
+    <div class="cat-pill" data-cat="uva-mesa" onclick="filterCat('uva-mesa',this)">Uva de Mesa</div>
+    <div class="cat-pill" data-cat="uva-vinho" onclick="filterCat('uva-vinho',this)">Uva de Vinho</div>
   </div>
   <div class="product-grid" id="productGrid"></div>
 </section>
@@ -471,7 +489,7 @@ footer a:hover { color: #fff; }
       <div class="loc-row"><span class="loc-icon">📞</span><div><div class="loc-label">Telefone</div><div class="loc-val">+351 916 031 385<br><span style="font-size:0.72rem;color:var(--cinza);">Chamada para rede móvel nacional</span></div></div></div>
       <div class="loc-row"><span class="loc-icon">✉️</span><div><div class="loc-label">Email</div><div class="loc-val">viveirosdagabrieira@gmail.com</div></div></div>
       <div class="loc-row"><span class="loc-icon">📦</span><div><div class="loc-label">Envios</div><div class="loc-val"><strong>Despachamos todas as terças-feiras.</strong> Encomendas feitas até segunda-feira às 14h entram no envio dessa semana; encomendas feitas depois entram na semana seguinte. Entrega em cerca de 48h após o despacho, apenas para Portugal Continental.</div></div></div>
-      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Portes</div><div class="loc-val">Até 5 plantas: 7€. De 6 a 10 plantas: 12€ (IVA incluído).</div></div></div>
+      <div class="loc-row"><span class="loc-icon">🚚</span><div><div class="loc-label">Portes</div><div class="loc-val">Até 5 plantas: 7€. De 6 a 10 plantas: 12€ (IVA incluído). Encomendas só com videiras: 5€ fixos, até 25 pés.</div></div></div>
        <div class="loc-row"><span class="loc-icon">📋</span><div><div class="loc-label">Envios</div><div class="loc-val">Encomendas superiores a 10 unidades, preço sob consulta.</div></div></div>
     </div>
     <div class="location-map">
@@ -481,6 +499,12 @@ footer a:hover { color: #fff; }
       <a class="map-link" href="https://maps.google.com/?q=Ceira,Coimbra,Portugal" target="_blank">Abrir no Google Maps</a>
     </div>
   </div>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:1rem 1.5rem 3rem;">
+  <p style="color:var(--cinza);font-size:0.78rem;line-height:1.9;font-weight:300;">
+    Os <strong>Viveiros da Gabrieira</strong>, em Ceira, Coimbra, cultivam e vendem online um catálogo alargado de plantas de fruto para todo o Portugal Continental. Temos <strong>mirtilos</strong>, <strong>pitaias</strong> (vermelha e amarela) e <strong>maracujás</strong> (roxo e amarelo); uma grande seleção de <strong>citrinos</strong> — laranjeiras (Navelina, New Hall, Lane Late, Dom João, Sanguínea), limoeiros (Eureka, Lima Bears, Lima Kaffir, Limão Caviar amarelo e rosa), clementinas, tangerinas (Encore, Tangera, Setubalense), toranja Star Ruby e kumquat; <strong>macieiras</strong> (Red Love, Dona Ana, Fuji, Bravo de Esmolfe, Pink Lady, Golden, Granny Smith, Royal Gala); <strong>pessegueiros</strong> (Catarino, May Crest, Paraguay, Florida, Maracotão Rosa, Merril Carnival, Preto Carnudo, Spring Crest); <strong>ameixeiras</strong> (Black Diamond, Golden Japan, Presidente/Abrunho, Rainha Cláudia, Golden Globe, Presidente Verde, Santa Rosa, Santa Rosinha, São Brás, Stanley, Sun Gold, Friar); <strong>damasqueiros</strong> (Bulida, Beliana); <strong>dióspiros</strong>/caquis (Coroa de Rei, Fau Fau, Rojo Brillante); <strong>romãzeiras</strong> (Açaria, Wonderful); <strong>nespereira</strong>; <strong>medronheiro</strong>; <strong>goiabeira</strong>; <strong>frutos secos</strong> — castanheiro, nogueira e amendoeiras (Guara, Marinada, Lauranne); <strong>kiwis</strong> verde, amarelo e vermelho (planta fêmea e macho polinizador); <strong>videiras</strong> de uva de mesa (Dona Maria B, Vitória B, Cardinal, Moscatel Graúdo, Red Globe) e de uva de vinho (Touriga Nacional, Fernão Pires, Arinto, Aragonês, Alicante Bouschet, Syrah, Moscatel Hamburg); <strong>oliveiras</strong> (Galega, Picual, Cobrançosa); e plantas ornamentais como o cipreste e o loureiro. Todas as plantas são enviadas em vaso (exceto as videiras, vendidas em raiz nua), com despacho semanal às terças-feiras para toda a Portugal Continental.
+  </p>
 </section>
 
 <footer>
@@ -930,7 +954,7 @@ const products = [
 
   { id:48, cat:'ameixeira', name:'Ameixeira Golden Globe',
     sci:'Prunus domestica Golden Globe',
-    price:11.00, tag:null,
+    price:11.00, tag:null, esgotado:true,
     chips:['Casca amarela','Fruto redondo','Muito doce','Colheita: Julho'],
     img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
     desc:'Ameixa de casca amarela e forma bem redonda, com polpa doce e sumarenta. Variedade de meia-estação. Colheita em julho.' },
@@ -939,49 +963,49 @@ const products = [
     sci:'Prunus domestica Presidente (verde)',
     price:11.00, tag:null,
     chips:['Variedade tradicional portuguesa','Casca verde-amarelada','Polpa doce','Colheita: Jul–Ago'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/9XqBYCzS/2d2a83aa-7af7-425e-8b31-e717f9507f4e.png',
     desc:'Variante de casca verde-amarelada da tradicional ameixa Presidente, com polpa doce e boa produtividade. Colheita de julho a agosto.' },
 
   { id:53, cat:'ameixeira', name:'Ameixeira Santa Rosa',
     sci:'Prunus salicina Santa Rosa',
     price:11.00, tag:null,
     chips:['Casca vermelho-arroxeada','Polpa avermelhada sumarenta','Muito cultivada','Colheita: Jun–Jul'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/52fWLP9c/c8c9e744-09f7-4286-87ac-9d1a5c29d585.png',
     desc:'Uma das ameixas japonesas mais cultivadas e populares — casca vermelho-arroxeada, polpa avermelhada muito sumarenta, com bom equilíbrio entre doce e ácido. Colheita de junho a julho.' },
 
   { id:54, cat:'ameixeira', name:'Ameixeira Santa Rosinha',
     sci:'Prunus salicina (Santa Rosinha)',
     price:11.00, tag:null,
     chips:['Fruto mais pequeno','Colheita precoce','Sabor doce','Colheita: Junho'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/g2cRQWkr/3631f73a-18b3-4eff-809a-ddb92249b056.png',
     desc:'Variante de fruto mais pequeno e colheita mais precoce do que a Santa Rosa, com sabor doce e agradável. Colheita em junho.' },
 
   { id:55, cat:'ameixeira', name:'Ameixeira São Brás',
     sci:'Prunus domestica São Brás',
     price:11.00, tag:null,
     chips:['Variedade tradicional portuguesa','Boa produtividade','Sabor equilibrado','Colheita: Julho'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/FFgY4BBw/4d752a4d-17a8-40ad-a02b-63e7cb8bf5ef.png',
     desc:'Variedade tradicional portuguesa, de boa produtividade e sabor equilibrado entre doce e ácido. Muito cultivada em pomares regionais. Colheita em julho.' },
 
   { id:56, cat:'ameixeira', name:'Ameixeira Stanley',
     sci:'Prunus domestica Stanley',
     price:11.00, tag:null,
     chips:['Ideal para secar (ameixa seca)','Autofértil','Casca azul-violeta','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/Jnk29J7g/31c76f93-30fd-4cdd-a39a-321ff1cbb01d.png',
     desc:'Ameixa europeia clássica, de casca azul-violeta e polpa firme e doce — ideal tanto para consumo fresco como para secar (ameixa seca) ou fazer doce. Autofértil e muito produtiva. Colheita de agosto a setembro.' },
 
   { id:57, cat:'ameixeira', name:'Ameixeira Sun Gold',
     sci:'Prunus salicina Sun Gold',
     price:11.00, tag:'novo',
     chips:['Casca dourada','Muito aromática','Boa produtividade','Colheita: Jul–Ago'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/Hn514R72/003e25cb-6b67-4e20-9cd6-4a6c4f42e413.png',
     desc:'Ameixa de casca dourada e polpa muito aromática e sumarenta. Boa produtividade e adaptação ao clima português. Colheita de julho a agosto.' },
 
   { id:47, cat:'ameixeira', name:'Ameixeira Friar',
     sci:'Prunus salicina Friar',
     price:11.00, tag:null, esgotado:true,
     chips:['Fruto grande','Casca preta','Polpa âmbar suave','Colheita: Ago–Set'],
-    img:'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5f4f1\'/%3E%3Ctext x=\'200\' y=\'150\' font-family=\'sans-serif\' font-size=\'20\' fill=\'%232e5c2a\' text-anchor=\'middle\'%3EFoto em breve%3C/text%3E%3C/svg%3E',
+    img:'https://i.postimg.cc/rwdyKnfR/6728dc74-bf44-42e0-9a18-8b316e5fce2b.png',
     desc:'Ameixa de casca preta e fruto graúdo, com polpa âmbar de sabor suave e doce. Árvore muito produtiva. Colheita de agosto a setembro.' },
 
   { id:69, cat:'damasqueiro', name:'Damasqueiro Bulida',
@@ -1053,6 +1077,195 @@ const products = [
     chips:['Fruta muito precoce','Polpa doce e sumarenta','Produtiva','Colheita: Abr–Mai'],
     img:'https://i.postimg.cc/wBRDbj2Y/45756b89-6dd1-4a00-9500-fb71e9293e58.jpg',
     desc:'Uma das primeiras frutas da época a amadurecer — fruto pequeno, de casca aveludada e polpa doce e sumarenta. Árvore perenifólia, ornamental e muito produtiva. Colheita de abril a maio.' },
+
+  { id:83, cat:'uva-mesa', name:'Videira Dona Maria B',
+    sci:'Vitis vinifera Dona Maria',
+    price:3.00, tag:'novo',
+    chips:['Uva de mesa','Vendida em raiz nua','Casca branca'],
+    img:'https://i.postimg.cc/Z5YK4Ydf/743bad86-c506-43f3-80c0-6d01b2c9c904.png',
+    desc:'Casta de uva de mesa, de casca branca, vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:84, cat:'uva-mesa', name:'Videira Vitória B',
+    sci:'Vitis vinifera Vitória',
+    price:3.00, tag:'novo',
+    chips:['Uva de mesa','Vendida em raiz nua','Casca branca'],
+    img:'https://i.postimg.cc/Z5YK4Ydf/743bad86-c506-43f3-80c0-6d01b2c9c904.png',
+    desc:'Casta de uva de mesa, de casca branca, vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:85, cat:'uva-mesa', name:'Videira Cardinal',
+    sci:'Vitis vinifera Cardinal',
+    price:3.00, tag:'novo',
+    chips:['Uva de mesa','Vendida em raiz nua','Casca tinta'],
+    img:'https://i.postimg.cc/HkjD6r5j/1dd6cb3c-d4a5-408a-9ee5-fcaf45d8ca4e.png',
+    desc:'Casta de uva de mesa, de casca tinta, vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:86, cat:'uva-mesa', name:'Videira Moscatel Graúdo B',
+    sci:'Vitis vinifera Moscatel Graúdo',
+    price:3.00, tag:'novo',
+    chips:['Uva de mesa','Vendida em raiz nua','Casca branca'],
+    img:'https://i.postimg.cc/qqBZgFxH/c692c09e-a1d1-4b17-aa6e-0aca4a18df9c.png',
+    desc:'Casta de uva de mesa, de casca branca e bago graúdo muito aromático. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:87, cat:'uva-vinho', name:'Videira Moscatel Hamburg T',
+    sci:'Vitis vinifera Moscatel Hamburg',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Casca tinta'],
+    img:'https://i.postimg.cc/cJMmYmHK/df754693-ac11-4a47-b287-56cad909fa79.png',
+    desc:'Casta de uva de vinho, de casca tinta e aroma moscatel muito característico. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:88, cat:'uva-mesa', name:'Videira Red Globe',
+    sci:'Vitis vinifera Red Globe',
+    price:3.00, tag:'novo',
+    chips:['Uva de mesa','Vendida em raiz nua','Bago grande e crocante'],
+    img:'https://i.postimg.cc/MpGxgsCg/4320219c-02ca-442c-93b0-fb9d178fbea4.png',
+    desc:'Casta de uva de mesa muito conhecida pelo bago grande, redondo e crocante, de casca avermelhada. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:89, cat:'uva-vinho', name:'Videira Touriga Nacional',
+    sci:'Vitis vinifera Touriga Nacional',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Casta portuguesa de referência'],
+    img:'https://i.postimg.cc/L8jBKTjt/f1bf2465-0e24-40e5-8f88-d1843631136a.png',
+    desc:'A casta tinta mais prestigiada de Portugal, usada nos melhores vinhos do Douro e Dão. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:90, cat:'uva-vinho', name:'Videira Fernão Pires B',
+    sci:'Vitis vinifera Fernão Pires',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Casta branca aromática'],
+    img:'https://i.postimg.cc/RFpwQbzm/8e26b9c6-da2a-4da2-b50b-020114d07189.png',
+    desc:'Casta de uva de vinho branca, muito aromática, uma das mais plantadas em Portugal. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:91, cat:'uva-vinho', name:'Videira Arinto B',
+    sci:'Vitis vinifera Arinto',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Casta branca de boa acidez'],
+    img:'https://i.postimg.cc/rsdxhC8f/98beeccf-42b3-4852-ad07-5494d9864e5d.png',
+    desc:'Casta de uva de vinho branca, conhecida pela boa acidez e capacidade de envelhecimento dos vinhos. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:92, cat:'uva-vinho', name:'Videira Aragonês',
+    sci:'Vitis vinifera Aragonês',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Casta tinta'],
+    img:'https://i.postimg.cc/7Z17QLkr/bf55c9fc-b267-4fbd-995c-ac15d4b3b89c.png',
+    desc:'Casta de uva de vinho tinta, também conhecida como Tempranillo, muito cultivada no Alentejo e Douro. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:93, cat:'uva-vinho', name:'Videira Alicante Bouschet',
+    sci:'Vitis vinifera Alicante Bouschet',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Polpa também tinta'],
+    img:'https://i.postimg.cc/66DYkTFb/4b54938d-c65b-483f-8ab7-ed4b7a646de3.png',
+    desc:'Casta de uva de vinho tinta rara, com polpa também tinta (a maioria das uvas tintas tem polpa clara), dando vinhos de cor muito intensa. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:94, cat:'uva-vinho', name:'Videira Syrah',
+    sci:'Vitis vinifera Syrah',
+    price:2.50, tag:'novo',
+    chips:['Uva de vinho','Vendida em raiz nua','Casta tinta internacional'],
+    img:'https://i.postimg.cc/sXM48RmZ/b0c84506-574f-40e8-9d3f-d4d6054bba35.png',
+    desc:'Casta de uva de vinho tinta de origem francesa, hoje cultivada em todo o mundo, dando vinhos encorpados e aromáticos. Vendida em raiz nua (sem torrão de terra, ao contrário das restantes plantas do site).' },
+
+  { id:95, cat:'fruto-seco', name:'Amendoeira Guara',
+    sci:'Prunus dulcis Guara',
+    price:13.00, tag:'novo',
+    chips:['Autofértil','Floração tardia','Porta-enxerto GF 677','Colheita: Ago–Set'],
+    img:'https://i.postimg.cc/0y1XwrfG/a67c1ded-6ce7-44ce-bac0-3a73807c3ad9.png',
+    desc:'Variedade espanhola autofértil, de floração tardia — o que reduz bastante o risco de perder a flor com geadas de inverno/início de primavera. Enxertada em porta-enxerto GF 677, muito vigoroso e tolerante à seca. Colheita de agosto a setembro.' },
+
+  { id:96, cat:'fruto-seco', name:'Amendoeira Marinada',
+    sci:'Prunus dulcis Marinada',
+    price:13.00, tag:'novo',
+    chips:['Autofértil','Floração muito tardia','Porta-enxerto GF 677','Colheita: Ago–Set'],
+    img:'https://i.postimg.cc/0y1XwrfG/a67c1ded-6ce7-44ce-bac0-3a73807c3ad9.png',
+    desc:'Variedade catalã (IRTA), autofértil e de floração muito tardia, com boa tolerância ao frio nesta fase — ideal para zonas com risco de geadas tardias. Enxertada em porta-enxerto GF 677, muito vigoroso e tolerante à seca. Colheita de agosto a setembro.' },
+
+  { id:97, cat:'fruto-seco', name:'Amendoeira Lauranne',
+    sci:'Prunus dulcis Lauranne',
+    price:13.00, tag:'novo',
+    chips:['Autofértil','Floração tardia','Porta-enxerto GF 677','Muito produtiva'],
+    img:'https://i.postimg.cc/0y1XwrfG/a67c1ded-6ce7-44ce-bac0-3a73807c3ad9.png',
+    desc:'Variedade francesa autofértil, vigorosa e muito produtiva, com floração tardia que reduz o risco de geada nas flores. Enxertada em porta-enxerto GF 677, muito vigoroso e tolerante à seca. Colheita de agosto a setembro.' },
+
+  { id:98, cat:'kiwi', name:'Kiwi Verde (Fêmea)',
+    sci:'Actinidia deliciosa',
+    price:10.00, tag:'novo',
+    chips:['Planta fêmea — dá fruto','Precisa de macho polinizador','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/1RNLVxQk/8fa976bd-6823-4957-9e2d-65129b0a8305.png',
+    desc:'Planta fêmea de kiwi verde, a que produz os frutos. O kiwi é uma planta dióica — precisa de uma planta macho por perto para polinizar e dar frutos, por isso é vendida separadamente do macho. Colheita de outubro a novembro.' },
+
+  { id:99, cat:'kiwi', name:'Kiwi Verde (Macho/Polinizador)',
+    sci:'Actinidia deliciosa',
+    price:10.00, tag:'novo',
+    chips:['Planta macho — não dá fruto','Essencial para polinizar as fêmeas','1 macho poliniza várias fêmeas'],
+    img:'https://i.postimg.cc/1RNLVxQk/8fa976bd-6823-4957-9e2d-65129b0a8305.png',
+    desc:'Planta macho de kiwi verde — não produz fruto, mas é indispensável para polinizar as plantas fêmea, que são as únicas que dão kiwis. Um único macho consegue polinizar várias fêmeas no mesmo espaço.' },
+
+  { id:100, cat:'kiwi', name:'Kiwi Amarelo Autofértil',
+    sci:'Actinidia chinensis',
+    price:10.00, tag:null, esgotado:true,
+    chips:['Autofértil — não precisa de macho','Polpa amarela e doce','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/1RNLVxQk/8fa976bd-6823-4957-9e2d-65129b0a8305.png',
+    desc:'Kiwi de polpa amarela, mais doce e menos ácido que o kiwi verde. Variedade autofértil — ao contrário do kiwi verde, não precisa de uma planta macho separada para dar fruto. Colheita de outubro a novembro.' },
+
+  { id:101, cat:'kiwi', name:'Kiwi Amarelo (Fêmea)',
+    sci:'Actinidia chinensis',
+    price:10.00, tag:'novo',
+    chips:['Planta fêmea — dá fruto','Precisa de macho polinizador','Polpa amarela e doce','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/1RNLVxQk/8fa976bd-6823-4957-9e2d-65129b0a8305.png',
+    desc:'Planta fêmea de kiwi amarelo, a que produz os frutos — polpa amarela, mais doce e menos ácida que o kiwi verde. Precisa de uma planta macho por perto para polinizar e dar frutos. Colheita de outubro a novembro.' },
+
+  { id:102, cat:'kiwi', name:'Kiwi Amarelo (Macho/Polinizador)',
+    sci:'Actinidia chinensis',
+    price:10.00, tag:'novo',
+    chips:['Planta macho — não dá fruto','Essencial para polinizar as fêmeas','1 macho poliniza várias fêmeas'],
+    img:'https://i.postimg.cc/1RNLVxQk/8fa976bd-6823-4957-9e2d-65129b0a8305.png',
+    desc:'Planta macho de kiwi amarelo — não produz fruto, mas é indispensável para polinizar as plantas fêmea, que são as únicas que dão kiwis. Um único macho consegue polinizar várias fêmeas no mesmo espaço.' },
+
+  { id:103, cat:'kiwi', name:'Kiwi Vermelho (Fêmea)',
+    sci:'Actinidia chinensis (polpa vermelha)',
+    price:10.00, tag:'novo',
+    chips:['Planta fêmea — dá fruto','Precisa de macho polinizador','Polpa vermelha no centro','Colheita: Out–Nov'],
+    img:'https://i.postimg.cc/qv7wnnKj/e34e618d-b22a-4cf2-867f-18876c9b91d3.png',
+    desc:'Planta fêmea de kiwi vermelho, a que produz os frutos — polpa verde-amarelada com um centro vermelho muito característico, sabor doce. Precisa de uma planta macho por perto para polinizar e dar frutos. Colheita de outubro a novembro.' },
+
+  { id:104, cat:'kiwi', name:'Kiwi Vermelho (Macho/Polinizador)',
+    sci:'Actinidia chinensis (polpa vermelha)',
+    price:10.00, tag:'novo',
+    chips:['Planta macho — não dá fruto','Essencial para polinizar as fêmeas','1 macho poliniza várias fêmeas'],
+    img:'https://i.postimg.cc/qv7wnnKj/e34e618d-b22a-4cf2-867f-18876c9b91d3.png',
+    desc:'Planta macho de kiwi vermelho — não produz fruto, mas é indispensável para polinizar as plantas fêmea, que são as únicas que dão kiwis. Um único macho consegue polinizar várias fêmeas no mesmo espaço.' },
+
+  { id:105, cat:'ornamental', name:'Cipreste', consulta:true,
+    sci:'Cupressus sempervirens',
+    price:0, tag:null,
+    chips:['Planta ornamental','Preço sob consulta','Ideal para sebes e alinhamentos'],
+    img:'https://i.postimg.cc/rFVNXWQC/c110cd33-d9a1-4a7f-a0be-b7e0c9b7e7f5.png',
+    desc:'Árvore ornamental de porte colunar, muito usada em sebes, alinhamentos e jardins. Preço sob consulta — contacta-nos para saberes o valor conforme a altura e quantidade pretendida.' },
+
+  { id:106, cat:'oliveira', name:'Oliveira Galega',
+    sci:'Olea europaea Galega',
+    price:12.00, tag:'novo',
+    chips:['Variedade tradicional portuguesa','Planta com 1–1,50m','Dupla aptidão: azeite e conserva'],
+    img:'https://i.postimg.cc/wjtJgkLp/58e28d48-e89c-4674-93a6-14a4eff1e2ed.png',
+    desc:'Variedade tradicional portuguesa, de dupla aptidão (azeite e conserva), muito cultivada em todo o país. Plantas vendidas com 1 a 1,50 metros de altura.' },
+
+  { id:107, cat:'oliveira', name:'Oliveira Picual',
+    sci:'Olea europaea Picual',
+    price:10.00, tag:'novo',
+    chips:['Variedade espanhola de referência','Planta com 1–1,50m','Alto rendimento em azeite'],
+    img:'https://i.postimg.cc/xCQbGD7Q/08dec261-1a0b-4f0e-92bb-ad477599804c.png',
+    desc:'A variedade de azeitona mais cultivada em Espanha, com alto rendimento em azeite de qualidade. Plantas vendidas com 1 a 1,50 metros de altura.' },
+
+  { id:108, cat:'oliveira', name:'Oliveira Cobrançosa',
+    sci:'Olea europaea Cobrançosa',
+    price:10.00, tag:'novo',
+    chips:['Variedade tradicional de Trás-os-Montes','Planta com 1–1,50m','Azeite muito aromático'],
+    img:'https://i.postimg.cc/1RJNFdrr/75b8a76d-a4e7-48c3-b4a4-c2d0968c1e6d.png',
+    desc:'Variedade tradicional de Trás-os-Montes, muito apreciada pelo azeite aromático e frutado que produz. Plantas vendidas com 1 a 1,50 metros de altura.' },
+
+  { id:109, cat:'ornamental', name:'Loureiro',
+    sci:'Laurus nobilis',
+    price:10.00, tag:'novo',
+    chips:['Planta ornamental e aromática','Folhas usadas na cozinha','Ideal para sebes e vasos'],
+    img:'https://i.postimg.cc/7Psfh2xD/fd9d0fc4-1667-4205-9604-c51db6fd3892.png',
+    desc:'Árvore ornamental e aromática, de folha perene muito usada na cozinha (louro) e também em sebes, topiaria e vasos. Rústica e de fácil manutenção.' },
 ];
 
 // Plantas já preparadas (citrinos, ameixeiras, pessegueiros) — fora do catálogo ativo
@@ -1182,10 +1395,12 @@ function renderProducts(list) {
         <div class="product-name" style="cursor:pointer;" onclick="showProductModal(${p.id})">${p.name}</div>
         <div class="product-sci">${p.sci}</div>
         <div class="product-footer">
-          <span class="product-price">${p.price.toFixed(2)}€</span>
-          ${p.esgotado
-            ? `<button class="add-to-cart" disabled style="background:#ccc;cursor:not-allowed;" title="Esgotado">✕</button>`
-            : `<button class="add-to-cart" onclick="addToCart(${p.id})">+</button>`}
+          <span class="product-price">${p.consulta ? 'Sob consulta' : p.price.toFixed(2)+'€'}</span>
+          ${p.consulta
+            ? `<a class="add-to-cart" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" href="https://wa.me/351916031385?text=${encodeURIComponent('Olá! Gostava de saber o preço do(a) ' + p.name)}" target="_blank" title="Pedir preço por WhatsApp">💬</a>`
+            : p.esgotado
+              ? `<button class="add-to-cart" disabled style="background:#ccc;cursor:not-allowed;" title="Esgotado">✕</button>`
+              : `<button class="add-to-cart" onclick="addToCart(${p.id})">+</button>`}
         </div>
       </div>
       ${p.desc ? `<div class="product-popup">
@@ -1216,12 +1431,17 @@ function applyFilters() {
   renderProducts(list);
 }
 
+function isVideira(p) { return p.cat === 'uva-mesa' || p.cat === 'uva-vinho'; }
+
 function addToCart(id) {
   const p = products.find(x => x.id === id);
+  if (p && p.consulta) { showToast('Contacta-nos por WhatsApp para saberes o preço'); return; }
   if (p && p.esgotado) { showToast(`${p.name} está esgotado`); return; }
   const ex = cart.find(x => x.id === id);
   const totalActual = cart.reduce((s,i) => s + i.qty, 0);
-  if (totalActual >= 10) { showToast('Máximo de 10 árvores por encomenda'); return; }
+  const allVideiras = isVideira(p) && cart.every(isVideira);
+  const max = allVideiras ? 25 : 10;
+  if (totalActual >= max) { showToast(allVideiras ? 'Máximo de 25 pés de videira por encomenda' : 'Máximo de 10 árvores por encomenda'); return; }
   if (ex) {
     ex.qty++;
   } else {
@@ -1237,7 +1457,9 @@ function changeQty(id, d) {
   if (item) {
     if (d > 0) {
       const totalActual = cart.reduce((s,i) => s + i.qty, 0);
-      if (totalActual >= 10) { showToast('Máximo de 10 árvores por encomenda'); return; }
+      const allVideiras = cart.every(isVideira);
+      const max = allVideiras ? 25 : 10;
+      if (totalActual >= max) { showToast(allVideiras ? 'Máximo de 25 pés de videira por encomenda' : 'Máximo de 10 árvores por encomenda'); return; }
     }
     item.qty += d;
     if (item.qty <= 0) removeFromCart(id);
@@ -1248,6 +1470,7 @@ function clearCart() { cart = []; updateCart(); }
 function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
 function shipping() {
   const total = cart.reduce((s,i) => s + i.qty, 0);
+  if (total > 0 && cart.every(isVideira)) return 5;
   if (total <= 5) return 7;
   return 12;
 }
